@@ -1,34 +1,41 @@
 # Development Tracker
 
 ## Project
+
 Engineering Portfolio / Consulting Website
 
 ## Owner
+
 Raghav Malik
 
 ## Project Purpose
-Build a professional engineering portfolio and consulting-style website that communicates systems architecture, product engineering, industrial IoT, embedded/RF systems, field deployment experience, and technical leadership.
+
+Build a professional engineering portfolio and consulting-style website that
+communicates systems architecture, product engineering, industrial IoT,
+embedded/RF systems, field deployment experience, and technical leadership.
 
 Core message:
 
 > I design engineering systems that survive the real world.
 
----
-
 ## Current Phase
 
-### Phase 0 — Project Foundation
+### Phase 1 - Website Architecture Foundation
 
 Status: In progress
 
 Goal:
-Establish the repository structure, Codex agents, skills, development tracker, architecture document, and initial project operating rules before creating the Next.js app.
+Create stable route, content, component, data, lib, and type boundaries before
+building final page content or visual design.
 
----
+Phase 0 project foundation is complete. Git and the Next.js app are initialized.
+The website is currently at scaffold plus architecture skeleton stage.
 
 ## MVP Objective
 
-The MVP should allow a hiring manager, technical director, recruiter, or potential consulting client to understand Raghav's engineering capability within 3-5 minutes.
+The MVP should allow a hiring manager, technical director, recruiter, or
+potential consulting client to understand Raghav's engineering capability within
+3-5 minutes.
 
 The MVP must answer:
 
@@ -39,23 +46,26 @@ The MVP must answer:
 5. What evidence supports his capability?
 6. How can someone contact him?
 
----
-
 ## MVP Scope
 
 ### Included
+
 - Home page
 - About page
 - Selected Systems / Case Studies page
 - One complete flagship case study: CC1310 custom industrial IoT sensor
-- Resume / CV download page
+- Engineering Notebook public from launch
+- Engineering Decisions
+- Interactive Resume page
+- Future Resume / CV PDF download under `website/public/pdf/`
 - Contact page
 - Dark professional visual style
 - Basic responsive layout
 - Initial deployment-ready build
 
 ### Deferred
-- Full consulting services page
+
+- Dedicated consulting pages until the consulting offer is clearer
 - Long-form blog system
 - Newsletter
 - Analytics
@@ -65,25 +75,22 @@ The MVP must answer:
 - Multi-language support
 - Heavy 3D visuals
 
----
-
 ## Repository Setup Tasks
 
 | ID | Task | Owner | Status | Notes |
 |---|---|---|---|---|
 | T-000 | Decide repository architecture | Raghav + ChatGPT | Done | Repository root is project container; `website/` contains Next.js app. |
-| T-001 | Create top-level folder structure | Codex | Done | Verified root folders and empty `website/`. |
+| T-001 | Create top-level folder structure | Codex | Done | Root project folders exist. |
 | T-002 | Add Codex agents | Codex | Done | PM, frontend, content editor agents present. |
 | T-003 | Add Codex skills | Codex | Done | Portfolio, Next.js, engineering content skills present. |
 | T-004 | Add development tracker | Codex | Done | This file exists and is current. |
 | T-005 | Add architecture document | Codex | Done | `docs/Architecture.md` exists. |
 | T-006 | Add Codex prompts | Codex | Done | Foundation and Next.js initialization prompts present. |
-| T-007 | Initialize Next.js inside `website/` | Raghav / Codex | Pending | Run create-next-app inside empty `website/`. |
-| T-008 | Run first dev server | Raghav | Pending | Verify localhost after Next.js initialization. |
-| T-009 | Initialize Git repository | Raghav | Pending | Empty `.git` directory exists, but `git status` does not recognize a repository. |
-| T-010 | First commit | Raghav | Pending | `Initial project foundation`. |
-
----
+| T-007 | Initialize Next.js inside `website/` | Raghav / Codex | Done | Next.js scaffold exists inside `website/`. |
+| T-008 | Run first dev server | Raghav | Done | Local Next.js generated `.next/` output exists. |
+| T-009 | Initialize Git repository | Raghav | Done | Git repository exists on `main`. |
+| T-010 | First commit | Raghav | Done | `3656a1d Initial project foundation`. |
+| T-011 | Create website architecture skeleton | Codex | Done | Route placeholders, module folders, route constants, data, and types created. |
 
 ## Website Build Tasks
 
@@ -101,8 +108,8 @@ The MVP must answer:
 | W-010 | Build Contact page | Pending | Medium |
 | W-011 | Add Engineering Decisions page | Pending | Medium |
 | W-012 | Add Engineering Notebook page | Pending | Medium |
-
----
+| W-013 | Add architecture route placeholders | Done | High |
+| W-014 | Add minimal route/data/type contracts | Done | High |
 
 ## Content Tasks
 
@@ -117,49 +124,44 @@ The MVP must answer:
 | C-007 | Prepare resume PDF | Pending | Store in `website/public/pdf/`. |
 | C-008 | Select profile photo | Pending | Store in `website/public/images/profile/`. |
 
----
-
 ## Decision Log Summary
 
 | ID | Decision | Status |
 |---|---|---|
 | D-001 | Repository root is project container, not Next.js root | Accepted |
-| D-002 | Next.js app lives inside `website/` | Accepted |
-| D-003 | Build content-first, polish second | Accepted |
-| D-004 | Use dark professional industrial style | Accepted |
-| D-005 | First flagship case study is CC1310 sensor | Accepted |
+| D-002 | Build content-first, polish second | Accepted |
+| D-003 | First flagship case study is CC1310 sensor | Accepted |
+| D-004 | Engineering Notebook is public from launch | Accepted |
+| D-005 | Consulting pages are delayed | Accepted |
+| D-006 | Resume is interactive page plus future PDF | Accepted |
 
 Detailed decisions are tracked in `docs/DecisionLog.md`.
 
----
-
 ## Current Sprint
 
-### Sprint 0 — Foundation
+### Sprint 1 - Website Architecture Foundation
 
 Goal:
-Create clean project structure and operating docs before implementation.
+Create stable website architecture boundaries before page content and component
+implementation.
 
 Tasks:
 
-- Create repository structure.
-- Add Codex agents.
-- Add Codex skills.
-- Add development tracker.
-- Add architecture document.
-- Add decision log.
-- Initialize Next.js inside `website/`.
+- Replace create-next-app metadata.
+- Replace create-next-app homepage content with an architecture placeholder.
+- Add route placeholders for launch routes.
+- Add component, content, data, lib, type, and public asset folders.
+- Add minimal route, navigation, site, content, and project contracts.
+- Update planning documents.
 
 Definition of done:
 
-- Folder structure is correct.
-- `website/` is empty before Next.js initialization.
-- Codex docs exist.
-- Architecture and tracker exist.
-- Next.js initializes successfully.
-- Development server runs locally.
-
----
+- Default create-next-app homepage content is removed.
+- Default metadata is replaced.
+- Architecture route placeholders exist.
+- Architecture folders exist.
+- Minimal data/types/lib skeleton exists.
+- Build and lint pass.
 
 ## Backlog
 
@@ -174,8 +176,7 @@ Definition of done:
 - Product demo video embeds
 - SEO content pass
 
----
-
 ## Notes
 
-This website should not become a decorative portfolio. It should operate like a technical credibility platform.
+This website should not become a decorative portfolio. It should operate like a
+technical credibility platform.

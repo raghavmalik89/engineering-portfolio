@@ -1,31 +1,34 @@
 # Architecture
 
 ## Project Name
+
 Engineering Portfolio / Consulting Website
 
 ## Architectural Principle
-The repository is the engineering portfolio project. The website is one application inside the project.
 
-This means the root repository contains project management, assets, documentation, Codex configuration, and future supporting material. The Next.js application lives inside `website/`.
+The repository is the engineering portfolio project. The website is one
+application inside the project.
 
----
+The root repository contains project management, assets, documentation, Codex
+configuration, and future supporting material. The Next.js application lives
+inside `website/`.
 
 ## Top-Level Repository Architecture
 
 ```text
 engineering-portfolio/
-│
-├── website/              # Next.js application
-├── docs/                 # Project management, architecture, roadmap, branding
-├── assets/               # Raw design assets and source media
-├── scripts/              # Utility scripts
-├── .codex/               # Codex agents, skills, and prompts
-├── README.md
-├── LICENSE
-└── .gitignore
+|-- website/              # Next.js application
+|-- docs/                 # Project management, architecture, roadmap, branding
+|-- assets/               # Raw design assets and source media
+|-- scripts/              # Utility scripts
+|-- .codex/               # Codex agents, skills, and prompts
+|-- README.md
+|-- LICENSE
+`-- .gitignore
 ```
 
 ## Why This Structure
+
 This separates the engineering project from the web application.
 
 Benefits:
@@ -36,8 +39,6 @@ Benefits:
 - The website can be rebuilt later without losing content strategy and project history.
 - The structure mirrors professional engineering repositories where firmware, hardware, docs, and tools are separated.
 
----
-
 ## Website Application Boundary
 
 The Next.js app lives here:
@@ -46,100 +47,59 @@ The Next.js app lives here:
 website/
 ```
 
-The app should contain its own:
+The app owns its own dependencies, routes, components, content boundaries, data,
+helpers, types, and static deployed assets.
 
-- `package.json`
-- `node_modules/`
-- `app/`
-- `components/`
-- `public/`
-- `content/`
-- `lib/`
-- `styles/`
-- `types/`
-
-This keeps Node/Next.js dependencies scoped to the website application.
-
----
-
-## Planned Website Structure
+## Website Architecture Skeleton
 
 ```text
 website/
-├── app/
-│   ├── about/
-│   │   └── page.tsx
-│   ├── contact/
-│   │   └── page.tsx
-│   ├── engineering-decisions/
-│   │   └── page.tsx
-│   ├── engineering-notebook/
-│   │   └── page.tsx
-│   ├── resume/
-│   │   └── page.tsx
-│   ├── selected-systems/
-│   │   ├── [slug]/
-│   │   │   └── page.tsx
-│   │   └── page.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-│
-├── components/
-│   ├── layout/
-│   ├── sections/
-│   ├── cards/
-│   └── ui/
-│
-├── content/
-│   ├── projects/
-│   ├── decisions/
-│   └── notebook/
-│
-├── lib/
-├── public/
-│   ├── images/
-│   ├── diagrams/
-│   ├── pdf/
-│   └── videos/
-├── styles/
-└── types/
+|-- app/
+|   |-- about/page.tsx
+|   |-- contact/page.tsx
+|   |-- engineering-decisions/page.tsx
+|   |-- engineering-decisions/[slug]/page.tsx
+|   |-- engineering-notebook/page.tsx
+|   |-- engineering-notebook/[slug]/page.tsx
+|   |-- resume/page.tsx
+|   |-- selected-systems/page.tsx
+|   |-- selected-systems/[slug]/page.tsx
+|   |-- globals.css
+|   |-- layout.tsx
+|   `-- page.tsx
+|-- components/
+|   |-- layout/
+|   |-- navigation/
+|   |-- sections/
+|   |-- cards/
+|   |-- mdx/
+|   `-- common/
+|-- content/
+|   |-- selected-systems/
+|   |-- engineering-notebook/
+|   |-- engineering-decisions/
+|   `-- pages/
+|-- data/
+|-- lib/
+|-- public/
+|   |-- images/
+|   |-- diagrams/
+|   `-- pdf/
+`-- types/
 ```
 
----
-
-## Site Map
-
-```text
-Home
-├── About
-├── Selected Systems
-│   ├── CC1310 Custom Industrial IoT Sensor
-│   ├── SmartRoller / Mining Sensor System
-│   ├── GET Vision / AI Mining Camera System
-│   ├── Proton Therapy Commissioning
-│   ├── Space Propulsion Electronics
-│   └── Robotics / WAAM Automation
-├── Engineering Decisions
-├── Engineering Notebook
-├── Resume / CV
-└── Contact
-```
-
----
+The current files are architecture placeholders only. Final page content,
+component implementation, MDX tooling, consulting pages, and polished visual
+design are deferred.
 
 ## Content Architecture
 
-### Projects
-Projects are the main proof layer.
+### Selected Systems
 
-Each project should include:
+Selected Systems is the main case study and system portfolio area.
 
-- Title
-- Short summary
-- Domain
-- Role
-- Technologies
+Each future system entry should include public-safe information about:
+
 - Problem
 - Constraints
 - Architecture
@@ -148,14 +108,13 @@ Each project should include:
 - Deployment reality
 - Outcome
 - Lessons learned
-- Images and diagrams
 
 ### Engineering Decisions
-Decision articles show how Raghav thinks.
 
-Each decision should include:
+Engineering Decisions shows how Raghav thinks through trade-offs.
 
-- Title
+Each future article should include:
+
 - Context
 - Options considered
 - Decision
@@ -164,47 +123,38 @@ Each decision should include:
 - What this demonstrates
 
 ### Engineering Notebook
-Notebook entries are shorter technical updates.
 
-Each entry should include:
+Engineering Notebook is public from launch. It is for shorter technical notes,
+build logs, test observations, RF experiments, firmware learnings, and product
+architecture reflections.
 
-- Title
-- Date
-- Topic
-- Observation
-- What was learned
-- Next step, if relevant
+## Routing Strategy
 
----
+Use simple, durable routes:
 
-## Visual Architecture
+```text
+/                              Home
+/about                         About
+/selected-systems              Case study index
+/selected-systems/[slug]       Individual case study
+/engineering-decisions         Engineering decision articles
+/engineering-decisions/[slug]  Individual decision article
+/engineering-notebook          Notebook entries
+/engineering-notebook/[slug]   Individual notebook entry
+/resume                        Interactive resume
+/contact                       Contact
+```
 
-### Theme
-Dark professional industrial style.
-
-### Visual Direction
-- Premium engineering consultancy
-- Clean technical product page
-- High readability
-- Minimal animation
-- Strong typography
-- Real engineering imagery
-- Simple system diagrams
-
-### Avoid
-- Generic resume templates
-- Excessive motion
-- Neon hacker aesthetic
-- Fake startup hype
-- Overuse of icons instead of real content
-
----
+Consulting pages are delayed until the consulting offer is clearer. The resume
+will be both an interactive `/resume` page and, later, a downloadable PDF under
+`website/public/pdf/`.
 
 ## Technical Stack
 
 Initial stack:
 
 - Next.js
+- React
 - TypeScript
 - Tailwind CSS
 - ESLint
@@ -220,25 +170,20 @@ Potential later additions:
 
 No optional dependency should be added until there is a clear need.
 
----
+### Font Strategy
 
-## Routing Strategy
-Use simple, durable routes:
+Phase 1 uses system fonts to keep local and CI builds deterministic under
+restricted network conditions. Typography and font strategy will be revisited
+before launch during visual/design-system work.
 
-```text
-/                         Home
-/about                    About
-/selected-systems          Case study index
-/selected-systems/[slug]   Individual case study
-/engineering-decisions     Engineering decision articles
-/engineering-notebook      Notebook entries
-/resume                    Resume / CV download
-/contact                   Contact
-```
+Future options include:
 
----
+- Continuing with system fonts.
+- Using `next/font/google` if the build environment is reliable.
+- Using local/self-hosted fonts for deterministic production builds.
 
 ## Deployment Strategy
+
 Initial deployment target: Vercel.
 
 Reason:
@@ -250,8 +195,6 @@ Reason:
 
 Deployment can be revisited later if needed.
 
----
-
 ## Architecture Decisions
 
 | ID | Decision | Reason |
@@ -259,12 +202,15 @@ Deployment can be revisited later if needed.
 | A-001 | Use root as project container | Keeps website, assets, docs, and Codex config separate. |
 | A-002 | Place Next.js inside `website/` | Avoids framework owning entire repository. |
 | A-003 | Start with simple content files | Avoids early CMS complexity. |
-| A-004 | Build with dark professional theme | Matches industrial engineering and premium consulting positioning. |
+| A-004 | Target a dark professional visual direction | Final visual system is deferred to Phase 2, but the intended brand direction is industrial, premium, and professional. |
 | A-005 | Prioritize case studies over biography | Projects prove capability better than resume-style pages. |
-
----
+| A-006 | Keep Engineering Notebook public from launch | Shows technical thinking and keeps the site active. |
+| A-007 | Delay consulting pages | Avoids publishing an unclear offer. |
+| A-008 | Use interactive resume plus future PDF | Supports browser reading and traditional download workflows. |
+| A-009 | Use system fonts during Phase 1 | Avoids build failures caused by restricted network font fetching; font strategy will be revisited before launch. |
 
 ## Update Rule
+
 Codex must update this file when:
 
 - Folder structure changes.
