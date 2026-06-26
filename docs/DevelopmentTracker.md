@@ -20,16 +20,18 @@ Core message:
 
 ## Current Phase
 
-### Phase 1 - Website Architecture Foundation
+### Phase 2 - Design System
 
-Status: In progress
+Status: Complete
 
 Goal:
-Create stable route, content, component, data, lib, and type boundaries before
-building final page content or visual design.
+Freeze the visual direction, design principles, tokens, component scope, motion
+rules, accessibility expectations, imagery strategy, and design implementation
+guardrails before page implementation.
 
 Phase 0 project foundation is complete. Git and the Next.js app are initialized.
-The website is currently at scaffold plus architecture skeleton stage.
+Phase 1 website architecture foundation is complete. Phase 2 design system is
+closed as documentation only; no page implementation was performed.
 
 ## MVP Objective
 
@@ -110,6 +112,8 @@ The MVP must answer:
 | W-012 | Add Engineering Notebook page | Pending | Medium |
 | W-013 | Add architecture route placeholders | Done | High |
 | W-014 | Add minimal route/data/type contracts | Done | High |
+| W-015 | Freeze Design System v1.0 | Done | High |
+| W-016 | Document Phase 2 design freeze | Done | High |
 
 ## Content Tasks
 
@@ -134,34 +138,36 @@ The MVP must answer:
 | D-004 | Engineering Notebook is public from launch | Accepted |
 | D-005 | Consulting pages are delayed | Accepted |
 | D-006 | Resume is interactive page plus future PDF | Accepted |
+| D-007 | System fonts used during Phase 1 for deterministic builds | Accepted |
+| D-008 | Design System v1.0 frozen in Phase 2 | Accepted |
+| D-009 | Copper is an engineering material accent | Accepted |
+| D-010 | Engineering Atmosphere Layer is optional | Accepted |
 
 Detailed decisions are tracked in `docs/DecisionLog.md`.
 
 ## Current Sprint
 
-### Sprint 1 - Website Architecture Foundation
+### Sprint 2 - Design System
 
 Goal:
-Create stable website architecture boundaries before page content and component
-implementation.
+Freeze design decisions before page content and UI implementation.
 
 Tasks:
 
-- Replace create-next-app metadata.
-- Replace create-next-app homepage content with an architecture placeholder.
-- Add route placeholders for launch routes.
-- Add component, content, data, lib, type, and public asset folders.
-- Add minimal route, navigation, site, content, and project contracts.
-- Update planning documents.
+- Create `docs/DesignSystem.md`.
+- Create `docs/Phase2-DesignFreeze.md`.
+- Create `.codex/skills/design_system_skill.md`.
+- Update architecture and decision records.
+- Close Phase 2 without implementing UI.
 
 Definition of done:
 
-- Default create-next-app homepage content is removed.
-- Default metadata is replaced.
-- Architecture route placeholders exist.
-- Architecture folders exist.
-- Minimal data/types/lib skeleton exists.
-- Build and lint pass.
+- Visual identity is documented.
+- Seven design principles are documented.
+- Color, typography, spacing, layout, component, motion, accessibility, imagery,
+  and responsive rules are documented.
+- Component list is frozen.
+- Architecture and decision log are updated.
 
 ## Backlog
 

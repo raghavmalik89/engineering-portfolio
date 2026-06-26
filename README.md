@@ -20,6 +20,19 @@ engineering-portfolio/
 The repository root is the project container. The Next.js application lives only
 inside `website/`.
 
+## Asset Structure
+
+The `assets/` directory separates reference material from production-ready
+website assets.
+
+- `assets/design-references/` stores concept images, AI-generated mockups, wireframes, and visual references. These are not production assets.
+- `assets/design-references/phase2-design-system/` stores approved Phase 2 visual references.
+- `assets/design-system/` stores production-ready design system assets that may be used by the website.
+- `assets/branding/` stores logo, icon, and brand-related assets.
+- `assets/diagrams/` stores engineering diagrams and architecture visuals.
+- `assets/photos/` stores general photography.
+- `assets/projects/` stores project-specific assets.
+
 ## Status
 
 Phase 0 foundation is complete.

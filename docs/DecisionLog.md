@@ -174,3 +174,76 @@ Typography is temporary and must be revisited before launch during
 visual/design-system work. Future options include continuing with system fonts,
 using `next/font/google` if the build environment is reliable, or using
 local/self-hosted fonts for deterministic production builds.
+
+---
+
+## D-008 - Freeze Design System v1.0
+
+Date: 2026-06-26
+Status: Accepted
+
+Context:
+Phase 2 needed to close the visual direction before page implementation begins.
+The site must avoid generic portfolio patterns and preserve a technical,
+industrial, calm, premium direction.
+
+Decision:
+Freeze Design System v1.0 in `docs/DesignSystem.md` and record the Phase 2
+closeout in `docs/Phase2-DesignFreeze.md`.
+
+Reasoning:
+A documented design contract lets future implementation work proceed without
+inventing visual rules, component scope, color usage, motion behavior, or
+imagery strategy page by page.
+
+Consequences:
+Future UI work must follow the frozen design system. New components or visual
+patterns require justification and should be reflected in the project records.
+
+---
+
+## D-009 - Use Copper as Engineering Material Accent
+
+Date: 2026-06-26
+Status: Accepted
+
+Context:
+The approved palette uses a copper/khaki accent against dark navy. This could be
+misread as luxury gold if used carelessly.
+
+Decision:
+Use copper as an engineering material accent, representing PCB copper, brass
+connectors, SMA connectors, drafting material, and precision machined
+components.
+
+Reasoning:
+The accent should support the engineering identity of the site, not create a
+luxury-brand or decorative tone.
+
+Consequences:
+Accent usage should stay restrained, targeting roughly 90% navy/neutral and 10%
+copper accent.
+
+---
+
+## D-010 - Engineering Atmosphere Layer is Optional
+
+Date: 2026-06-26
+Status: Accepted
+
+Context:
+A subtle technical background layer may support atmosphere, but decorative
+particle effects would conflict with the project's calm engineering direction.
+
+Decision:
+Allow an optional Engineering Atmosphere Layer using low-contrast signal nodes,
+topology lines, or ambient engineering texture.
+
+Reasoning:
+The layer can support the industrial engineering atmosphere when used as
+environmental texture, but it must not become decorative animation.
+
+Consequences:
+The layer must never reduce readability, compete with typography, or be treated
+as a generic particle system. Any animation must be extremely slow and almost
+imperceptible.

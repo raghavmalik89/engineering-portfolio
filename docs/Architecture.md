@@ -92,6 +92,25 @@ The current files are architecture placeholders only. Final page content,
 component implementation, MDX tooling, consulting pages, and polished visual
 design are deferred.
 
+## Design System
+
+Phase 2 froze Design System v1.0 in `docs/DesignSystem.md`.
+
+Approved visual direction:
+
+- Vercel-like refinement
+- Braun-like structure and navigation discipline
+- Japanese minimalism / Ikebana-inspired placement
+- Engineering documentation clarity
+- Premium industrial product feel
+- Dark navy + khaki / copper engineering palette
+
+The design system is documentation-only until implementation begins. Future UI
+work must follow the frozen component list, color tokens, spacing rules, motion
+rules, accessibility requirements, and imagery strategy in `docs/DesignSystem.md`.
+
+No new component should be introduced without justification.
+
 ## Content Architecture
 
 ### Selected Systems
@@ -208,6 +227,9 @@ Deployment can be revisited later if needed.
 | A-007 | Delay consulting pages | Avoids publishing an unclear offer. |
 | A-008 | Use interactive resume plus future PDF | Supports browser reading and traditional download workflows. |
 | A-009 | Use system fonts during Phase 1 | Avoids build failures caused by restricted network font fetching; font strategy will be revisited before launch. |
+| A-010 | Freeze Design System v1.0 in Phase 2 | Creates a stable visual, component, motion, accessibility, and imagery contract before page implementation. |
+| A-011 | Treat copper as engineering material accent | Copper represents PCB copper, brass/SMA connectors, drafting material, and machined components, not luxury gold. |
+| A-012 | Keep Engineering Atmosphere Layer optional | Ambient signal nodes/topology texture may support atmosphere only if it stays low contrast and never competes with readability. |
 
 ## Update Rule
 

@@ -13,17 +13,20 @@ Initialize the website application inside `website/`, create stable route
 placeholders, establish component/content/data/lib/type boundaries, and verify
 the scaffold builds.
 
-Status: In progress.
+Status: Complete.
 
-## Phase 2 - Base UI
+## Phase 2 - Design System
 
-Create layout, navigation, footer, typography, color system, and responsive
-structure.
+Freeze the visual direction, design principles, color tokens, typography
+direction, spacing, layout rules, component scope, motion rules, accessibility
+requirements, imagery strategy, and implementation guardrails.
+
+Status: Complete.
 
 ## Phase 3 - MVP Pages
 
-Build Home, About, Selected Systems, Resume, Contact, Engineering Decisions, and
-Engineering Notebook pages.
+Implement layout, navigation, footer, base components, and MVP pages using the
+frozen design system.
 
 ## Phase 4 - First Flagship Case Study
 
