@@ -247,3 +247,35 @@ Consequences:
 The layer must never reduce readability, compete with typography, or be treated
 as a generic particle system. Any animation must be extremely slow and almost
 imperceptible.
+
+---
+
+## D-011 - Use No-Dependency Home Visual Fallbacks
+
+Date: 2026-06-27
+Status: Accepted
+
+Context:
+Phase 3 Home Page required Lucide-style outline icons and an Engineering
+Atmosphere Layer, but `lucide-react` is not installed and final engineering
+photography is not yet available. Early CSS/SVG/radial-gradient atmosphere
+attempts appeared static, sparse, and right-heavy; the movement existed
+technically but was not visually verifiable because distribution and opacity
+were too subtle.
+
+Decision:
+Use small inline outline SVG icons and a lightweight original canvas-based
+Engineering Atmosphere Layer for the Home page. Do not add icon, animation, or
+imagery dependencies in Phase 3.
+
+Reasoning:
+This preserves the no-new-dependencies guardrail while giving the atmosphere
+visible motion, tunable density/size, and reduced-motion handling. It leaves
+clear space for future real hardware, field, or diagram imagery.
+
+Consequences:
+Icons should be replaced with the approved Lucide strategy if the dependency is
+adopted later. The atmosphere remains a visual placeholder until final
+engineering imagery and any material direction are locked. The Home hero visual
+remains a clearly labeled placeholder until production-ready engineering imagery
+is available.

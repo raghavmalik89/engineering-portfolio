@@ -20,18 +20,19 @@ Core message:
 
 ## Current Phase
 
-### Phase 2 - Design System
+### Phase 3 - Home Page
 
 Status: Complete
 
 Goal:
-Freeze the visual direction, design principles, tokens, component scope, motion
-rules, accessibility expectations, imagery strategy, and design implementation
-guardrails before page implementation.
+Implement the Home page using the frozen Phase 2 design system while keeping the
+scope limited to the Home page entry experience.
 
 Phase 0 project foundation is complete. Git and the Next.js app are initialized.
 Phase 1 website architecture foundation is complete. Phase 2 design system is
-closed as documentation only; no page implementation was performed.
+closed as documentation only. Phase 3 Home Page implementation is complete with
+modular Home sections, reusable card/common components, scoped navigation, and a
+static Engineering Atmosphere Layer.
 
 ## MVP Objective
 
@@ -101,8 +102,8 @@ The MVP must answer:
 | W-001 | Create base layout | Pending | High |
 | W-002 | Create navigation | Pending | High |
 | W-003 | Create footer | Pending | High |
-| W-004 | Define visual theme | Pending | High |
-| W-005 | Build Home page | Pending | High |
+| W-004 | Define visual theme | Done | High |
+| W-005 | Build Home page | Done | High |
 | W-006 | Build About page | Pending | High |
 | W-007 | Build Selected Systems index | Pending | High |
 | W-008 | Build CC1310 case study | Pending | High |
@@ -119,8 +120,8 @@ The MVP must answer:
 
 | ID | Task | Status | Notes |
 |---|---|---|---|
-| C-001 | Draft Home hero copy | Pending | Must be strong and simple. |
-| C-002 | Draft 100-word positioning summary | Pending | Use systems architect framing. |
+| C-001 | Draft Home hero copy | Done | Uses real-world systems positioning. |
+| C-002 | Draft 100-word positioning summary | Done | Uses systems architect and product engineer framing. |
 | C-003 | Draft CC1310 case study | Pending | First flagship project. |
 | C-004 | Collect CC1310 photos | Pending | PCB, test setup, RF evidence. |
 | C-005 | Create CC1310 architecture diagram | Pending | Sensor node architecture. |
@@ -142,32 +143,37 @@ The MVP must answer:
 | D-008 | Design System v1.0 frozen in Phase 2 | Accepted |
 | D-009 | Copper is an engineering material accent | Accepted |
 | D-010 | Engineering Atmosphere Layer is optional | Accepted |
+| D-011 | Use static Home visual fallbacks without new dependencies | Accepted |
 
 Detailed decisions are tracked in `docs/DecisionLog.md`.
 
 ## Current Sprint
 
-### Sprint 2 - Design System
+### Sprint 3 - Home Page
 
 Goal:
-Freeze design decisions before page content and UI implementation.
+Implement the Home page only using the frozen design system.
 
 Tasks:
 
-- Create `docs/DesignSystem.md`.
-- Create `docs/Phase2-DesignFreeze.md`.
-- Create `.codex/skills/design_system_skill.md`.
-- Update architecture and decision records.
-- Close Phase 2 without implementing UI.
+- Replace the Home page placeholder with the Phase 3 page.
+- Create reusable Home page sections, cards, and common components.
+- Apply frozen design tokens in `website/app/globals.css`.
+- Use public-safe copy for capabilities and selected systems.
+- Validate with `npm run lint` and `npm run build`.
 
 Definition of done:
 
-- Visual identity is documented.
-- Seven design principles are documented.
-- Color, typography, spacing, layout, component, motion, accessibility, imagery,
-  and responsive rules are documented.
-- Component list is frozen.
-- Architecture and decision log are updated.
+- Required Home page sections exist.
+- Home page is responsive and accessible.
+- No unrelated route pages are modified.
+- No optional dependencies are added.
+- Lint and build pass.
+
+Validation:
+
+- `npm run lint`: Passed.
+- `npm run build`: Passed.
 
 ## Backlog
 

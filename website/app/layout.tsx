@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Raghav Malik | Engineering Portfolio",
+  metadataBase: new URL("https://raghavmalik.com.au"),
+  title: "Raghav Malik - Engineering Portfolio",
   description:
-    "Systems architecture, industrial IoT, embedded systems, RF communications, and field-deployed product engineering.",
+    "Systems architecture, embedded electronics, RF communications, industrial IoT, and field-deployed product engineering across mining, aerospace, robotics, and medical accelerator environments.",
 };
 
 export default function RootLayout({
