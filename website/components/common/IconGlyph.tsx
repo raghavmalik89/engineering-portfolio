@@ -1,8 +1,16 @@
+export type IconGlyphName =
+  | "antenna"
+  | "check"
+  | "chip"
+  | "diagram"
+  | "field"
+  | "signal";
+
 type IconGlyphProps = {
-  name: "antenna" | "check" | "chip" | "diagram" | "field" | "signal";
+  name: IconGlyphName;
 };
 
-const iconClasses = "h-8 w-8 stroke-accent-copper";
+const iconClasses = "h-9 w-9 stroke-accent-copper/85";
 
 export function IconGlyph({ name }: IconGlyphProps) {
   if (name === "antenna") {
