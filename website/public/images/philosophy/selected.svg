@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 680" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid meet">
+  <title id="title">Engineering architecture decision loop blueprint</title>
+  <desc id="desc">A transparent blueprint-style engineering decision roadmap showing problem definition, better questioning, scoped architecture, interfaces, validation, manufacturing, deployment, maintenance, and field learning feeding better future questions.</desc>
+
+  <defs>
+    <style>
+      .gold{stroke:#d8ad55}
+      .gold-fill{fill:#d8ad55}
+      .pale-gold{stroke:#f3d98d}
+      .steel{stroke:#9fb0c3}
+      .ink{fill:#d8ad55}
+      .muted{fill:#9fb0c3}
+      .soft{stroke:#9fb0c3;opacity:.46}
+      .hair{fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+      .hair2{fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+      .dash{stroke-dasharray:8 8}
+      .dot{stroke-dasharray:2 8}
+      .label{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:16px;font-weight:650;letter-spacing:.03em}
+      .small{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:13px;font-weight:560;letter-spacing:.02em}
+      .micro{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:11px;font-weight:540;letter-spacing:.02em}
+      .num{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:23px;font-weight:800;letter-spacing:.02em}
+      .stage-fill{fill:#081321;fill-opacity:.86}
+      .early-fill{fill:#2a1d0d;fill-opacity:.92}
+      .none{fill:none}
+    </style>
+
+    <marker id="arrowGold" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#d8ad55" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowSteel" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#9fb0c3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- cost curve and early leverage -->
+  <path d="M278 95 C500 55 870 54 1230 58 C1390 60 1490 51 1542 40" class="gold hair2" opacity=".72" marker-end="url(#arrowGold)"/>
+  <text x="692" y="52" class="small ink">COST OF CHANGE RISES DOWNSTREAM</text>
+  <path d="M278 95 V180 M430 74 V180 M870 55 V180 M1230 58 V180" class="soft hair dash"/>
+
+  <g opacity=".97">
+    <path d="M76 58 H262 V116 H76 Z" class="none gold" stroke-width="1.2"/>
+    <text x="98" y="82" class="small ink">BIGGEST SAVINGS</text>
+    <text x="98" y="101" class="small ink">HAPPEN EARLY</text>
+    <circle cx="87" cy="88" r="13" class="none gold" stroke-width="1.1"/>
+    <path d="M74 88 H100 M87 75 V101 M80 81 L94 95 M94 81 L80 95" class="gold hair"/>
+    <path d="M76 88 H58 V238" class="gold hair dash" marker-end="url(#arrowGold)"/>
+    <path d="M262 88 H420 V244" class="gold hair dash" marker-end="url(#arrowGold)"/>
+  </g>
+
+  <!-- decision diamond above early stages -->
+  <g>
+    <path d="M342 158 L390 205 L342 252 L294 205 Z" fill="#081321" fill-opacity=".9" stroke="#d8ad55" stroke-width="2"/>
+    <text x="342" y="199" text-anchor="middle" class="micro ink">NEED</text>
+    <text x="342" y="216" text-anchor="middle" class="micro ink">BESPOKE?</text>
+    <path d="M260 260 C285 216 304 210 318 211" class="gold hair2" marker-end="url(#arrowGold)"/>
+    <path d="M390 205 C412 207 421 225 426 252" class="gold hair2" marker-end="url(#arrowGold)"/>
+    <text x="404" y="194" class="micro ink">YES</text>
+    <path d="M342 252 V334 H278" class="gold hair2 dash" marker-end="url(#arrowGold)"/>
+    <text x="352" y="290" class="micro ink">NO</text>
+    <path d="M196 320 H278 V370 H196 Z" class="none gold" stroke-width="1.2" stroke-dasharray="6 5"/>
+    <text x="237" y="344" text-anchor="middle" class="micro ink">REUSE</text>
+    <text x="237" y="361" text-anchor="middle" class="micro ink">BEFORE CUSTOM</text>
+  </g>
+
+  <!-- main roadmap -->
+  <path d="M58 298 C128 287 180 291 260 296 C328 301 360 298 430 294 C492 290 530 291 590 296 C650 301 680 299 738 295 C800 291 830 293 888 298 C948 303 982 300 1038 295 C1100 290 1132 292 1188 298 C1248 304 1280 301 1332 296 C1388 291 1415 292 1462 297 C1510 302 1535 300 1560 296"
+        class="gold hair" stroke-width="18" opacity=".15"/>
+  <path d="M58 298 C128 287 180 291 260 296 C328 301 360 298 430 294 C492 290 530 291 590 296 C650 301 680 299 738 295 C800 291 830 293 888 298 C948 303 982 300 1038 295 C1100 290 1132 292 1188 298 C1248 304 1280 301 1332 296 C1388 291 1415 292 1462 297 C1510 302 1535 300 1560 296"
+        class="gold hair2" stroke-width="5.4" marker-end="url(#arrowGold)"/>
+  <path d="M58 298 C128 287 180 291 260 296 C328 301 360 298 430 294 C492 290 530 291 590 296 C650 301 680 299 738 295 C800 291 830 293 888 298 C948 303 982 300 1038 295 C1100 290 1132 292 1188 298 C1248 304 1280 301 1332 296 C1388 291 1415 292 1462 297 C1510 302 1535 300 1560 296"
+        class="steel hair dash" stroke-width="1.1" opacity=".5"/>
+
+  <!-- stages -->
+  <g id="stages">
+    <g transform="translate(96 298)">
+      <circle r="32" class="early-fill gold" stroke-width="2.2"/>
+      <circle r="23" class="none pale-gold" stroke-width="1.4" opacity=".85"/>
+      <circle r="39" class="none gold" stroke-width="1" stroke-dasharray="5 5" opacity=".55"/>
+      <text y="8" text-anchor="middle" class="num" fill="#f5d986">01</text>
+      <text y="76" text-anchor="middle" class="label ink">Problem</text>
+      <path d="M0 36 V72" class="gold hair dot"/>
+    </g>
+    <g transform="translate(260 298)">
+      <circle r="32" class="early-fill gold" stroke-width="2.2"/>
+      <circle r="23" class="none pale-gold" stroke-width="1.4" opacity=".85"/>
+      <circle r="39" class="none gold" stroke-width="1" stroke-dasharray="5 5" opacity=".55"/>
+      <text y="8" text-anchor="middle" class="num" fill="#f5d986">02</text>
+      <text y="76" text-anchor="middle" class="label ink">Right</text>
+      <text y="96" text-anchor="middle" class="label ink">Question</text>
+      <path d="M0 36 V86" class="gold hair dot"/>
+    </g>
+    <g transform="translate(430 298)">
+      <circle r="32" class="early-fill gold" stroke-width="2.2"/>
+      <circle r="23" class="none pale-gold" stroke-width="1.4" opacity=".85"/>
+      <circle r="39" class="none gold" stroke-width="1" stroke-dasharray="5 5" opacity=".55"/>
+      <text y="8" text-anchor="middle" class="num" fill="#f5d986">03</text>
+      <text y="76" text-anchor="middle" class="label ink">Narrow</text>
+      <text y="96" text-anchor="middle" class="label ink">Scope</text>
+      <path d="M0 36 V86" class="gold hair dot"/>
+    </g>
+    <g transform="translate(590 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">04</text>
+      <text y="76" text-anchor="middle" class="label muted">Architecture</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(738 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">05</text>
+      <text y="76" text-anchor="middle" class="label muted">Interfaces</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(888 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">06</text>
+      <text y="76" text-anchor="middle" class="label muted">Validation</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(1038 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">07</text>
+      <text y="76" text-anchor="middle" class="label muted">Manufacturing</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(1188 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">08</text>
+      <text y="76" text-anchor="middle" class="label muted">Deployment</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(1332 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">09</text>
+      <text y="76" text-anchor="middle" class="label muted">Maintenance</text>
+      <path d="M0 34 V74" class="soft hair dot"/>
+    </g>
+    <g transform="translate(1462 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">10</text>
+      <text y="76" text-anchor="middle" class="label muted">Field</text>
+      <text y="96" text-anchor="middle" class="label muted">Learning</text>
+      <path d="M0 34 V86" class="soft hair dot"/>
+    </g>
+    <g transform="translate(1560 298)">
+      <circle r="30" class="stage-fill steel" stroke-width="1.9"/>
+      <circle r="21" class="none gold" stroke-width="1.2" opacity=".75"/>
+      <circle r="36" class="none steel" stroke-width="1" stroke-dasharray="5 5" opacity=".46"/>
+      <text y="8" text-anchor="middle" class="num" fill="#d7e2ee">11</text>
+      <text y="76" text-anchor="middle" class="label muted">Better</text>
+      <text y="96" text-anchor="middle" class="label muted">Questions</text>
+      <path d="M0 34 V86" class="soft hair dot"/>
+    </g>
+  </g>
+
+  <!-- top callouts -->
+  <g>
+    <path d="M738 139 V238" class="soft hair dash" marker-end="url(#arrowSteel)"/>
+    <path d="M680 84 H792 V134 H680 Z" class="none steel" stroke-width="1.1" opacity=".55"/>
+    <text x="697" y="108" class="micro muted">INTERFACE</text>
+    <text x="697" y="126" class="micro muted">CONTRACT</text>
+
+    <path d="M888 139 V238" class="soft hair dash" marker-end="url(#arrowSteel)"/>
+    <path d="M829 84 H947 V134 H829 Z" class="none steel" stroke-width="1.1" opacity=".55"/>
+    <text x="847" y="108" class="micro muted">VALIDATE</text>
+    <text x="847" y="126" class="micro muted">BEFORE BUILD</text>
+
+    <path d="M1038 139 V238" class="soft hair dash" marker-end="url(#arrowSteel)"/>
+    <path d="M970 84 H1110 V134 H970 Z" class="none steel" stroke-width="1.1" opacity=".55"/>
+    <text x="987" y="108" class="micro muted">MANUFACTURING</text>
+    <text x="987" y="126" class="micro muted">TOLERANCE</text>
+
+    <path d="M1188 139 V238" class="soft hair dash" marker-end="url(#arrowSteel)"/>
+    <path d="M1130 84 H1246 V134 H1130 Z" class="none steel" stroke-width="1.1" opacity=".55"/>
+    <text x="1149" y="108" class="micro muted">DEPLOYMENT</text>
+    <text x="1149" y="126" class="micro muted">REALITY</text>
+
+    <path d="M1332 139 V238" class="soft hair dash" marker-end="url(#arrowSteel)"/>
+    <path d="M1260 84 H1405 V134 H1260 Z" class="none steel" stroke-width="1.1" opacity=".55"/>
+    <text x="1277" y="108" class="micro muted">MAINTAINABILITY</text>
+    <text x="1277" y="126" class="micro muted">BY DESIGN</text>
+  </g>
+
+  <!-- simplified icons, separated from labels -->
+  <g class="hair2">
+    <g transform="translate(96 476)" class="gold">
+      <circle r="19" class="none"/>
+      <circle r="6" class="none"/>
+      <path d="M-30 0 H-15 M15 0 H30 M0 -30 V-15 M0 15 V30"/>
+    </g>
+    <g transform="translate(260 476)" class="gold">
+      <circle r="20" class="none"/>
+      <text x="0" y="8" text-anchor="middle" class="num" fill="#d8ad55">?</text>
+    </g>
+    <g transform="translate(430 476)" class="gold">
+      <path d="M-24 -20 H-8 M-24 -20 V-4 M24 -20 H8 M24 -20 V-4 M-24 20 H-8 M-24 20 V4 M24 20 H8 M24 20 V4"/>
+    </g>
+    <g transform="translate(590 476)" class="steel">
+      <path d="M0 -24 L27 -10 L27 18 L0 32 L-27 18 L-27 -10 Z M0 -24 V4 M-27 -10 L0 4 L27 -10 M0 4 V32"/>
+    </g>
+    <g transform="translate(738 476)" class="steel">
+      <rect x="-40" y="-16" width="27" height="32" rx="2" class="none"/>
+      <rect x="13" y="-16" width="27" height="32" rx="2" class="none"/>
+      <path d="M-13 0 H13 M-2 -8 L7 0 L-2 8"/>
+    </g>
+    <g transform="translate(888 476)" class="steel">
+      <rect x="-25" y="-28" width="50" height="56" rx="2" class="none"/>
+      <path d="M-12 -12 L-5 -5 L8 -19 M-12 7 L-5 14 L8 0" class="gold"/>
+    </g>
+    <g transform="translate(1038 476)" class="steel">
+      <path d="M-38 0 H38 M-30 -16 V16 M30 -16 V16 M-30 -9 H30 M-38 -24 H38 M-38 24 H38"/>
+    </g>
+    <g transform="translate(1188 476)" class="steel">
+      <path d="M0 26 C-27 -6 -11 -32 0 -32 C11 -32 27 -6 0 26 Z"/>
+      <circle r="8" class="none"/>
+    </g>
+    <g transform="translate(1332 476)" class="steel">
+      <path d="M-24 -22 L24 26 M15 -24 C21 -29 30 -25 32 -17 L21 -15 L18 -5 L29 -3 C24 7 13 8 6 2 L-23 30 L-34 19 L-5 -10 C-12 -17 -9 -28 2 -32 L4 -21 L14 -18 Z"/>
+    </g>
+    <g transform="translate(1462 476)" class="steel">
+      <path d="M-34 26 H34 M-34 26 V-24"/>
+      <path d="M-25 14 L-10 7 L2 11 L16 -5 L30 -16" class="gold"/>
+      <circle cx="-10" cy="7" r="2.8" class="gold-fill" stroke="none"/>
+      <circle cx="16" cy="-5" r="2.8" class="gold-fill" stroke="none"/>
+    </g>
+    <g transform="translate(1560 476)" class="steel">
+      <circle r="21" class="none"/>
+      <path d="M0 -15 L8 6 L0 15 L-8 -6 Z" class="gold" fill="none"/>
+    </g>
+  </g>
+
+  <!-- feedback and notes -->
+  <path d="M1548 344 V598 H100 C70 598 58 578 76 554 C84 543 92 533 104 522"
+        class="steel hair2 dash" opacity=".62" marker-end="url(#arrowSteel)"/>
+  <path d="M1436 356 C1408 412 1324 432 1234 420" class="gold hair dash" opacity=".5" marker-end="url(#arrowGold)"/>
+  <path d="M460 590 H1160" class="gold hair" opacity=".55"/>
+  <path d="M460 590 l10 -7 M460 590 l10 7 M1160 590 l-10 -7 M1160 590 l-10 7" class="gold hair" opacity=".55"/>
+  <text x="620" y="596" class="small ink">FIELD LEARNING FEEDS BETTER QUESTIONS</text>
+
+  <g opacity=".88">
+    <path d="M64 552 H332 V642 H64 Z" class="none steel" stroke-width="1" opacity=".52"/>
+    <text x="82" y="578" class="micro muted">ENGINEERING PRINCIPLE</text>
+    <text x="82" y="604" class="small ink">ASK EARLY. VALIDATE OFTEN.</text>
+    <text x="82" y="626" class="micro muted">DESIGN FOR LIFE IN THE REAL WORLD.</text>
+
+    <path d="M1262 560 H1540 V632 H1262 Z" class="none gold" stroke-width="1" stroke-dasharray="8 5" opacity=".72"/>
+    <text x="1282" y="590" class="small ink">CONTINUOUS IMPROVEMENT</text>
+    <text x="1282" y="614" class="micro muted">LEARN / ARCHITECT / VALIDATE / LOOP</text>
+  </g>
+</svg>
