@@ -31,3 +31,4 @@ Thumbs.db
 
 # Large/raw local exports can be selectively added later
 *.tmp
+.aider*
