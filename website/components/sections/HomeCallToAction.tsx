@@ -10,22 +10,18 @@ export function HomeCallToAction() {
             Continue
           </p>
           <h2 className="mt-4 text-3xl leading-tight font-semibold text-foreground">
-            Review selected systems, read the resume, or get in touch to
-            discuss engineering work.
+            Discuss a product architecture or engineering delivery challenge
           </h2>
           <p className="mt-5 leading-8 text-text-secondary">
-            The next pages are intentionally structured for technical review:
-            proof of systems work, professional background, and direct contact.
+            For Industrial IoT, embedded hardware, mechatronic systems, field
+            deployment, or product architecture conversations.
           </p>
         </div>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:mt-0 lg:flex-col xl:flex-row">
-          <ButtonLink href={routes.selectedSystems}>Selected Systems</ButtonLink>
+          <ButtonLink href={routes.contact}>Contact Raghav</ButtonLink>
           <ButtonLink href={routes.resume} variant="secondary">
-            Resume
-          </ButtonLink>
-          <ButtonLink href={routes.contact} variant="secondary">
-            Contact
+            View Resume
           </ButtonLink>
         </div>
       </div>

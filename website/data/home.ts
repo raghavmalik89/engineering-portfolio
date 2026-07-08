@@ -3,11 +3,11 @@ export const heroContent = {
   headline: "Product Architecture for Demanding Engineering Environments",
   body: "Systems architecture across electronics, RF communications, mechatronics, Industrial IoT, and AI-enabled vision — from concept to field deployment.",
   primaryCta: {
-    label: "Explore Our Projects",
-    href: "/selected-systems"
+    label: "View Resume",
+    href: "/resume"
   },
   secondaryCta: {
-    label: "Contact Us",
+    label: "Contact Raghav",
     href: "/contact"
   },
   context: "Discover how we deliver robust, reliable solutions for demanding environments."

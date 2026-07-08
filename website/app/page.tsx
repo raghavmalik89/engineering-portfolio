@@ -4,7 +4,6 @@ import { CapabilityOverview } from "@/components/sections/CapabilityOverview";
 import { EngineeringPhilosophy } from "@/components/sections/EngineeringPhilosophy";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HomeCallToAction } from "@/components/sections/HomeCallToAction";
-import { SelectedSystemsPreview } from "@/components/sections/SelectedSystemsPreview";
 
 export const metadata: Metadata = {
   title: "Raghav Malik - Systems Architect & Product Engineer",
@@ -17,7 +16,6 @@ export default function HomePage() {
     <PageShell>
       <HeroSection />
       <CapabilityOverview />
-      <SelectedSystemsPreview />
       <EngineeringPhilosophy />
       <HomeCallToAction />
     </PageShell>
