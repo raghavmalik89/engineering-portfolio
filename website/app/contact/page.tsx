@@ -14,7 +14,10 @@ const linkedInUrl = "https://www.linkedin.com/in/malikraghav/";
 const emailHref = `mailto:${resumeContact.email}`;
 
 const textLink =
-  "text-accent-beige underline decoration-accent-copper/40 underline-offset-4 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper";
+  "text-base leading-7 text-accent-beige underline decoration-accent-copper/40 underline-offset-4 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper";
+
+const detailLabel =
+  "font-mono text-xs tracking-[0.1em] text-text-secondary uppercase";
 
 const contactMethods = [
   {
@@ -44,52 +47,58 @@ const contactMethods = [
 ] as const;
 
 const opportunityAreas = [
-  "Senior engineering roles",
-  "Systems/product architecture",
-  "Industrial IoT / connected products",
-  "Electronics, RF, mechatronics",
-  "Harsh-environment product delivery",
-  "Consulting / architecture review",
-  "Technical recovery of stalled product programmes",
+  {
+    title: "Senior engineering roles",
+    body: "Technical leadership and product delivery roles where systems judgment matters.",
+  },
+  {
+    title: "Product/system architecture",
+    body: "Product direction, architecture choices, interfaces, and development roadmaps.",
+  },
+  {
+    title: "Industrial IoT and connected products",
+    body: "Connected hardware, sensing, field data, RF links, and deployment realities.",
+  },
+  {
+    title: "RF, electronics, and mechatronics",
+    body: "Electronics, communications, motion, automation, and embedded product constraints.",
+  },
+  {
+    title: "Consulting / architecture review",
+    body: "Independent review of technical direction, delivery risk, validation, or architecture.",
+  },
+  {
+    title: "Product recovery, validation, and field deployment",
+    body: "Support when a complex product is stalled between prototype, validation, and field use.",
+  },
 ] as const;
 
 const recruiterDetails = [
   "Role title and seniority level",
   "Company or client context",
-  "Location, relocation, or remote expectations",
+  "Location or remote expectations",
   "Technical scope and product domain",
   "Employment or contract arrangement",
-  "Hiring timeline and interview process",
+  "Expected timeline",
 ] as const;
 
 const consultingDetails = [
   "Product or system context",
   "Current development stage",
   "Architecture, validation, or field issue",
-  "Expected timeline and decision urgency",
+  "Key technical, field, manufacturing, or business constraints",
+  "Expected timeline",
   "Whether an NDA is required",
 ] as const;
-
-function DetailCard({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="rounded-lg border border-border-subtle/70 bg-surface/55 p-6">
-      <h2 className="text-xl font-semibold text-accent-copper">{title}</h2>
-      <div className="mt-5">{children}</div>
-    </section>
-  );
-}
 
 function BulletList({ items }: { items: readonly string[] }) {
   return (
     <ul className="grid gap-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3 text-text-secondary">
+        <li
+          key={item}
+          className="flex gap-3 text-base leading-7 text-text-secondary"
+        >
           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-copper/75" />
           <span>{item}</span>
         </li>
@@ -102,187 +111,193 @@ export default function ContactPage() {
   return (
     <PageShell>
       <main className="mx-auto max-w-[1120px] px-6 py-16 sm:px-8 lg:py-24">
-        <section className="rounded-lg border border-border-subtle/70 bg-surface/70 p-6 sm:p-8 lg:p-10">
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
-            Contact
-          </p>
-          <h1 className="mt-5 text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl">
-            Contact
-          </h1>
-          <p className="mt-5 max-w-[840px] text-xl leading-8 text-accent-beige">
-            Product Systems Architect | Technical Lead | Product Delivery
-            Specialist
-          </p>
-          <p className="mt-3 max-w-[900px] font-mono text-sm leading-7 tracking-[0.06em] text-text-muted uppercase">
-            Electronics | RF Communications | Mechatronics | Industrial IoT |
-            AI Vision | Harsh-Environment Products
-          </p>
-          <p className="mt-7 max-w-[820px] text-lg leading-8 text-text-secondary">
-            Contact Raghav for senior engineering roles, systems and product
-            architecture discussions, Industrial IoT and connected product work,
-            electronics/RF/mechatronics leadership, or focused consulting
-            around technical product delivery.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <ButtonLink href={emailHref}>Email Raghav</ButtonLink>
-            <ButtonLink href={routes.resume} variant="secondary">
-              View Resume
-            </ButtonLink>
-            <a
-              href={linkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-border-subtle px-5 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent-copper hover:text-accent-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
-            >
-              LinkedIn
-            </a>
+        <section className="grid gap-8 rounded-lg border border-border-subtle/70 bg-surface/70 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-start lg:p-10">
+          <div>
+            <h1 className="text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl">
+              Contact
+            </h1>
+            <p className="mt-5 max-w-[760px] text-xl leading-8 text-accent-beige">
+              Product Systems Architect | Technical Lead | Product Delivery
+              Specialist
+            </p>
+            <p className="mt-3 max-w-[780px] font-mono text-sm leading-7 tracking-[0.06em] text-text-muted uppercase">
+              Electronics | RF Communications | Mechatronics | Industrial IoT |
+              AI Vision | Harsh-Environment Products
+            </p>
+            <p className="mt-7 max-w-[720px] text-lg leading-8 text-text-secondary">
+              For senior systems and product architecture, Industrial IoT,
+              RF/electronics, mechatronics, harsh-environment product delivery,
+              and focused consulting discussions where the technical scope is
+              substantial.
+            </p>
+            <p className="mt-4 max-w-[700px] text-base leading-8 text-text-secondary">
+              Currently based in Tokyo as an Australian citizen, open to
+              selected senior engineering, product architecture, and consulting
+              conversations where the engineering problem is well defined.
+            </p>
           </div>
-        </section>
 
-        <section
-          aria-labelledby="contact-methods-title"
-          className="mt-10 rounded-lg border border-border-subtle/70 bg-surface-elevated/55 p-6 sm:p-8"
-        >
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
-            Contact methods
-          </p>
-          <h2
-            id="contact-methods-title"
-            className="mt-3 text-2xl font-semibold text-accent-copper sm:text-3xl"
-          >
-            Direct contact
-          </h2>
-          <dl className="mt-7 grid gap-5 text-sm text-text-secondary sm:grid-cols-2 lg:grid-cols-4">
-            {contactMethods.map((method) => (
-              <div key={method.label}>
-                <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
-                  {method.label}
-                </dt>
-                <dd className="mt-2">
-                  <a
-                    href={method.href}
-                    target={method.external ? "_blank" : undefined}
-                    rel={method.external ? "noopener noreferrer" : undefined}
-                    className={textLink}
-                  >
-                    {method.value}
-                  </a>
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <aside className="rounded-lg border border-border-subtle/70 bg-surface-elevated/55 p-5 sm:p-6">
+            <h2 className="text-2xl font-semibold text-accent-beige">
+              Best first contact
+            </h2>
+            <p className="mt-3 text-base leading-7 text-text-secondary">
+              For role, architecture, consulting, or technical leadership
+              discussions, send the context, expected scope, location, and
+              timing.
+            </p>
+
+            <div className="mt-6 grid gap-3">
+              <ButtonLink href={emailHref}>Email Raghav</ButtonLink>
+              <ButtonLink href={routes.resume} variant="secondary">
+                View Resume
+              </ButtonLink>
+              <a
+                href={linkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-border-subtle px-5 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent-copper hover:text-accent-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
+              >
+                LinkedIn
+              </a>
+            </div>
+
+            <dl className="mt-5 grid gap-3.5 border-t border-border-subtle/70 pt-5">
+              {contactMethods.map((method) => (
+                <div key={method.label}>
+                  <dt className={detailLabel}>{method.label}</dt>
+                  <dd className="mt-1.5">
+                    <a
+                      href={method.href}
+                      target={method.external ? "_blank" : undefined}
+                      rel={method.external ? "noopener noreferrer" : undefined}
+                      className={textLink}
+                    >
+                      {method.value}
+                    </a>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </section>
 
         <section
           aria-labelledby="opportunities-title"
           className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
         >
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
-            Opportunity routing
-          </p>
           <h2
             id="opportunities-title"
-            className="mt-3 text-2xl font-semibold text-accent-copper sm:text-3xl"
+            className="text-2xl font-semibold text-accent-copper sm:text-3xl"
           >
             What to contact me about
           </h2>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <p className="mt-4 max-w-[760px] leading-8 text-text-secondary">
+            The best fit is work where product direction, architecture,
+            electronics, RF, field constraints, and delivery risk need to be
+            considered together.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {opportunityAreas.map((area) => (
               <div
-                key={area}
-                className="rounded-lg border border-border-subtle/70 bg-surface-elevated/45 p-4 text-text-secondary"
+                key={area.title}
+                className="rounded-lg border border-border-subtle/70 bg-surface-elevated/45 p-4"
               >
-                {area}
+                <h3 className="text-base font-semibold text-accent-beige">
+                  {area.title}
+                </h3>
+                <p className="mt-2 text-base leading-7 text-text-secondary">
+                  {area.body}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <DetailCard title="For recruiters and hiring managers">
-            <p className="leading-8 text-text-secondary">
-              Useful first messages include enough context to judge role fit,
-              operating model, technical scope, and timing.
-            </p>
-            <div className="mt-5">
-              <BulletList items={recruiterDetails} />
-            </div>
-          </DetailCard>
+        <section className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold text-accent-copper sm:text-3xl">
+            What to include in your first message
+          </h2>
+          <p className="mt-4 max-w-[760px] text-base leading-8 text-text-secondary">
+            A useful first message should make the role, system, constraint,
+            and timing clear.
+          </p>
 
-          <DetailCard title="For consulting, founder, and CTO discussions">
-            <p className="leading-8 text-text-secondary">
-              For product architecture or technical recovery conversations, keep
-              the first note practical and specific.
-            </p>
-            <div className="mt-5">
-              <BulletList items={consultingDetails} />
+          <div className="mt-7 grid gap-6 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-accent-beige">
+                Recruiters and hiring managers
+              </h3>
+              <div className="mt-5">
+                <BulletList items={recruiterDetails} />
+              </div>
             </div>
-          </DetailCard>
-        </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-accent-beige">
+                Founders, CTOs, and consulting clients
+              </h3>
+              <div className="mt-5">
+                <BulletList items={consultingDetails} />
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section
           aria-labelledby="logistics-title"
-          className="mt-10 rounded-lg border border-border-subtle/70 bg-surface-elevated/55 p-6 sm:p-8"
+          className="mt-10 grid gap-7 rounded-lg border border-border-subtle/70 bg-surface-elevated/55 p-6 sm:p-7 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)]"
         >
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
-            Work rights and logistics
-          </p>
-          <h2
-            id="logistics-title"
-            className="mt-3 text-2xl font-semibold text-accent-copper sm:text-3xl"
-          >
-            Practical details
-          </h2>
-          <dl className="mt-7 grid gap-5 text-sm text-text-secondary sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
-                Residence
-              </dt>
-              <dd className="mt-2 text-foreground">{resumeContact.location}</dd>
-            </div>
-            <div>
-              <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
-                Citizenship
-              </dt>
-              <dd className="mt-2 text-foreground">
-                {resumeContact.citizenship}
-              </dd>
-            </div>
-            <div>
-              <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
-                Time zone
-              </dt>
-              <dd className="mt-2 text-foreground">Japan Standard Time</dd>
-            </div>
-            <div>
-              <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
-                Consulting details
-              </dt>
-              <dd className="mt-2 text-foreground">
-                Australian ABN {resumeContact.abn}
-              </dd>
-            </div>
-          </dl>
-        </section>
+          <div>
+            <h2
+              id="logistics-title"
+              className="text-2xl font-semibold text-accent-copper sm:text-3xl"
+            >
+              Practical details
+            </h2>
+            <dl className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div>
+                <dt className={detailLabel}>Residence</dt>
+                <dd className="mt-1.5 text-base leading-7 text-foreground">
+                  {resumeContact.location}
+                </dd>
+              </div>
+              <div>
+                <dt className={detailLabel}>Citizenship</dt>
+                <dd className="mt-1.5 text-base leading-7 text-foreground">
+                  {resumeContact.citizenship}
+                </dd>
+              </div>
+              <div>
+                <dt className={detailLabel}>Time zone</dt>
+                <dd className="mt-1.5 text-base leading-7 text-foreground">
+                  Japan Standard Time
+                </dd>
+              </div>
+              <div>
+                <dt className={detailLabel}>Consulting details</dt>
+                <dd className="mt-1.5 text-base leading-7 text-foreground">
+                  Australian ABN {resumeContact.abn}
+                </dd>
+              </div>
+            </dl>
+          </div>
 
-        <section className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/65 p-6 sm:p-8">
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
-            Next step
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold text-accent-copper sm:text-3xl">
-            Start with the scope, timing, and decision context.
-          </h2>
-          <p className="mt-5 max-w-[780px] leading-8 text-text-secondary">
-            A concise email with the engineering problem, role or product
-            context, location expectations, and timeline is the fastest way to
-            determine fit.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href={emailHref}>Email Raghav</ButtonLink>
-            <ButtonLink href={routes.resume} variant="secondary">
-              View Resume
-            </ButtonLink>
+          <div>
+            <h2 className="text-2xl font-semibold text-accent-copper sm:text-3xl">
+              Start with the scope, timing, and decision context.
+            </h2>
+            <p className="mt-4 text-base leading-8 text-text-secondary">
+              For role, architecture, consulting, or technical leadership
+              discussions, email me with the context, expected scope, and
+              timing.
+            </p>
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row lg:flex-col">
+              <ButtonLink href={emailHref}>Email Raghav</ButtonLink>
+              <ButtonLink href={routes.resume} variant="secondary">
+                View Resume
+              </ButtonLink>
+            </div>
           </div>
         </section>
       </main>
