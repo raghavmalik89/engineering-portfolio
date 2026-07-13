@@ -1,14 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PrimaryNavigationLinks } from "@/components/layout/PrimaryNavigationLinks";
 import { routes } from "@/lib/routes";
-
-const homeNavigation = [
-  { label: "Home", href: routes.home },
-  { label: "Resume", href: routes.resume },
-  { label: "Stories", href: routes.stories },
-  { label: "Notebook", href: routes.notebook },
-  { label: "Contact", href: routes.contact },
-] as const;
 
 export function SiteHeader() {
   return (
@@ -33,17 +26,7 @@ export function SiteHeader() {
           <span className="block h-px w-full bg-accent-copper transition-transform duration-200 group-hover:scale-x-75" />
         </Link>
 
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm text-text-secondary sm:gap-x-16">
-          {homeNavigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition-colors duration-200 hover:text-foreground focus-visible:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+        <PrimaryNavigationLinks />
       </nav>
     </header>
   );

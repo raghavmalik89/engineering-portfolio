@@ -11,15 +11,15 @@ export function StoryExternalLinks({
   }
 
   return (
-    <section className="border-t border-border-subtle/70 pt-10">
-      <div className="grid gap-4">
+    <section className="mx-0 w-full max-w-none border-t border-border-subtle/70 pt-6">
+      <div className="grid w-full max-w-none gap-4">
         {links.map((link) => (
           <a
             key={link.href}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-lg border border-border-subtle/70 bg-surface/65 p-5 transition-colors duration-200 motion-reduce:transition-none hover:border-accent-copper/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
+            className="group mx-0 block w-full max-w-none box-border rounded-lg border border-border-subtle/70 bg-surface/65 p-5 transition-colors duration-200 motion-reduce:transition-none hover:border-accent-copper/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
           >
             <p className={storyLabelClassName}>
               {link.label}

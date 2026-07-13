@@ -35,19 +35,20 @@ export function BackToTop() {
       type="button"
       aria-label="Back to top"
       onClick={scrollToTop}
-      className="fixed right-4 bottom-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle/80 bg-surface-elevated/90 text-accent-beige shadow-[0_8px_30px_rgba(0,0,0,0.28)] transition duration-200 motion-reduce:transition-none hover:border-accent-copper hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper sm:right-6 sm:bottom-6"
+      className="group fixed right-4 bottom-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border-subtle/80 bg-surface-elevated/90 text-accent-copper shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition duration-200 motion-reduce:transition-none hover:border-accent-copper hover:text-accent-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper sm:right-6 sm:bottom-6"
     >
       <svg
         aria-hidden="true"
         viewBox="0 0 24 24"
-        className="h-5 w-5"
+        className="h-5 w-5 transition-transform duration-200 motion-reduce:transition-none group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-y-0"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
+        strokeWidth="2.2"
       >
-        <path d="m18 15-6-6-6 6" />
+        <path d="m7 14 5-5 5 5" />
+        <path d="m7 19 5-5 5 5" />
       </svg>
     </button>
   );

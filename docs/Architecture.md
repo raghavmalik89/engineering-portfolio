@@ -140,6 +140,9 @@ Stories is the long-term engineering project archive. The public index lives at
 `/stories` and individual story scaffolds use the dynamic route
 `/stories/[slug]`.
 
+The reusable Stories visual and template contract is governed by
+`docs/StoriesDesignSystem.md`.
+
 Story content is typed in `website/types/story.ts` and stored separately from
 presentation in `website/data/stories.ts`. Engineering footprint data is stored
 in `website/data/locations.ts` so countries can represent project-specific,

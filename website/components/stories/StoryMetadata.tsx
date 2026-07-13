@@ -1,4 +1,5 @@
 import type { Story } from "@/types/story";
+import { StoryExternalLinks } from "@/components/stories/StoryExternalLinks";
 import { storyCompactLabelClassName } from "@/components/stories/storyTypography";
 
 type StoryMetadataProps = {
@@ -55,6 +56,8 @@ export function StoryMetadata({ story, countryNames }: StoryMetadataProps) {
           </dl>
         </div>
       ) : null}
+
+      <StoryExternalLinks links={story.externalLinks} />
     </section>
   );
 }

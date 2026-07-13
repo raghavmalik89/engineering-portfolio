@@ -4,6 +4,9 @@ import { storyLabelClassName } from "@/components/stories/storyTypography";
 import type { Story } from "@/types/story";
 
 export function StoryHero({ story }: { story: Story }) {
+  const showDevelopmentBadge =
+    story.status === "planned" || story.status === "draft";
+
   return (
     <header className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-end">
       <div>
@@ -21,7 +24,7 @@ export function StoryHero({ story }: { story: Story }) {
         <p className="mt-6 max-w-[760px] text-lg leading-8 text-text-secondary">
           {story.heroSummary ?? story.summary}
         </p>
-        {story.status !== "published" ? (
+        {showDevelopmentBadge ? (
           <div className="mt-6">
             <StoryStatusBadge status={story.status} />
           </div>

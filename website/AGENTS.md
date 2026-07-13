@@ -14,3 +14,8 @@ Run Next.js commands from `website/`. Use `npm.cmd run lint` and
 
 This project uses a current Next.js version. Inspect local files and installed
 documentation before assuming framework conventions.
+
+Before creating or materially changing any story page, read
+`../docs/StoriesDesignSystem.md`, inspect `/stories/smartroller`, inspect the
+current reusable story components, and preserve the established Stories template
+unless a template-level change is explicitly authorised.
