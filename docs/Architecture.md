@@ -57,6 +57,8 @@ website/
 |-- app/
 |   |-- about/page.tsx
 |   |-- contact/page.tsx
+|   |-- stories/page.tsx
+|   |-- stories/[slug]/page.tsx
 |   |-- engineering-decisions/page.tsx
 |   |-- engineering-decisions/[slug]/page.tsx
 |   |-- engineering-notebook/page.tsx
@@ -80,9 +82,13 @@ website/
 |   |-- engineering-decisions/
 |   `-- pages/
 |-- data/
+|   |-- stories.ts
+|   `-- locations.ts
 |-- lib/
 |-- public/
 |   |-- images/
+|   |   |-- stories/
+|   |   `-- flags/
 |   |-- diagrams/
 |   `-- pdf/
 `-- types/
@@ -128,6 +134,40 @@ Each future system entry should include public-safe information about:
 - Outcome
 - Lessons learned
 
+### Stories
+
+Stories is the long-term engineering project archive. The public index lives at
+`/stories` and individual story scaffolds use the dynamic route
+`/stories/[slug]`.
+
+Story content is typed in `website/types/story.ts` and stored separately from
+presentation in `website/data/stories.ts`. Engineering footprint data is stored
+in `website/data/locations.ts` so countries can represent project-specific,
+company-only, training, remote-work, or future deployment context without
+inventing project relationships.
+
+Story image assets use the `website/public/images/stories/<slug>/` hierarchy.
+The story model supports card, hero, inline, and gallery images, but image
+fields should only reference files that exist and have meaningful alt text.
+Engineering Footprint flag images use the local `website/public/images/flags/`
+asset set and must be displayed with written country or location names.
+
+The story publication model supports `planned`, `draft`, `review`, and
+`published`. Local development may open unpublished nested story pages for
+progressive drafting. Production must expose full nested pages only for
+`published` stories; unpublished story URLs return `notFound()` and unpublished
+cards remain labelled as in development.
+
+The Stories landing page uses a two-column editorial archive layout on desktop:
+vertical project cards in the main column and a sticky Engineering Footprint
+panel in the supporting column. A small client component owns the
+project-country cross-highlighting state; static content remains server-rendered
+where possible.
+
+Global shell behaviour includes a small Back to Top control mounted through the
+root layout. It appears only after meaningful scroll depth and respects reduced
+motion preferences.
+
 ### Engineering Decisions
 
 Engineering Decisions shows how Raghav thinks through trade-offs.
@@ -154,6 +194,8 @@ Use simple, durable routes:
 ```text
 /                              Home
 /about                         About
+/stories                       Stories index
+/stories/[slug]                Individual story page
 /selected-systems              Case study index
 /selected-systems/[slug]       Individual case study
 /engineering-decisions         Engineering decision articles
@@ -230,6 +272,8 @@ Deployment can be revisited later if needed.
 | A-010 | Freeze Design System v1.0 in Phase 2 | Creates a stable visual, component, motion, accessibility, and imagery contract before page implementation. |
 | A-011 | Treat copper as engineering material accent | Copper represents PCB copper, brass/SMA connectors, drafting material, and machined components, not luxury gold. |
 | A-012 | Keep Engineering Atmosphere Layer optional | Ambient signal nodes/topology texture may support atmosphere only if it stays low contrast and never competes with readability. |
+| A-013 | Use typed data files for Stories | Keeps long-term project archive content separate from presentation while avoiding MDX or CMS dependencies during the first production architecture. |
+| A-014 | Keep story and flag assets under `public/images` | Avoids competing public asset hierarchies and keeps deployed media paths predictable. |
 
 ## Update Rule
 
