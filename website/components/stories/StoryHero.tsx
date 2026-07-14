@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { StoryStatusBadge } from "@/components/stories/StoryStatusBadge";
+import { StoryHeroMedia } from "@/components/stories/StoryHeroMedia";
 import { storyLabelClassName } from "@/components/stories/storyTypography";
 import type { Story } from "@/types/story";
 
@@ -11,7 +12,7 @@ export function StoryHero({ story }: { story: Story }) {
     <header className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-end">
       <div>
         <p className={storyLabelClassName}>
-          {story.company}
+          {story.eyebrow ?? story.company}
         </p>
         <h1 className="mt-5 text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl lg:text-6xl">
           {story.title}
@@ -31,7 +32,9 @@ export function StoryHero({ story }: { story: Story }) {
         ) : null}
       </div>
 
-      {story.heroImage ? (
+      {story.heroMedia ? (
+        <StoryHeroMedia media={story.heroMedia} />
+      ) : story.heroImage ? (
         <figure className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65">
           <div className="relative aspect-[4/3]">
             <Image

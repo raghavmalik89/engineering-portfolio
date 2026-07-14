@@ -45,7 +45,7 @@ export function StoryCard({
               {story.company}
             </p>
             <span className="mt-3 block text-2xl leading-snug font-semibold text-foreground">
-              {story.title}
+              {story.cardTitle ?? story.title}
             </span>
           </div>
           <StoryStatusBadge status={story.status} />

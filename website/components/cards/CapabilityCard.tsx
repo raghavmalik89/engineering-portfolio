@@ -12,6 +12,7 @@ type CapabilityCardProps = {
   evidenceLabel?: string;
   evidenceCaption?: string;
   href?: string;
+  linkLabel?: string;
 };
 
 export function CapabilityCard({
@@ -23,11 +24,12 @@ export function CapabilityCard({
   evidenceLabel,
   evidenceCaption,
   href,
+  linkLabel,
 }: CapabilityCardProps) {
   const hasEvidence = image || evidenceLabel || evidenceCaption;
 
   const content = (
-    <article className="group flex h-full flex-col rounded-lg border border-border-subtle/60 bg-surface/45 p-6 transition-colors duration-200 hover:border-accent-copper/35 hover:bg-surface/60 focus-within:border-accent-copper/45">
+    <article className="group flex h-full flex-col rounded-lg border border-border-subtle/60 bg-surface/45 p-6 transition-colors duration-200 group-hover:border-accent-copper/35 group-hover:bg-surface/60 group-focus-visible:border-accent-copper/45">
       <div className="flex items-start justify-between gap-6">
         <div className="rounded-md border border-border-subtle/50 bg-background/30 p-3.5">
           <IconGlyph name={icon} />
@@ -71,13 +73,26 @@ export function CapabilityCard({
           ) : null}
         </div>
       ) : null}
+
+      {href ? (
+        <span className="mt-auto pt-6 text-sm font-semibold text-accent-beige transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-copper group-focus-visible:text-accent-copper">
+          See this in practice{" "}
+          <span
+            aria-hidden="true"
+            className="inline-block transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0"
+          >
+            -&gt;
+          </span>
+        </span>
+      ) : null}
     </article>
   );
 
   return href ? (
     <Link
       href={href}
-      className="block h-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
+      aria-label={linkLabel ?? title}
+      className="group block h-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
     >
       {content}
     </Link>

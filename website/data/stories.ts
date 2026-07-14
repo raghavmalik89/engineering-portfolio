@@ -14,6 +14,11 @@ export const stories: Story[] = [
       "SmartRoller transformed manual load-roller temperature checks on large mining excavators into a rugged connected monitoring system designed for severe heat, shock, vibration, water, steel-obstructed radio paths and remote deployment.",
     status: "review",
     displayOrder: 1,
+    presentation: {
+      indexVariant: "flagship",
+      indexGroup: "flagship",
+      showOnStoriesIndex: true,
+    },
     role: "Product Systems Architect | Technical Lead | Product Delivery Specialist",
     period: "Early 2021 to 2026",
     domains: [
@@ -182,7 +187,7 @@ export const stories: Story[] = [
         "field validation",
       ],
     },
-    relatedProjectSlugs: ["mining-iot-gateway", "smartmill"],
+    relatedProjectSlugs: ["get-vision"],
   },
   {
     title: "GET Tracker / Tooth Fairy",
@@ -190,33 +195,420 @@ export const stories: Story[] = [
     slug: "get-tracker",
     company: "Bradken",
     summary:
-      "Wear-monitoring product developed from an original field/customer problem through deployment.",
+      "Led research, sensing architecture and product development for an embedded wear-monitoring system designed for an exceptionally severe mining environment, including field trials in New South Wales.",
     status: "draft",
-    displayOrder: 2,
-    role: "Product systems and technical lead",
+    displayOrder: 10,
+    presentation: {
+      indexVariant: "compact",
+      indexGroup: "bradken-programmes",
+      showOnStoriesIndex: true,
+    },
+    role: "Technical Lead / Product Systems Architecture",
     period: "To be confirmed",
-    domains: ["Mining technology", "Wear monitoring", "Industrial IoT"],
-    technologies: ["Wear monitoring", "Field sensing"],
-    countries: [],
+    domains: [
+      "Industrial IoT",
+      "Embedded Sensing",
+      "Harsh-Environment Design",
+      "Product Architecture",
+    ],
+    technologies: ["Wear monitoring", "Field sensing", "Product architecture"],
+    countries: ["AU"],
     sections: [],
-    relatedProjectSlugs: ["get-vision", "mining-iot-gateway"],
+    relatedProjectSlugs: ["get-vision"],
   },
   {
-    title: "GET Vision",
+    title: "GET Vision — From Vision Prototype to Rugged Mining Product",
+    cardTitle: "GET Vision — AI-Enabled Monitoring in the Field",
     shortTitle: "GET Vision",
     slug: "get-vision",
     company: "Bradken",
+    eyebrow: "Bradken · AI-Enabled Mining Vision",
     summary:
-      "AI-enabled mining vision system developed from prototype to commercial/customer-ready deployment.",
-    status: "draft",
-    displayOrder: 3,
-    role: "Product systems and technical lead",
-    period: "To be confirmed",
-    domains: ["Mining technology", "AI-enabled vision", "Field validation"],
-    technologies: ["AI-enabled vision", "Field validation"],
+      "Leading Bradken-side supplier delivery, hardware-system integration and field deployment as GET Vision progressed from an early vision prototype into a rugged, customer-deployed product for monitoring lost and worn mining GET.",
+    heroProposition:
+      "Turning an unstable vision prototype into a connected, field-deployable product for one of mining's most demanding operating environments.",
+    heroSummary:
+      "As Bradken's Technical Product Lead, Raghav coordinated suppliers, customers, architecture reviews, validation and international deployment. He guided the hardware and machine-integration decisions around power, protection, mounting, serviceability and field readiness, stepping into hands-on installation and fault finding whenever the product met reality.",
+    status: "review",
+    displayOrder: 2,
+    presentation: {
+      indexVariant: "flagship",
+      indexGroup: "flagship",
+      showOnStoriesIndex: true,
+    },
+    role:
+      "Technical Product Lead — Systems Integration, Vendor Delivery & Field Deployment",
+    period: "2021–2025+",
+    domains: [
+      "Product Systems",
+      "AI-Enabled Vision",
+      "Harsh-Environment Design",
+      "Vendor Delivery",
+      "Field Validation",
+    ],
+    technologies: [
+      "AI-enabled vision systems",
+      "Electrical integration",
+      "Mechatronics",
+      "Rugged mounting",
+      "Sealing",
+      "Thermal review",
+      "Communications",
+      "Remote support",
+    ],
     countries: ["AU", "FI", "ZM"],
+    cardImage: {
+      src: "/images/stories/get-vision/hero.webp",
+      alt: "Front view of a large mining excavator and bucket during GET Vision deployment in Zambia.",
+      aspect: "wide",
+      objectPosition: "center center",
+    },
+    heroImage: {
+      src: "/images/stories/get-vision/hero.webp",
+      alt: "Front view of a large mining excavator and bucket during GET Vision deployment in Zambia.",
+      aspect: "wide",
+      objectPosition: "center center",
+    },
+    heroMedia: {
+      type: "video",
+      src: "/images/stories/get-vision/hero-video.webm",
+      poster: "/images/stories/get-vision/hero.webp",
+      fallbackImage: {
+        src: "/images/stories/get-vision/hero.webp",
+        alt: "Front view of a large mining excavator and bucket during GET Vision deployment in Zambia.",
+        aspect: "wide",
+        objectPosition: "center center",
+      },
+      objectPosition: "center center",
+    },
+    snapshot: [
+      {
+        label: "My role",
+        value:
+          "Technical Product Lead — Systems Integration, Vendor Delivery & Field Deployment",
+      },
+      {
+        label: "Hands-on scope",
+        value:
+          "Installation scoping, wiring, machine integration, commissioning, fault finding, field-data capture and deployment support when required",
+      },
+      {
+        label: "Technical domains",
+        value:
+          "AI-enabled vision systems, electrical integration, mechatronics, rugged mounting, sealing, thermal review, communications and remote support",
+      },
+      {
+        label: "Product value",
+        value:
+          "Detecting GET loss before components travel downstream, while supporting wear monitoring and planned replacement",
+      },
+      {
+        label: "Delivery status",
+        value:
+          "Progressed from an early supplier prototype to a rugged, working product deployed in Australia, Finland and Zambia",
+      },
+      {
+        label: "Contribution boundary",
+        value:
+          "Detailed production vision software and model development remained with specialist supplier and vision engineers; Raghav led Bradken-side product, hardware, supplier and deployment integration",
+      },
+    ],
+    sections: [
+      {
+        id: "problem-larger-than-camera",
+        title: "The problem was larger than a camera",
+        body: [
+          "Ground Engaging Tools are hardened steel components fitted to the working edge of an excavator bucket. If a point or adaptor is lost during digging and travels with the material toward downstream processing equipment, the consequence can be severe: damaged machinery, unplanned downtime and a difficult recovery operation.",
+          "Bradken's GET Vision programme set out to detect those losses during operation. The wider ambition also included measuring wear so maintenance teams could plan replacement more intelligently. The finished product would eventually combine rugged imaging hardware with machine-learning-based monitoring, but the programme began much earlier — when the available technology was still a vendor prototype rather than a mining product.",
+        ],
+      },
+      {
+        id: "early-concept",
+        title: "An early concept, not yet a system",
+        body: [
+          "Raghav joined the programme in early 2021 as a technical adviser and observer. The supplier was developing a classical computer-vision approach, and the work was centred on proving that imagery could be processed rather than demonstrating a complete, deployable system.",
+          "He learned enough of the proposed vision environment to assess the supplier's direction independently. By late 2021, he had already questioned whether the classical approach and proposed processing pathway were suitable for the required result, and raised neural-network-based detection as an alternative.",
+          "At that stage, however, GET Vision was one of several technologies competing for attention. Raghav was simultaneously supporting SmartRoller, RFID, Industrial IoT and other trials. His ownership increased gradually rather than through a formal handover.",
+        ],
+      },
+      {
+        id: "project-champion",
+        title: "Becoming the project champion",
+        body: [
+          "By mid-2022, an approaching customer installation made GET Vision a priority. Bradken needed someone to bring together the supplier, internal stakeholders, site preparation, technical readiness and field delivery. As the company's sole mechatronics and electronics engineer across the programme, Raghav became the Bradken-side project champion.",
+          "The role was not conventional project management and it was not detailed authorship of every subsystem. It sat between the two.",
+          "Raghav coordinated supplier meetings, technical reviews, schedules, customer communication, documentation and readiness decisions. He studied the proposed technology, reviewed strengths and weaknesses, prepared management briefings and made sure the practical installation work was not left between organisational boundaries.",
+          "When required, he also became the person holding the tools.",
+        ],
+      },
+      {
+        id: "finland-first-source",
+        title: "Finland: installation as the first source of truth",
+        body: [
+          "The first major field campaign ran from approximately October to early December 2022 in Finland. The supplier arrived without a sufficiently complete installation package. Mounting, enclosure integration, logistics and machine wiring still needed substantial work.",
+          "Raghav had already scoped the machine and prepared the installation approach before travelling. On site, he coordinated the work, installed and removed the large legacy unit, completed wiring, helped resolve mounting and power issues, and used hands-on electrical fault finding — including soldering and oscilloscope work — to keep the trial moving.",
+          "The physical system was installed and operated long enough to capture a substantial amount of real field data. But the campaign also exposed the gap between collecting images and delivering reliable detection. The original software approach was not ready, processing capability was inadequate, and the supplier was attempting to recover the algorithm while the team was already on site.",
+          "That did not make the campaign worthless. It validated the physical installation and data pathway, created real operating data and gave Bradken clear evidence that the original technical direction needed to change.",
+        ],
+        images: [
+          {
+            src: "/images/stories/get-vision/image_2.webp",
+            alt: "Mining excavator bucket with ground-engaging tools during field validation in Finland.",
+            caption:
+              "Field validation beside an excavator bucket in Finland, using representative GET conditions to support imaging-system evaluation and specialist vision-model development.",
+            aspect: "tall",
+            objectPosition: "center center",
+          },
+        ],
+      },
+      {
+        id: "six-month-deadline",
+        title: "A tactical decision under a six-month deadline",
+        body: [
+          "After Finland, Bradken faced a difficult supplier decision. Replacing the incumbent could improve the long-term architecture and delivery model, but restarting would almost certainly miss the next customer commitment. The programme needed to demonstrate a working system within approximately six months.",
+          "Raghav recommended retaining the supplier for the immediate phase while monitoring performance closely. In his later assessment, the decision was tactically defensible but strategically costly: it protected the near-term delivery window while increasing dependency on a difficult supplier relationship.",
+          "The scope was also simplified. The original ambition covered three outcomes — loss detection, wear measurement and material-volume estimation. The team prioritised them sequentially:",
+        ],
+        orderedItems: [
+          "reliable GET-loss detection;",
+          "wear monitoring; and",
+          "volume estimation only after the core system matured.",
+        ],
+        closingBody: [
+          "This was an important technical-lead decision: reduce an overloaded programme to the highest-consequence problem first.",
+        ],
+      },
+      {
+        id: "phase-two",
+        title: "Phase 2: replacing the prototype",
+        body: [
+          "The supplier moved to a neural-network-based approach and produced a more professional interim system with a stronger backend, improved cabin interface and better physical presentation.",
+          "In July 2023, Raghav returned to Finland to remove the original installation and commission the Phase 2 system. The revised camera arrangement improved the view of the bucket and reduced perspective problems. The team also collected additional controlled field data to support the specialist vision work.",
+          "Phase 2 was a necessary bridge, but it was still an interim product. Bradken could no longer treat each installation as a custom recovery exercise. The next stage needed repeatable hardware, clearer interfaces, proper validation and a design that could survive long-term use.",
+        ],
+      },
+      {
+        id: "phase-three",
+        title: "Phase 3: designing for a commercial product",
+        body: [
+          "Before the next development cycle, Bradken paused for a concentrated architecture and product-definition campaign. Raghav helped drive the decisions that would turn a makeshift system into a maintainable mining product.",
+          "His responsibility centred on the hardware-system and field-integration architecture:",
+        ],
+        bullets: [
+          "power distribution and protection;",
+          "isolation between machine and sensitive electronics;",
+          "fault containment and recoverability;",
+          "positioning and partitioning of enclosures;",
+          "cable types, routing and connector strategy;",
+          "thermal constraints and test quality;",
+          "mounting concepts and secondary retention;",
+          "remote visibility and support;",
+          "installation time, serviceability and field replacement; and",
+          "the overall electrical and mechanical interface with the excavator.",
+        ],
+        closingBody: [
+          "The supplier performed much of the detailed engineering. Bradken's mechanical specialists conducted the professional structural analysis. Raghav provided field context, reviewed the results, participated in mounting and FEA discussions, challenged design decisions and carried the conclusions into the broader system and deployment plan.",
+        ],
+      },
+      {
+        id: "ruggedisation-interface",
+        title: "Ruggedisation is an interface problem",
+        body: [
+          "The project developed substantial expertise in designing vision hardware for severe service.",
+          "The structural design used generous margins, mechanical testing and professional FEA, but field work showed that calculated strength was only part of the problem. Mounting position, local impact exposure, load paths, fastener serviceability, cable restraint and secondary safety features all influenced whether the product survived on a working excavator.",
+          "Environmental sealing was similarly dependent on details at the interfaces: connector position and exposure, cable entries, enclosure face seals, and maintaining the glass-to-enclosure seal through temperature changes.",
+          "Electrical integration had its own field realities. The system needed to tolerate machine-start voltage variation, use appropriate grounding and isolation, contain faults and rely on rugged connectors that could be serviced from parts commonly available in the heavy-equipment environment.",
+          "The design also had to recognise that an AI model could not recover information that the imaging system failed to capture. Dust, snow, day-to-night dynamic range, changing bucket position, lighting geometry and lens contamination all affected the consistency of the model's inputs. Image quality therefore became a system requirement spanning mechanical, electrical, optical, maintenance and software decisions.",
+        ],
+        images: [
+          {
+            src: "/images/stories/get-vision/image_3.webp",
+            alt: "Frost-covered GET Vision hardware mounted on an excavator in Finland.",
+            caption:
+              "GET Vision hardware during cold-weather field work in Finland, demonstrating the environmental exposure faced by the imaging, lighting, mounting and cabling systems.",
+            aspect: "tall",
+            objectPosition: "center center",
+          },
+        ],
+      },
+      {
+        id: "zambia-field-decisions",
+        title: "Zambia: turning field failures into product decisions",
+        body: [
+          "Two Zambia deployment cycles became important ruggedisation milestones.",
+          "The first installation exposed that the imaging hardware was operating in a more severe impact, shock and vibration environment than expected at its original position. Raghav helped recognise the mounting risk, brought the mechanical design team into the reassessment, contributed the field constraints and participated in the structural review process.",
+          "The public lesson was not that the team had ignored ruggedisation. The system had been analysed and intentionally over-specified. The lesson was that real machine exposure reveals conditions, impact paths and serviceability problems that are difficult to reproduce completely before deployment.",
+          "The mounting strategy was revised, the product was redeployed and the later installation operated as a working customer system. Minor glitches remained — normal for complex equipment in an exceptionally harsh environment — but the product had moved beyond a temporary demonstration into sustained operational use.",
+        ],
+        images: [
+          {
+            src: "/images/stories/get-vision/image_1.webp",
+            alt: "Large mining excavator at an open-pit mine in Zambia with field personnel nearby.",
+            caption:
+              "GET Vision deployed on a large mining excavator in Zambia, where imaging, power, communications and mechanical integration had to operate as one field-ready system.",
+            aspect: "wide",
+            objectPosition: "center center",
+          },
+        ],
+      },
+      {
+        id: "limited-authority",
+        title: "Product leadership with limited direct authority",
+        body: [
+          "GET Vision was also a lesson in supplier governance.",
+          "Raghav was accountable for customer communication, readiness, deployment and much of the technical coordination, but he did not directly control the supplier's internal engineering team. That mismatch between responsibility and authority created recurring tension.",
+          "He maintained the customer relationship, kept the technical record and documentation in order, attended senior management briefings, participated in vendor selection and reviews, and made sure installations were completed correctly whenever he went to site.",
+          "Around early 2025, Bradken added a PhD-level vision specialist who strengthened internal ownership of the software and model domain. Raghav continued as the mechatronics, hardware-integration and deployment counterpart — scoping installations, reviewing hardware architecture, supporting approvals and remaining involved whenever the vision system had to work on a real machine.",
+        ],
+      },
+      {
+        id: "ai-boundary",
+        title: "The boundary around the AI",
+        body: [
+          "Raghav did not author the complete production GET Vision model, and the story should not imply that he did.",
+          "His contribution was to lead the product and system conditions that allowed specialist vision work to function in the field: usable imagery, stable power, controlled interfaces, rugged mounting, field-data capture, installation discipline, diagnostics, remote support and customer deployment.",
+          "Later collaboration with an internal vision specialist also gave him practical experience with annotation, model training, inference and interface development through a separate internal proof of concept. That work strengthened his ability to collaborate with specialist AI engineers, but it remained separate from the delivered GET Vision product.",
+        ],
+      },
+      {
+        id: "prototype-to-product",
+        title: "From prototype to deployed product",
+        body: [
+          "GET Vision did not cross a single ceremonial commercialisation gate. It matured through repeated redesign, specialist capability, industrial design, improved hardware, field validation and customer use.",
+          "Bradken now publicly presents GETVision as a digital solution for loss detection and advanced wear monitoring on hydraulic shovels and excavators. For Raghav, the more meaningful milestone was practical: after successive field-driven changes, the system had become rugged enough to remain installed, perform its function and be supported as a working product.",
+          "The programme was not perfect. Some outcomes fell below his personal engineering standards, and supplier constraints made the path more difficult than it needed to be. But the responsibilities within his control were delivered: the customer was kept informed, the installations were completed, technical issues were worked through and the product reached a stable deployed state.",
+        ],
+      },
+      {
+        id: "demonstrates-get-vision",
+        title: "What the project demonstrates",
+        body: [
+          "GET Vision demonstrates a form of technical leadership that is easy to overlook when engineering work is divided across suppliers and specialist disciplines.",
+          "Raghav did not claim every circuit, algorithm or mechanical drawing. He represented Bradken's technical and product interests across the complete system. He translated customer commitments into staged scope, challenged supplier decisions, guided hardware integration, coordinated validation and carried the programme through difficult international installations.",
+          "Most importantly, he understood that an AI-enabled product is still a physical product. Its performance depends on power, mounting, optics, sealing, serviceability, data quality, people and the operating environment behaving as one system.",
+        ],
+      },
+      {
+        id: "lessons-reflection",
+        title: "Lessons and reflection",
+        body: [
+          "The strongest management lesson was that outsourcing work does not outsource accountability.",
+          "A third party should not be selected only because it accepts the lowest cost, shortest schedule and broadest requirement set. Its ability to deliver each promised outcome needs independent technical verification. Otherwise, the customer can end up funding the supplier's learning curve while carrying the schedule, customer and product risk.",
+          "GET Vision reinforced several principles that Raghav carried into later product work:",
+        ],
+        bullets: [
+          "verify capability before dependency develops;",
+          "make difficult supplier decisions early;",
+          "recognise when a tactical delivery victory creates a strategic loss;",
+          "front-load architecture, technical leadership and validation;",
+          "simplify ambitious programmes into sequential, testable outcomes; and",
+          "treat field deployment as engineering validation, not as an afterthought.",
+        ],
+        closingBody: ["His own assessment remains deliberately measured:"],
+        quote:
+          "I do not view GET Vision as a perfectly executed programme. My authority over the supplier was limited, and parts of the result fell short of my own standards. What I did control was delivery: keeping the customer informed, maintaining technical discipline, preparing each deployment and making sure the installation worked before I left site.",
+      },
+    ],
+    externalLinks: [
+      {
+        label: "Bradken GETVision solution",
+        description:
+          "View Bradken's public description of the GETVision solution for GET loss detection and advanced wear monitoring.",
+        cta: "View GETVision on Bradken",
+        href: "https://www.bradken.com/products-and-services/digital-solutions/getvision-solution",
+      },
+    ],
+    seo: {
+      title: "GET Vision | AI-Enabled Mining Vision Product Delivery",
+      description:
+        "How Raghav Malik led Bradken-side systems integration, supplier delivery and field validation as GET Vision became a rugged AI-enabled mining product.",
+      openGraphTitle:
+        "GET Vision — From Vision Prototype to Rugged Mining Product",
+      openGraphDescription:
+        "A field-driven engineering story spanning AI-enabled vision, rugged hardware, supplier delivery, validation and mining deployments across Australia, Finland and Zambia.",
+      canonicalPath: "/stories/get-vision",
+      keywords: [
+        "GET Vision",
+        "AI-enabled mining vision",
+        "mining technology product development",
+        "product systems integration",
+        "harsh-environment engineering",
+        "machine vision deployment",
+        "mining mechatronics",
+        "vendor technical leadership",
+        "rugged camera system",
+        "field validation",
+      ],
+    },
+    relatedProjectSlugs: ["smartroller"],
+  },
+  {
+    title: "Recovering a Plasma-Thruster Power and Control Programme",
+    shortTitle: "Plasma-Thruster Power Electronics",
+    slug: "space-propulsion-electronics",
+    company: "Neumann Space",
+    summary:
+      "Recovering a stalled satellite-propulsion electronics programme by redesigning critical switched-mode power and control architecture, resolving thermal and embedded-system blockers, and restoring a practical path toward launch readiness.",
+    status: "planned",
+    displayOrder: 3,
+    presentation: {
+      indexVariant: "flagship",
+      indexGroup: "flagship",
+      showOnStoriesIndex: true,
+    },
+    role: "Electronics Team Lead",
+    period: "06/2020 - 12/2020",
+    domains: [
+      "Power Electronics",
+      "Space Systems",
+      "Systems Architecture",
+      "Technical Leadership",
+      "Programme Recovery",
+    ],
+    technologies: [
+      "Switched-mode power supplies",
+      "Power and control electronics",
+      "Embedded control",
+      "Thermal problem solving",
+    ],
+    countries: ["AU-ADELAIDE"],
     sections: [],
-    relatedProjectSlugs: ["get-tracker", "mining-iot-gateway"],
+    relatedProjectSlugs: ["proton-therapy-commissioning"],
+  },
+  {
+    title: "Commissioning a Proteus One Proton-Therapy Accelerator",
+    shortTitle: "Proteus One Commissioning",
+    slug: "proton-therapy-commissioning",
+    company: "IBA",
+    summary:
+      "Delivering the electromechanical integration and commissioning of a complex proton-therapy accelerator system across precision mechanics, electrical systems, RF, vacuum, cryogenics, cooling and international site coordination.",
+    status: "planned",
+    displayOrder: 4,
+    presentation: {
+      indexVariant: "flagship",
+      indexGroup: "flagship",
+      showOnStoriesIndex: true,
+    },
+    role: "Electromechanical Engineer",
+    period: "02/2017 - 06/2019",
+    domains: [
+      "Medical Accelerators",
+      "Electromechanical Systems",
+      "Precision Commissioning",
+      "Multidisciplinary Integration",
+      "International Delivery",
+    ],
+    technologies: [
+      "Electrical systems",
+      "RF systems",
+      "Vacuum",
+      "Cryogenics",
+      "Water cooling",
+      "Precision mechanical alignment",
+    ],
+    countries: ["BE", "PL", "JP-TOYOHASHI"],
+    sections: [],
+    relatedProjectSlugs: ["space-propulsion-electronics"],
   },
   {
     title: "Mining IoT Gateway",
@@ -226,7 +618,12 @@ export const stories: Story[] = [
     summary:
       "Connected field gateway integrating sensing, communications and remote-monitoring functions.",
     status: "draft",
-    displayOrder: 4,
+    displayOrder: 90,
+    presentation: {
+      indexVariant: "compact",
+      indexGroup: "bradken-programmes",
+      showOnStoriesIndex: false,
+    },
     role: "Product systems and technical lead",
     period: "To be confirmed",
     domains: ["Industrial IoT", "Communications", "Remote monitoring"],
@@ -240,37 +637,87 @@ export const stories: Story[] = [
     shortTitle: "SmartMill",
     slug: "smartmill",
     company: "Bradken",
-    summary: "Early-stage sensing prototype and validation programme.",
+    summary:
+      "Provided technical leadership and RF expertise through sensing development and trial activity, including remote technical support for a Namibia field trial and later specialist consulting input.",
     status: "planned",
-    displayOrder: 5,
-    role: "Prototype and validation contribution",
+    displayOrder: 12,
+    presentation: {
+      indexVariant: "compact",
+      indexGroup: "bradken-programmes",
+      showOnStoriesIndex: true,
+    },
+    role: "Technical Lead and RF Specialist",
     period: "To be confirmed",
-    domains: ["Mining technology", "Sensing prototype", "Validation"],
-    technologies: ["Sensing prototype", "Validation"],
+    domains: ["RF Systems", "Sensing", "Mining Technology", "Field Validation"],
+    technologies: ["Sensing prototype", "RF systems", "Validation"],
     countries: [],
     sections: [],
-    relatedProjectSlugs: ["smartroller", "mining-iot-gateway"],
+    relatedProjectSlugs: [],
   },
   {
     title: "SmartLiner",
     shortTitle: "SmartLiner",
     slug: "smartliner",
     company: "Bradken",
-    summary: "Product upgrade and systems contribution.",
+    summary:
+      "Supported product-improvement work focused on increasing sensing resolution and strengthening the usefulness of the existing monitoring system.",
     status: "planned",
-    displayOrder: 6,
-    role: "Product upgrade and systems contribution",
+    displayOrder: 13,
+    presentation: {
+      indexVariant: "compact",
+      indexGroup: "bradken-programmes",
+      showOnStoriesIndex: true,
+    },
+    role: "Product Improvement and Systems Contribution",
     period: "To be confirmed",
-    domains: ["Mining technology", "Product upgrade", "Systems engineering"],
-    technologies: ["Product upgrade", "Systems engineering"],
+    domains: [
+      "Product Improvement",
+      "Sensing Resolution",
+      "Mining Technology",
+      "Systems Integration",
+    ],
+    technologies: ["Product upgrade", "Sensing resolution", "Systems integration"],
     countries: [],
     sections: [],
-    relatedProjectSlugs: ["smartmill", "smartroller"],
+    relatedProjectSlugs: [],
+  },
+  {
+    title: "Vibration Energy Harvesting for Autonomous IoT",
+    shortTitle: "Vibration Energy Harvesting",
+    slug: "vibration-energy-harvesting",
+    company: "Bradken",
+    summary:
+      "Researched and designed an energy-harvesting concept for regenerating electrical power from machine vibration to support autonomous industrial sensing and reduce dependence on conventional battery replacement.",
+    status: "planned",
+    displayOrder: 11,
+    presentation: {
+      indexVariant: "compact",
+      indexGroup: "bradken-programmes",
+      showOnStoriesIndex: true,
+    },
+    role: "Researcher and System Designer",
+    period: "To be confirmed",
+    domains: [
+      "Energy Harvesting",
+      "Industrial IoT",
+      "Applied Research",
+      "Sensing Systems",
+    ],
+    technologies: ["Energy harvesting", "Industrial sensing", "Applied research"],
+    countries: [],
+    sections: [],
+    relatedProjectSlugs: [],
   },
 ];
 
 export function getStories() {
   return [...stories].sort((a, b) => a.displayOrder - b.displayOrder);
+}
+
+export function getStoriesForIndex() {
+  return getStories().filter(
+    (story) => story.presentation?.showOnStoriesIndex !== false,
+  );
 }
 
 export function getStoryBySlug(slug: string) {

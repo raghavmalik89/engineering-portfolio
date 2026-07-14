@@ -2,6 +2,8 @@ import { CapabilityCard } from "@/components/cards/CapabilityCard";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { ProductArchitectureImagePanel } from "@/components/visual/ProductArchitectureImagePanel";
 import { capabilities, capabilityOverview } from "@/data/homeContent";
+import { canExposeStoryPage, getStoryBySlug } from "@/data/stories";
+import { routes } from "@/lib/routes";
 
 export function CapabilityOverview() {
   return (
@@ -22,12 +24,30 @@ export function CapabilityOverview() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {capabilities.map((capability) => (
-            <CapabilityCard
-              key={capability.title}
-              {...capability}
-            />
-          ))}
+          {capabilities.map((capability) => {
+            const linkedStory = capability.evidenceLink
+              ? getStoryBySlug(capability.evidenceLink.storySlug)
+              : undefined;
+            const href =
+              linkedStory &&
+              capability.evidenceLink &&
+              canExposeStoryPage(linkedStory)
+                ? routes.story(capability.evidenceLink.storySlug)
+                : routes.stories;
+
+            return (
+              <CapabilityCard
+                key={capability.title}
+                {...capability}
+                href={href}
+                linkLabel={
+                  capability.evidenceLink
+                    ? `See ${capability.title} in ${capability.evidenceLink.destinationLabel}`
+                    : `See ${capability.title} in the Stories archive`
+                }
+              />
+            );
+          })}
         </div>
       </div>
     </section>

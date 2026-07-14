@@ -149,6 +149,10 @@ in `website/data/locations.ts` so countries can represent project-specific,
 company-only, training, remote-work, or future deployment context without
 inventing project relationships.
 
+Story records also carry lightweight index presentation metadata so the Stories
+landing page can separate flagship stories, compact supporting programme
+records, and hidden-but-retained records without overloading publication status.
+
 Story image assets use the `website/public/images/stories/<slug>/` hierarchy.
 The story model supports card, hero, inline, and gallery images, but image
 fields should only reference files that exist and have meaningful alt text.
@@ -162,8 +166,9 @@ progressive drafting. Production must expose full nested pages only for
 cards remain labelled as in development.
 
 The Stories landing page uses a two-column editorial archive layout on desktop:
-vertical project cards in the main column and a sticky Engineering Footprint
-panel in the supporting column. A small client component owns the
+flagship project cards and compact supporting programme records in the main
+column, with a sticky Engineering Footprint panel in the supporting column. A
+small client component owns the
 project-country cross-highlighting state; static content remains server-rendered
 where possible.
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { StoriesExperience } from "@/components/stories/StoriesExperience";
 import { PageShell } from "@/components/layout/PageShell";
-import { getStories } from "@/data/stories";
+import { getStoriesForIndex } from "@/data/stories";
 import { footprintLocations } from "@/data/locations";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function StoriesPage() {
-  const stories = getStories();
+  const stories = getStoriesForIndex();
   const canLinkStories = process.env.NODE_ENV !== "production";
 
   return (

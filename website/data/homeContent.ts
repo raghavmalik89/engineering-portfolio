@@ -9,6 +9,10 @@ export type Capability = {
   evidenceLabel?: string;
   evidenceCaption?: string;
   href?: string;
+  evidenceLink?: {
+    storySlug: string;
+    destinationLabel: string;
+  };
 };
 
 export type SelectedWork = {
@@ -32,21 +36,37 @@ export const capabilities: Capability[] = [
     title: "Engineering Product Strategy",
     body: "Turning complex engineering intent into product direction, architecture choices, and practical development paths before costly decisions are locked in.",
     icon: "diagram",
+    evidenceLink: {
+      storySlug: "smartroller",
+      destinationLabel: "the SmartRoller productisation story",
+    },
   },
   {
     title: "Industrial IoT Platforms",
     body: "Shaping connected industrial systems where sensors, RF communication, embedded hardware, and field data must work reliably as one.",
     icon: "antenna",
+    evidenceLink: {
+      storySlug: "smartroller",
+      destinationLabel: "the SmartRoller product architecture story",
+    },
   },
   {
     title: "Harsh-Environment Product Design",
     body: "Shaping product decisions around harsh operating conditions, reliability demands, and the realities of field use.",
     icon: "field",
+    evidenceLink: {
+      storySlug: "get-vision",
+      destinationLabel: "the GET Vision ruggedisation story",
+    },
   },
   {
     title: "Integrated Engineering Systems",
     body: "Bringing cross-domain engineering decisions together so complex systems behave as one product, not separate parts.",
     icon: "chip",
+    evidenceLink: {
+      storySlug: "get-vision",
+      destinationLabel: "the GET Vision product architecture story",
+    },
   },
 ];
 

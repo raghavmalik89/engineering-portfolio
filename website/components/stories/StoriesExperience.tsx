@@ -52,36 +52,87 @@ export function StoriesExperience({
     active.kind === "story"
       ? stories.find((story) => story.slug === active.slug)
       : undefined;
+  const visibleStories = useMemo(
+    () =>
+      stories.filter(
+        (story) => story.presentation?.showOnStoriesIndex !== false,
+      ),
+    [stories],
+  );
+  const visibleStorySlugs = useMemo(
+    () => new Set(visibleStories.map((story) => story.slug)),
+    [visibleStories],
+  );
+  const flagshipStories = visibleStories.filter(
+    (story) => story.presentation?.indexGroup === "flagship",
+  );
+  const bradkenProgrammeStories = visibleStories.filter(
+    (story) => story.presentation?.indexGroup === "bradken-programmes",
+  );
 
   const activeProjectSlugs = useMemo(() => {
     if (activeLocation) {
-      return activeLocation.relatedProjectSlugs;
+      return activeLocation.relatedProjectSlugs.filter((slug) =>
+        visibleStorySlugs.has(slug),
+      );
     }
 
     return [];
-  }, [activeLocation]);
+  }, [activeLocation, visibleStorySlugs]);
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,70%)_minmax(280px,1fr)] lg:items-start">
-      <section aria-label="Story projects">
-        <StoriesGrid
-          stories={stories}
-          activeProjectSlugs={activeProjectSlugs}
-          activeStorySlug={activeStory?.slug}
-          canLinkStories={canLinkStories}
-          onStoryActivate={(slug) => setActive({ kind: "story", slug })}
-          onClear={() => {
-            if (active.kind !== "location" || !active.sticky) {
-              setActive({ kind: "none" });
-            }
-          }}
-        />
+      <section aria-label="Story projects" className="grid gap-10">
+        <div>
+          <h2 className="text-2xl leading-tight font-semibold text-foreground">
+            Flagship Engineering Stories
+          </h2>
+          <div className="mt-5">
+            <StoriesGrid
+              stories={flagshipStories}
+              activeProjectSlugs={activeProjectSlugs}
+              activeStorySlug={activeStory?.slug}
+              canLinkStories={canLinkStories}
+              onStoryActivate={(slug) => setActive({ kind: "story", slug })}
+              onClear={() => {
+                if (active.kind !== "location" || !active.sticky) {
+                  setActive({ kind: "none" });
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl leading-tight font-semibold text-foreground">
+            Additional Bradken R&D and Product Programmes
+          </h2>
+          <p className="mt-3 max-w-[760px] leading-7 text-text-secondary">
+            Selected research, prototype and product-improvement programmes that
+            contributed to Bradken&apos;s wider mining-technology portfolio.
+          </p>
+          <div className="mt-5">
+            <StoriesGrid
+              stories={bradkenProgrammeStories}
+              activeProjectSlugs={activeProjectSlugs}
+              activeStorySlug={activeStory?.slug}
+              canLinkStories={canLinkStories}
+              variant="compact"
+              onStoryActivate={(slug) => setActive({ kind: "story", slug })}
+              onClear={() => {
+                if (active.kind !== "location" || !active.sticky) {
+                  setActive({ kind: "none" });
+                }
+              }}
+            />
+          </div>
+        </div>
       </section>
 
       <div data-footprint-root>
         <EngineeringFootprint
           locations={locations}
-          stories={stories}
+          stories={visibleStories}
           activeLocationCode={activeLocation?.code}
           activeStorySlug={activeStory?.slug}
           onLocationToggle={(code) => {

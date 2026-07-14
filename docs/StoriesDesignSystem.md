@@ -42,6 +42,32 @@ For every new story:
 
 ## Page Hierarchy
 
+The Stories index is curated rather than a flat list of equal project cards. It
+uses the established two-column archive layout with the main story column and
+sticky Engineering Footprint column on desktop.
+
+Current index hierarchy:
+
+1. Stories introduction
+2. Flagship Engineering Stories
+3. Additional Bradken R&D and Product Programmes
+4. Engineering Footprint
+
+The current flagship order is SmartRoller, GET Vision, Neumann Space propulsion
+electronics, and IBA Proteus One commissioning. The current compact Bradken
+programme section contains GET Tracker / Tooth Fairy, Vibration Energy
+Harvesting for Autonomous IoT, SmartMill and SmartLiner.
+
+Flagship stories use the full editorial story-card treatment. Compact Bradken
+programme records use a smaller two-column desktop grid and a one-column mobile
+stack. Presentation is independent from publication status: a story can be
+flagship or compact while still being `planned`, `draft`, `review`, or
+`published`.
+
+Story records may be retained but hidden from the curated index through
+`presentation.showOnStoriesIndex: false`. Hidden records must not be deleted
+only because they are not part of the current landing-page hierarchy.
+
 The current nested story page hierarchy is:
 
 1. `StoryBackLink` returning to `/stories`
@@ -115,6 +141,10 @@ The current hero uses a responsive two-column grid on large screens:
   `sizes` value
 - Hero image captions sit below the image inside the same bordered figure
 - Missing images render a restrained "Images pending" surface
+
+Planned flagship stories must not use fake, generated or weakly associated
+imagery to match completed stories. Use the established no-image fallback until
+approved project media exists.
 
 On smaller screens the hero stacks. Every story image must have meaningful alt
 text. The story title remains the strongest visual element, with the
@@ -228,6 +258,10 @@ Review future story pages at approximately:
 
 Expected behavior:
 
+- The Stories index keeps flagship cards visually dominant and compact Bradken
+  programme records visibly secondary.
+- Compact programme records use a two-column grid on desktop where text remains
+  readable, and collapse to one column on mobile.
 - Hero stacks below large desktop sizes and uses the two-column hero on large
   screens.
 - Metadata grid uses one column on mobile, two columns from the small
@@ -259,6 +293,11 @@ Stories must preserve:
 Interactive project and country relationship controls must remain keyboard
 operable and readable when inactive or subdued.
 
+Engineering Footprint entries may describe in-person work, remote support,
+training, development, testing, deployment, commissioning, broader company
+context, or mixed engagement. Remote support must be labelled clearly and must
+not be presented as personal travel.
+
 ## Publication and Content Safety
 
 Story statuses are:
@@ -271,6 +310,11 @@ Story statuses are:
 Production must expose full nested story pages only for `published` stories.
 Unpublished nested story URLs return `notFound()` in production. Local
 development may expose unpublished story pages for drafting and review.
+
+Landing-page visibility and prominence are separate from publication status.
+Unpublished records may appear as non-clickable in-development cards when they
+belong on the curated index. Records that are out of scope for the current index
+may remain available in story data while hidden from `/stories`.
 
 SmartRoller currently remains `review` unless separately approved. Company/IP
 review is a content workflow and must not be bypassed through visual-template
@@ -296,6 +340,7 @@ Future stories may vary:
 Future stories should not independently change:
 
 - Global story layout
+- Stories index hierarchy between flagship, compact and hidden records
 - Primary width system
 - Typography hierarchy
 - Metadata treatment

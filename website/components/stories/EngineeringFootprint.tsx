@@ -30,6 +30,7 @@ export function EngineeringFootprint({
   const activeLocation = locations.find(
     (location) => location.code === activeLocationCode,
   );
+  const visibleStorySlugs = new Set(stories.map((story) => story.slug));
 
   const hasActiveStory = Boolean(activeStorySlug);
 
@@ -49,6 +50,10 @@ export function EngineeringFootprint({
 
         <div className="mt-6 grid gap-2">
           {locations.map((location) => {
+            const visibleRelatedProjectSlugs =
+              location.relatedProjectSlugs.filter((slug) =>
+                visibleStorySlugs.has(slug),
+              );
             const isProjectRelated = activeStorySlug
               ? location.relatedProjectSlugs.includes(activeStorySlug)
               : false;
@@ -95,7 +100,7 @@ export function EngineeringFootprint({
                   </span>
                 </span>
                 <span className="font-mono text-xs text-text-muted">
-                  {location.relatedProjectSlugs.length}
+                  {visibleRelatedProjectSlugs.length}
                 </span>
               </button>
             );
@@ -113,10 +118,13 @@ export function EngineeringFootprint({
                   Company context: {activeLocation.relatedCompanyNames.join(", ")}
                 </p>
               ) : null}
-              {activeLocation.relatedProjectSlugs.length ? (
+              {activeLocation.relatedProjectSlugs.some((slug) =>
+                visibleStorySlugs.has(slug),
+              ) ? (
                 <p className="mt-3 text-sm leading-6 text-text-secondary">
                   Related projects:{" "}
                   {activeLocation.relatedProjectSlugs
+                    .filter((slug) => visibleStorySlugs.has(slug))
                     .map(
                       (slug) =>
                         stories.find((story) => story.slug === slug)?.shortTitle ??
@@ -128,6 +136,11 @@ export function EngineeringFootprint({
               {activeLocation.contextTypes.length ? (
                 <p className="mt-3 text-sm leading-6 text-text-secondary">
                   Context: {activeLocation.contextTypes.join(", ")}
+                </p>
+              ) : null}
+              {activeLocation.engagementMode ? (
+                <p className="mt-3 text-sm leading-6 text-text-secondary">
+                  Engagement: {activeLocation.engagementMode}
                 </p>
               ) : null}
               <ul className="mt-3 grid gap-2 text-sm leading-6 text-text-muted">

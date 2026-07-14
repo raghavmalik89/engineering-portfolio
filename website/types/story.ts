@@ -4,26 +4,37 @@ export type StoryImage = {
   src: string;
   alt: string;
   caption?: string;
-  aspect?: "landscape" | "portrait";
+  aspect?: "landscape" | "portrait" | "wide" | "tall";
   objectPosition?: string;
 };
 
-export type StorySectionId =
-  | "problem"
-  | "feasibility"
-  | "custom-system"
-  | "constraints"
-  | "architecture"
-  | "validation"
-  | "deployment"
-  | "outcome"
-  | "lessons"
-  | "demonstrates";
+export type StoryVideoMedia = {
+  type: "video";
+  src: string;
+  poster: string;
+  fallbackImage: StoryImage;
+  objectPosition?: string;
+};
+
+export type StoryIndexVariant = "flagship" | "compact";
+export type StoryIndexGroup = "flagship" | "bradken-programmes";
+
+export type StoryPresentation = {
+  indexVariant: StoryIndexVariant;
+  indexGroup: StoryIndexGroup;
+  showOnStoriesIndex: boolean;
+};
+
+export type StorySectionId = string;
 
 export type StorySection = {
   id: StorySectionId;
   title: string;
   body?: string[];
+  orderedItems?: string[];
+  bullets?: string[];
+  closingBody?: string[];
+  quote?: string;
   images?: StoryImage[];
 };
 
@@ -50,14 +61,17 @@ export type StorySeo = {
 
 export type Story = {
   title: string;
+  cardTitle?: string;
   shortTitle: string;
   slug: string;
   company: string;
+  eyebrow?: string;
   summary: string;
   heroProposition?: string;
   heroSummary?: string;
   status: StoryStatus;
   displayOrder: number;
+  presentation?: StoryPresentation;
   role?: string;
   period?: string;
   domains: string[];
@@ -66,6 +80,7 @@ export type Story = {
   snapshot?: StorySnapshotItem[];
   cardImage?: StoryImage;
   heroImage?: StoryImage;
+  heroMedia?: StoryVideoMedia;
   sections: StorySection[];
   gallery?: StoryImage[];
   externalLinks?: StoryExternalLink[];
@@ -90,9 +105,12 @@ export type FootprintLocation = {
     | "development"
     | "testing"
     | "deployment"
+    | "commissioning"
+    | "remote-support"
     | "remote-work"
     | "broader-career"
   >;
+  engagementMode?: "in-person" | "remote" | "mixed";
   isProvisional?: boolean;
   note?: string;
 };
