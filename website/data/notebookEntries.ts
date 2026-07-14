@@ -8,7 +8,7 @@ export const notebookEntries: NotebookEntry[] = [
     cardEyebrow: "Engineering Notebook · Active R&D",
     summary:
       "A custom 920 MHz sensor node and reusable codebase for low-power industrial and logistics monitoring. The working prototype integrates motion, shock, temperature and humidity sensing, compact RF packets, receiver decoding and measurement-led battery modelling before deep-sleep optimisation.",
-    status: "review",
+    status: "published",
     visibleStatus: "Functional prototype · Active development",
     displayOrder: 1,
     entryType: "Build Log",
