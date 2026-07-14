@@ -34,7 +34,7 @@ export function StoryHeroMedia({ media }: StoryHeroMediaProps) {
   }, []);
 
   return (
-    <figure className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65">
+    <figure>
       <div className="relative aspect-[4/3]">
         {shouldRenderVideo ? (
           <video
@@ -45,7 +45,7 @@ export function StoryHeroMedia({ media }: StoryHeroMediaProps) {
             playsInline
             preload="metadata"
             poster={media.poster}
-            className="block h-full w-full object-cover"
+            className="block h-full w-full rounded-lg object-cover"
             style={{ objectPosition }}
           >
             <source src={media.src} type="video/webm" />
@@ -56,14 +56,14 @@ export function StoryHeroMedia({ media }: StoryHeroMediaProps) {
             alt={media.fallbackImage.alt}
             fill
             priority
-            sizes="(min-width: 1024px) 38vw, 100vw"
-            className="object-cover"
+            sizes="(min-width: 1120px) 600px, (min-width: 1024px) 52vw, 100vw"
+            className="rounded-lg object-cover"
             style={{ objectPosition }}
           />
         )}
       </div>
       {media.fallbackImage.caption ? (
-        <figcaption className="border-t border-border-subtle/70 px-4 py-3 text-sm leading-6 text-text-muted">
+        <figcaption className="mt-3 px-1 text-sm leading-6 text-text-muted">
           {media.fallbackImage.caption}
         </figcaption>
       ) : null}

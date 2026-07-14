@@ -136,10 +136,11 @@ The current hero uses a responsive two-column grid on large screens:
 
 - Left column: company eyebrow, title, proposition and summary
 - Right column: hero figure when an approved image exists
-- Hero image container: bordered surface with `aspect-[4/3]`
+- Hero media uses a larger editorial treatment with `aspect-[4/3]`, no visible
+  border/card frame and subtle image rounding
 - Hero image uses `next/image`, `fill`, `object-cover` and a responsive
   `sizes` value
-- Hero image captions sit below the image inside the same bordered figure
+- Hero image captions sit below the image without adding a framed panel
 - Missing images render a restrained "Images pending" surface
 
 Planned flagship stories must not use fake, generated or weakly associated

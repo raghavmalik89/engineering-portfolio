@@ -9,7 +9,7 @@ export function StoryHero({ story }: { story: Story }) {
     story.status === "planned" || story.status === "draft";
 
   return (
-    <header className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-end">
+    <header className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(420px,1.15fr)] lg:items-center">
       <div>
         <p className={storyLabelClassName}>
           {story.eyebrow ?? story.company}
@@ -35,19 +35,19 @@ export function StoryHero({ story }: { story: Story }) {
       {story.heroMedia ? (
         <StoryHeroMedia media={story.heroMedia} />
       ) : story.heroImage ? (
-        <figure className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65">
+        <figure>
           <div className="relative aspect-[4/3]">
             <Image
               src={story.heroImage.src}
               alt={story.heroImage.alt}
               fill
               priority
-              sizes="(min-width: 1024px) 38vw, 100vw"
-              className="object-cover"
+              sizes="(min-width: 1120px) 600px, (min-width: 1024px) 52vw, 100vw"
+              className="rounded-lg object-cover"
             />
           </div>
           {story.heroImage.caption ? (
-            <figcaption className="border-t border-border-subtle/70 px-4 py-3 text-sm leading-6 text-text-muted">
+            <figcaption className="mt-3 px-1 text-sm leading-6 text-text-muted">
               {story.heroImage.caption}
             </figcaption>
           ) : null}
