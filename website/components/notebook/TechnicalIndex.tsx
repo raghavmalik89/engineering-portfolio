@@ -41,8 +41,8 @@ export function TechnicalIndex({
       : [];
 
   return (
-    <aside className="lg:sticky lg:top-28 lg:self-start">
-      <section className="rounded-lg border border-border-subtle/70 bg-surface/70 p-5 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+    <aside className="technical-index-sidebar">
+      <section className="rounded-lg border border-border-subtle/70 bg-surface/70 p-5">
         <p className="font-mono text-xs tracking-[0.18em] text-accent-copper uppercase">
           Technical Index
         </p>
