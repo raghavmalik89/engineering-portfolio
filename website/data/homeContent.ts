@@ -12,6 +12,7 @@ export type Capability = {
   evidenceLink?: {
     storySlug: string;
     destinationLabel: string;
+    ctaLabel: string;
   };
 };
 
@@ -39,6 +40,7 @@ export const capabilities: Capability[] = [
     evidenceLink: {
       storySlug: "smartroller",
       destinationLabel: "the SmartRoller productisation story",
+      ctaLabel: "See SmartRoller",
     },
   },
   {
@@ -48,6 +50,7 @@ export const capabilities: Capability[] = [
     evidenceLink: {
       storySlug: "smartroller",
       destinationLabel: "the SmartRoller product architecture story",
+      ctaLabel: "See SmartRoller",
     },
   },
   {
@@ -57,6 +60,7 @@ export const capabilities: Capability[] = [
     evidenceLink: {
       storySlug: "get-vision",
       destinationLabel: "the GET Vision ruggedisation story",
+      ctaLabel: "See GET Vision",
     },
   },
   {
@@ -66,6 +70,7 @@ export const capabilities: Capability[] = [
     evidenceLink: {
       storySlug: "get-vision",
       destinationLabel: "the GET Vision product architecture story",
+      ctaLabel: "See GET Vision",
     },
   },
 ];

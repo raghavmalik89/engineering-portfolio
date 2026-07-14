@@ -40,6 +40,7 @@ export function CapabilityOverview() {
                 key={capability.title}
                 {...capability}
                 href={href}
+                ctaLabel={capability.evidenceLink?.ctaLabel}
                 linkLabel={
                   capability.evidenceLink
                     ? `See ${capability.title} in ${capability.evidenceLink.destinationLabel}`

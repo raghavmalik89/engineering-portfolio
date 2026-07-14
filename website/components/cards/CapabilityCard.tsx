@@ -13,6 +13,7 @@ type CapabilityCardProps = {
   evidenceCaption?: string;
   href?: string;
   linkLabel?: string;
+  ctaLabel?: string;
 };
 
 export function CapabilityCard({
@@ -25,6 +26,7 @@ export function CapabilityCard({
   evidenceCaption,
   href,
   linkLabel,
+  ctaLabel = "See this in practice",
 }: CapabilityCardProps) {
   const hasEvidence = image || evidenceLabel || evidenceCaption;
 
@@ -76,7 +78,7 @@ export function CapabilityCard({
 
       {href ? (
         <span className="mt-auto pt-6 text-sm font-semibold text-accent-beige transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-copper group-focus-visible:text-accent-copper">
-          See this in practice{" "}
+          {ctaLabel}{" "}
           <span
             aria-hidden="true"
             className="inline-block transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0"
