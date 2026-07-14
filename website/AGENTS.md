@@ -19,3 +19,8 @@ Before creating or materially changing any story page, read
 `../docs/StoriesDesignSystem.md`, inspect `/stories/smartroller`, inspect the
 current reusable story components, and preserve the established Stories template
 unless a template-level change is explicitly authorised.
+
+Before creating or materially changing any Notebook entry or Notebook template,
+read `../docs/NotebookDesignSystem.md`, inspect `/notebook`, inspect the current
+reusable Notebook components, and preserve the established Notebook system unless
+a template-level change is explicitly authorised.

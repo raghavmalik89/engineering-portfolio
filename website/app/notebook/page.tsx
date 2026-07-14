@@ -1,40 +1,39 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/common/ButtonLink";
+import { NotebookExperience } from "@/components/notebook/NotebookExperience";
 import { PageShell } from "@/components/layout/PageShell";
-import { routes } from "@/lib/routes";
+import { getNotebookEntriesForIndex } from "@/data/notebookEntries";
 
 export const metadata: Metadata = {
-  title: "Notebook | Raghav Malik",
+  title: "Engineering Notebook | Raghav Malik",
   description:
-    "Technical notes, experiments, engineering logs, and active project observations from Raghav Malik.",
+    "Technical investigations, architecture notes, experiments and development records from electronics, RF, sensing, software and product-system work.",
 };
 
 export default function NotebookPage() {
+  const entries = getNotebookEntriesForIndex();
+  const canLinkEntries = process.env.NODE_ENV !== "production";
+
   return (
     <PageShell>
-      <main className="mx-auto max-w-[960px] px-6 py-20 sm:px-8 lg:py-28">
-        <section className="rounded-lg border border-border-subtle/70 bg-surface/65 p-8 sm:p-10">
+      <main className="mx-auto max-w-[1200px] px-6 py-16 sm:px-8 lg:py-24">
+        <section className="mb-10 max-w-[780px]">
           <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">
             Notebook
           </p>
-          <h1 className="mt-5 text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl">
-            Notebook
+          <h1 className="mt-5 text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl lg:text-6xl">
+            Engineering Notebook
           </h1>
-          <p className="mt-6 max-w-[760px] text-lg leading-8 text-text-secondary">
-            Technical notes, experiments, engineering logs, personal projects,
-            RF/electronics work, Industrial IoT prototypes, and practical
-            lessons from active building.
+          <p className="mt-6 text-lg leading-8 text-text-secondary">
+            Technical investigations, architecture notes, experiments and
+            development records from electronics, RF, sensing, software and
+            product-system work.
           </p>
-          <p className="mt-5 text-text-muted">
-            Notebook entries are being prepared.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href={routes.resume}>View Resume</ButtonLink>
-            <ButtonLink href={routes.contact} variant="secondary">
-              Contact Raghav
-            </ButtonLink>
-          </div>
         </section>
+
+        <NotebookExperience
+          entries={entries}
+          canLinkEntries={canLinkEntries}
+        />
       </main>
     </PageShell>
   );

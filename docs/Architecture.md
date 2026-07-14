@@ -57,6 +57,8 @@ website/
 |-- app/
 |   |-- about/page.tsx
 |   |-- contact/page.tsx
+|   |-- notebook/page.tsx
+|   |-- notebook/[slug]/page.tsx
 |   |-- stories/page.tsx
 |   |-- stories/[slug]/page.tsx
 |   |-- engineering-decisions/page.tsx
@@ -82,6 +84,7 @@ website/
 |   |-- engineering-decisions/
 |   `-- pages/
 |-- data/
+|   |-- notebookEntries.ts
 |   |-- stories.ts
 |   `-- locations.ts
 |-- lib/
@@ -191,9 +194,29 @@ Each future article should include:
 
 ### Engineering Notebook
 
-Engineering Notebook is public from launch. It is for shorter technical notes,
-build logs, test observations, RF experiments, firmware learnings, and product
-architecture reflections.
+The Notebook is distinct from Stories. It preserves technical investigations,
+build records, architecture notes, experiments, test observations, development
+workflows and engineering lessons.
+
+The public index lives at `/notebook` and individual entries use the dynamic
+route `/notebook/[slug]`. The reusable Notebook contract is governed by
+`docs/NotebookDesignSystem.md`.
+
+Notebook content is typed in `website/types/notebook.ts` and stored separately
+from presentation in `website/data/notebookEntries.ts`. The current
+implementation avoids MDX and CMS dependencies.
+
+Notebook image assets use the `website/public/images/notebook/<slug>/`
+hierarchy. Entry records must not reference missing images.
+
+Notebook statuses use `planned`, `draft`, `review`, and `published`. Local
+development may preview unpublished entries. Production exposes full nested
+Notebook pages only for `published` entries; unpublished entry URLs return
+`notFound()` and unpublished index cards remain labelled as in development.
+
+The Notebook index uses vertical cards in a two-column desktop grid with a
+sticky Technical Index. A small client component owns technology-card
+cross-highlighting state; entry pages remain server-rendered where possible.
 
 ## Routing Strategy
 
@@ -204,12 +227,14 @@ Use simple, durable routes:
 /about                         About
 /stories                       Stories index
 /stories/[slug]                Individual story page
+/notebook                      Notebook entries
+/notebook/[slug]               Individual notebook entry
 /selected-systems              Case study index
 /selected-systems/[slug]       Individual case study
 /engineering-decisions         Engineering decision articles
 /engineering-decisions/[slug]  Individual decision article
-/engineering-notebook          Notebook entries
-/engineering-notebook/[slug]   Individual notebook entry
+/engineering-notebook          Legacy notebook placeholder
+/engineering-notebook/[slug]   Legacy notebook placeholder
 /resume                        Interactive resume
 /contact                       Contact
 ```
@@ -282,6 +307,7 @@ Deployment can be revisited later if needed.
 | A-012 | Keep Engineering Atmosphere Layer optional | Ambient signal nodes/topology texture may support atmosphere only if it stays low contrast and never competes with readability. |
 | A-013 | Use typed data files for Stories | Keeps long-term project archive content separate from presentation while avoiding MDX or CMS dependencies during the first production architecture. |
 | A-014 | Keep story and flag assets under `public/images` | Avoids competing public asset hierarchies and keeps deployed media paths predictable. |
+| A-015 | Use typed data files for Notebook | Keeps technical build records and architecture notes separate from presentation while preserving publication gating without MDX in the first Notebook architecture. |
 
 ## Update Rule
 

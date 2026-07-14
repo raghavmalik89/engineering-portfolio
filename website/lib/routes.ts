@@ -4,6 +4,7 @@ export const routes = {
   stories: "/stories",
   story: (slug: string) => `/stories/${slug}`,
   notebook: "/notebook",
+  notebookEntry: (slug: string) => `/notebook/${slug}`,
   selectedSystems: "/selected-systems",
   selectedSystem: (slug: string) => `/selected-systems/${slug}`,
   engineeringNotebook: "/engineering-notebook",
