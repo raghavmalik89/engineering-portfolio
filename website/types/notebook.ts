@@ -4,6 +4,7 @@ export type NotebookEntryType =
   | "Build Log"
   | "Architecture Note"
   | "Engineering Experiment"
+  | "Product Development"
   | "Research Note"
   | "Test Report"
   | "Development Workflow"
@@ -39,6 +40,11 @@ export type NotebookCallout = {
   body: string;
 };
 
+export type NotebookMilestone = {
+  title: string;
+  body: string;
+};
+
 export type NotebookSection = {
   id: string;
   title: string;
@@ -46,6 +52,7 @@ export type NotebookSection = {
   bullets?: string[];
   observations?: NotebookObservation[];
   decisions?: NotebookDecision[];
+  milestones?: NotebookMilestone[];
   codeSnippets?: NotebookCodeSnippet[];
   callout?: NotebookCallout;
   table?: {
@@ -80,6 +87,13 @@ export type NotebookApplicationProfile = {
   body: string;
 };
 
+export type NotebookFeatureVisual = {
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  image: NotebookImage;
+};
+
 export type NotebookSeo = {
   title: string;
   description: string;
@@ -112,6 +126,7 @@ export type NotebookEntry = {
   applicationProfiles?: NotebookApplicationProfile[];
   cardImage?: NotebookImage;
   heroImage?: NotebookImage;
+  featureVisual?: NotebookFeatureVisual;
   snapshot?: NotebookSnapshotItem[];
   sections: NotebookSection[];
   limitations?: string[];

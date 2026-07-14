@@ -38,6 +38,7 @@ export function NotebookCard({
             src={entry.cardImage.src}
             alt={entry.cardImage.alt}
             fill
+            unoptimized={entry.cardImage.src.endsWith(".svg")}
             sizes="(min-width: 1024px) 32vw, 100vw"
             className={
               entry.cardImage.objectFit === "contain"

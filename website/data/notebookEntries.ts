@@ -479,115 +479,434 @@ export const notebookEntries: NotebookEntry[] = [
     },
   },
   {
-    title: "Building a Governed Engineering Portfolio",
-    shortTitle: "Engineering Portfolio Development",
+    title: "Building an Engineering Portfolio as a Product",
+    shortTitle: "Engineering Portfolio Product",
     slug: "engineering-portfolio-development",
+    cardEyebrow: "Engineering Notebook · Product Development",
     summary:
-      "Designing and developing a professional engineering portfolio as a governed software product with reusable content systems, validation gates, release controls and AI-assisted implementation boundaries.",
+      "A purpose-built system for communicating a multidisciplinary engineering career through stakeholder-led UX, original visual design, reusable software architecture and evidence-controlled technical storytelling.",
     status: "review",
+    visibleStatus: "Active development",
     displayOrder: 2,
-    entryType: "Development Workflow",
-    period: "Post-launch development",
+    entryType: "Product Development",
+    organisation: "Independent engineering portfolio",
+    actionLabel: "Read the design decisions",
+    period: "Active development",
+    heroProposition:
+      "A purpose-built system for communicating complex engineering work to recruiters, technical leaders and senior engineers, using different levels of depth for each reader.",
+    heroSummary:
+      "This is not a template website. Its information architecture, user experience, interface design, visual language, editorial system, software architecture and implementation were developed specifically for this portfolio. The project treats communication as a systems problem: identify the stakeholders, define what each reader must understand, select the simplest maintainable architecture and preserve evidence behind every major claim.",
     technologies: [
       "Next.js",
-      "TypeScript",
       "React",
+      "TypeScript",
       "Tailwind CSS",
-      "Responsive Design",
-      "Repository Governance",
-      "Git Workflow",
+      "Information Architecture",
+      "UX/UI Design",
       "Content Architecture",
       "Publication Safety",
+      "Repository Governance",
+      "Progressive Disclosure",
+      "Static Editorial Content",
       "AI-Assisted Development",
     ],
     methods: [
-      "Reusable content systems",
-      "Validation gates",
-      "Branch governance",
-      "Evidence-led editorial workflow",
+      "Stakeholder-led requirements",
+      "Decision-led architecture",
+      "Evidence-controlled editorial workflow",
+      "Responsive validation",
     ],
+    cardImage: {
+      src: "/images/notebook/engineering-portfolio-development/engineering-portfolio-development_decision-flow.svg",
+      alt: "Decision flow linking portfolio stakeholders, communication requirements, architecture, technology, design, validation and operation.",
+      aspect: "wide",
+      objectFit: "contain",
+      objectPosition: "center",
+    },
+    featureVisual: {
+      eyebrow: "System development flow",
+      title: "From stakeholder needs to an operating product",
+      body:
+        "The portfolio architecture followed the same sequence used in an engineering programme: identify the stakeholders, define the problem, derive requirements, select the architecture, validate the system and continue operating it.",
+      image: {
+        src: "/images/notebook/engineering-portfolio-development/engineering-portfolio-development_decision-flow.svg",
+        alt: "Decision flow showing the engineering portfolio's progression from stakeholders and problem definition through requirements, architecture, technology selection, design, validation and ongoing operation.",
+        aspect: "wide",
+        objectFit: "contain",
+        objectPosition: "center",
+      },
+    },
     snapshot: [
       {
-        label: "Architecture",
+        label: "My role",
         value:
-          "Next.js application inside a governed repository, with typed content data separated from presentation components.",
+          "Product architect, UX/UI designer, editorial architect, developer and technical author.",
       },
       {
-        label: "Validation",
+        label: "Project objective",
         value:
-          "Repository workflow requires lint, production build and diff review before commits.",
+          "Create a credible, maintainable and public-safe system for communicating multidisciplinary engineering work.",
       },
       {
-        label: "Publication safety",
+        label: "Core stack",
+        value: "Next.js, React, TypeScript and Tailwind CSS.",
+      },
+      {
+        label: "Content architecture",
         value:
-          "Story and Notebook records can be drafted locally while production routes expose only published content.",
+          "Engineering Stories, Engineering Notebook and structured portfolio data.",
+      },
+      {
+        label: "Design approach",
+        value: "Original UX, UI and visual system.",
+      },
+      {
+        label: "Editorial approach",
+        value:
+          "Evidence-controlled engineering narratives with contribution and IP boundaries.",
+      },
+      {
+        label: "Delivery approach",
+        value: "Branch-controlled, tested and incrementally released.",
+      },
+      {
+        label: "Infrastructure cost",
+        value:
+          "Approximately US$8 per year under current usage and hosting limits.",
+      },
+    ],
+    technologyGroups: [
+      {
+        category: "Core application",
+        items: [
+          {
+            name: "Next.js",
+            purpose:
+              "Routing, rendering, metadata and reusable page architecture for current and future editorial systems.",
+          },
+          {
+            name: "React",
+            purpose:
+              "Repeated interface patterns for media, metadata, navigation, related content and interactive controls.",
+          },
+          {
+            name: "TypeScript",
+            purpose:
+              "Typed content records for statuses, technologies, images, links, sections and metadata.",
+          },
+          {
+            name: "Tailwind CSS",
+            purpose:
+              "Responsive states, spacing and design-token usage kept close to the reusable components.",
+          },
+        ],
+      },
+      {
+        category: "Content and operation",
+        items: [
+          {
+            name: "Static and server-rendered editorial content",
+            purpose:
+              "Fast delivery without a runtime database or application backend for the current publishing model.",
+          },
+          {
+            name: "Structured repository content",
+            purpose:
+              "Version-controlled review of evidence, claims, source links, media and publication state.",
+          },
+          {
+            name: "Git workflow",
+            purpose:
+              "Branch-controlled development with lint, build and diff review before accepted commits.",
+          },
+          {
+            name: "ChatGPT and Codex",
+            purpose:
+              "Retrospective research, evidence reconciliation, editing, implementation assistance and review under human ownership.",
+          },
+        ],
       },
     ],
     sections: [
       {
-        id: "treating-a-portfolio-as-a-product",
-        title: "Treating a portfolio as a product",
+        id: "stakeholders-and-reading-depths",
+        title: "Stakeholders came first",
         body: [
-          "The portfolio is treated as a small product rather than a static brochure. It has route architecture, reusable content models, release controls, design contracts and validation gates.",
-          "That framing matters because the website is itself evidence of product-system thinking: requirements, information architecture, content governance, visual hierarchy, implementation quality and deployment safety all need to work together.",
+          "The portfolio was designed around reader needs rather than around a website template. Recruiters need role fit, seniority and career scope quickly. Engineering managers need judgement, ownership and delivery evidence. Senior engineers need architecture, trade-offs, testing and lessons. Hiring leaders need commercial impact, leadership breadth and credibility. I also need an accurate, maintainable and public-safe technical record.",
+          "A single resume-style page could not serve all of those readers well. The design therefore uses progressive disclosure: a 30-second skim for role fit, a 3-minute technical overview for architecture and decisions, and deeper narratives for readers who want evidence.",
+        ],
+        callout: {
+          label: "Design principle",
+          body: "Read less, understand more, but provide evidence when the reader wants to go deeper.",
+        },
+        observations: [
+          {
+            label: "Recruiters",
+            value: "Role fit, seniority and career scope within seconds.",
+          },
+          {
+            label: "Engineering managers",
+            value: "Judgement, ownership, delivery evidence and communication style.",
+          },
+          {
+            label: "Senior engineers",
+            value: "Architecture, trade-offs, validation and lessons learned.",
+          },
+          {
+            label: "Hiring leaders",
+            value: "Leadership breadth, commercial relevance and credibility.",
+          },
         ],
       },
       {
-        id: "separating-content-from-presentation",
-        title: "Separating content from presentation",
+        id: "the-real-problem",
+        title: "The real problem was not building a website",
         body: [
-          "Stories and Notebook entries use typed data records rather than embedding long content directly into page components. That keeps factual content, publication status, routes, images and metadata separate from reusable presentation components.",
-          "This structure makes it possible to add or review technical records without rewriting the page template each time.",
+          "The real problem was communicating multidisciplinary engineering work without reducing it to resume bullets, overwhelming non-specialist readers or publishing confidential implementation details.",
+          "Traditional resumes are effective for linear career histories, but this career spans product architecture, electronics, RF, mechatronics, software, field validation, programme delivery and technical leadership. Compressing that breadth into short claims removes the evidence and reasoning that make the work credible.",
+        ],
+        bullets: [
+          "Communicate professional positioning within seconds.",
+          "Show leadership and hands-on engineering without confusing contribution boundaries.",
+          "Separate commercial product stories from ongoing technical investigations.",
+          "Support rapid scanning and deep reading from the same system.",
+          "Preserve evidence without exposing customer, company or IP-sensitive material.",
+          "Remain inexpensive to operate and maintainable by one person.",
         ],
       },
       {
-        id: "building-a-reusable-stories-architecture",
-        title: "Building a reusable Stories architecture",
+        id: "why-not-a-template",
+        title: "Why a template was not enough",
         body: [
-          "The Stories system established dynamic routes, status-aware publication gating, reusable narrative components, an Engineering Footprint model and a documented design contract.",
-          "The Notebook builds from that governance pattern, but it uses a distinct technical-record presentation because build logs and architecture notes should not read like project case studies.",
+          "Templates were rejected because the content model and reader journeys were custom, not because custom code is inherently superior.",
+          "Generic portfolio systems can produce polished pages quickly, but they rarely model contribution boundaries, publication states, evidence-controlled project narratives, related technical notes and reader-specific depth. Those requirements shaped the architecture.",
+        ],
+        table: {
+          columns: ["Option", "Advantages", "Limitations", "Decision"],
+          rows: [
+            [
+              "Hosted portfolio builder",
+              "Fast initial setup and low initial development effort.",
+              "Recurring platform cost, limited information architecture, vendor constraints and weak support for deep engineering narratives.",
+              "Rejected.",
+            ],
+            [
+              "Purchased theme",
+              "Reduced front-end effort and prebuilt layouts.",
+              "Generic structure, difficult long-term adaptation and likely mismatch with Stories and Notebook systems.",
+              "Rejected.",
+            ],
+            [
+              "Custom application",
+              "Full control of information architecture, reusable content systems, visual identity and publication workflow.",
+              "Greater initial design and implementation effort, plus responsibility for maintenance.",
+              "Selected.",
+            ],
+          ],
+        },
+        callout: {
+          label: "Decision",
+          body: "The custom site was not chosen because custom code is inherently better. It was chosen because the content model itself was custom.",
+        },
+      },
+      {
+        id: "major-engineering-decisions",
+        title: "Major engineering and technology decisions",
+        body: [
+          "The central decisions were treated as product-system choices: each one had to support the communication requirements, reduce maintenance load or preserve publication control.",
+        ],
+        table: {
+          columns: ["Decision", "Why", "Result"],
+          rows: [
+            [
+              "Next.js",
+              "Static and server-rendered editorial content, structured routing, metadata control and future expansion without manually maintaining unrelated pages.",
+              "Shared dynamic routes and reusable systems for Stories and Notebook entries.",
+            ],
+            [
+              "React",
+              "Repeated interface patterns for media blocks, metadata, navigation, related content and interaction behaviour.",
+              "Design refinements can propagate through reusable components instead of being repeated by hand.",
+            ],
+            [
+              "TypeScript",
+              "Structured metadata, publication states, technologies, images, links and narrative sections become harder to misuse as the project count grows.",
+              "More predictable interfaces and fewer content-shape errors.",
+            ],
+            [
+              "Tailwind CSS",
+              "Rapid iteration for a one-person project, responsive states beside components and controlled spacing/design tokens.",
+              "Fast design iteration without a large disconnected stylesheet architecture.",
+            ],
+            [
+              "Static/server-rendered editorial model",
+              "No current requirement for a database, accounts or runtime application backend.",
+              "Fast delivery and very low infrastructure cost.",
+            ],
+            [
+              "Repository content rather than CMS",
+              "One principal publisher and every project requires evidence, contribution and IP review.",
+              "Content remains version-controlled, reviewable and aligned with the design system.",
+            ],
+            [
+              "Separate Stories and Notebook systems",
+              "Commercial project narratives and ongoing technical investigations need different structures.",
+              "Stories demonstrate architecture, ownership and delivery; Notebook entries show investigation, experiments and evolving technical work.",
+            ],
+            [
+              "Progressive disclosure",
+              "Different readers have radically different available attention.",
+              "Fast skim, structured overview and optional deep dive coexist on the same site.",
+            ],
+          ],
+        },
+      },
+      {
+        id: "operating-cost-discipline",
+        title: "Operating-cost discipline",
+        body: [
+          "Operating cost was treated as a design constraint. The goal was not to avoid all tools, but to avoid infrastructure complexity that did not improve reader comprehension, editorial control or long-term maintainability.",
+          "Current direct website infrastructure cost is approximately US$8 per year under existing usage and hosting limits. Hosting currently remains within a no-cost tier. Paid theme, CMS subscription and database costs are zero for the current architecture.",
+          "ChatGPT is a broader research, editorial and development tool, approximately US$20 per month, and is not counted as pure website infrastructure cost. Free-tier conditions can change, so the cost statement is a current operating-state snapshot rather than a permanent guarantee.",
         ],
       },
       {
-        id: "governing-branch-and-release-flow",
-        title: "Governing branch and release flow",
-        body: [
-          "The repository separates development branches from the frozen production release branch. Governance documents define what agents must read, which commands are safe, how release work is handled and what must not be touched during feature work.",
-          "That is a lightweight form of engineering control: the process protects production while still allowing post-launch development to continue.",
+        id: "design-principles",
+        title: "Design principles",
+        observations: [
+          {
+            label: "Read less, understand more",
+            value:
+              "Each page should answer the first question quickly before asking the reader for deeper attention.",
+          },
+          {
+            label: "Evidence before promotion",
+            value:
+              "Claims are supported through project structure, decisions, images, source links or controlled narrative depth.",
+          },
+          {
+            label: "Multiple reading depths",
+            value:
+              "One system supports skim, overview and deep technical inspection without duplicating content.",
+          },
+          {
+            label: "Responsive by default",
+            value:
+              "Mobile, tablet and desktop layouts are treated as normal use cases, not a final cleanup pass.",
+          },
+          {
+            label: "Reusable implementation",
+            value:
+              "Custom information architecture is implemented through shared routes, typed data and reusable components.",
+          },
+          {
+            label: "Public-safe technical depth",
+            value:
+              "The site preserves technical credibility without publishing confidential implementation details.",
+          },
         ],
       },
       {
-        id: "keeping-private-evidence-outside-the-public-repository",
-        title: "Keeping private evidence outside the public repository",
+        id: "art-and-engineering-workflow",
+        title: "Art and engineering developed together",
         body: [
-          "Editorial source packages, claim registers and sensitive review material are intentionally kept outside the public repository. Public records use approved summaries and public-safe framing instead of copying internal source documents into the site.",
-          "This avoids confusing evidence management with publication and reduces the risk of exposing confidential project details.",
+          "The visual system was not applied after the engineering was complete. Content architecture, interface behaviour, imagery, typography and software structure were developed together as parts of the same product.",
+        ],
+        table: {
+          columns: ["Artistic and editorial workflow", "Engineering and delivery workflow"],
+          rows: [
+            ["Visual references", "Requirements and constraints"],
+            ["Story hierarchy", "Information architecture"],
+            ["Typography and colour", "Design tokens and reusable components"],
+            ["Image and media treatment", "Responsive asset handling"],
+            ["Narrative rhythm", "Structured content schema"],
+            ["Interaction concepts", "Component behaviour"],
+            ["Diagram composition", "Technical accuracy"],
+            ["Editorial review", "Lint, build and regression checks"],
+          ],
+        },
+      },
+      {
+        id: "compact-evolution-timeline",
+        title: "Compact evolution timeline",
+        milestones: [
+          {
+            title: "Positioning",
+            body: "Defined the portfolio around product systems architecture, technical leadership and end-to-end product delivery.",
+          },
+          {
+            title: "Information architecture",
+            body: "Separated fast career navigation, flagship Engineering Stories and technical Notebook entries.",
+          },
+          {
+            title: "Visual system",
+            body: "Developed the dark industrial interface, typography, copper hierarchy, motion and media language.",
+          },
+          {
+            title: "Application architecture",
+            body: "Built the portfolio with Next.js, React, TypeScript and Tailwind using reusable dynamic routes.",
+          },
+          {
+            title: "Canonical Story",
+            body: "Published SmartRoller and used it to establish the reusable Engineering Stories design system.",
+          },
+          {
+            title: "Engineering Notebook",
+            body: "Created a separate architecture for technical investigations, hardware development and engineering records.",
+          },
+          {
+            title: "Editorial governance",
+            body: "Introduced evidence control, contribution boundaries, publication gating and IP-review workflows.",
+          },
+          {
+            title: "Current phase",
+            body: "Expanding project content, diagrams and related-content connections while preserving the established system.",
+          },
         ],
       },
       {
-        id: "using-ai-without-rewriting-engineering-history",
-        title: "Using AI without rewriting engineering history",
+        id: "current-state-and-pending-work",
+        title: "Current state and pending work",
         body: [
-          "AI-assisted implementation is used for coding, structure, review and editorial organisation. It is not used to claim that AI contributed to the original engineering work behind the projects.",
-          "That boundary is important for provenance. The portfolio can use modern tools while still preserving accurate attribution for the underlying engineering decisions, prototypes, validation and delivery work.",
+          "Features remain deferred unless they improve reader comprehension, editorial control or long-term maintainability.",
+        ],
+        observations: [
+          {
+            label: "Completed",
+            value:
+              "Professional positioning, custom visual and interaction system, reusable website architecture, dynamic Engineering Stories, SmartRoller canonical story, Engineering Notebook architecture, evidence workflow and responsive layouts.",
+          },
+          {
+            label: "In progress",
+            value:
+              "Additional flagship stories, deeper Notebook entries, original technical diagrams, related-content connections, accessibility refinement and performance refinement.",
+          },
+          {
+            label: "Intentionally deferred",
+            value:
+              "Paid CMS, database-backed content, user accounts, unnecessary analytics complexity, high-maintenance effects, paid hosting infrastructure and features without a demonstrated reader or maintenance benefit.",
+          },
         ],
       },
       {
-        id: "validation-lint-build-and-visual-qa",
-        title: "Validation: lint, production build and visual QA",
+        id: "ai-assisted-governance",
+        title: "AI-assisted, human-owned workflow",
         body: [
-          "Every substantial change is expected to pass lint and production build validation from the website directory. Visual QA then checks the relevant routes across mobile, tablet and desktop breakpoints.",
-          "The goal is not ceremony. It is to keep a public professional portfolio from drifting into broken routes, layout regressions or unsafe publication states.",
+          "Generative AI supports historical reconstruction, editorial organisation, implementation assistance and review. It does not originate the engineering projects, professional experience, design judgement or product direction.",
+          "Raghav remains the product owner, design authority, technical decision-maker, evidence controller and final reviewer. AI-assisted changes are kept inside repository governance: scoped prompts, diff review, lint, build and human acceptance.",
         ],
       },
-      {
-        id: "what-the-architecture-enables-next",
-        title: "What the architecture enables next",
-        body: [
-          "With Stories and Notebook separated, the site can preserve complete project narratives while also publishing shorter technical investigations, build records and architecture notes.",
-          "That gives future work a clearer home: delivery narratives belong in Stories, while technical evidence and ongoing engineering records belong in Notebook.",
-        ],
-      },
+    ],
+    limitations: [
+      "Cost figures describe the current operating state and hosting limits, not a permanent guarantee.",
+      "The entry publishes public-safe summaries rather than raw evidence records or internal review material.",
+      "Additional screenshots are intentionally omitted; the live website is the artefact.",
+    ],
+    nextSteps: [
+      "Continue expanding flagship Engineering Stories and deeper Notebook records.",
+      "Add only diagrams or media that improve reader comprehension or evidence quality.",
+      "Keep publication status, contribution boundaries and IP review visible in the editorial workflow.",
+      "Review accessibility, performance and content relationships as the archive grows.",
     ],
     relatedStorySlugs: ["smartroller", "get-vision"],
     relatedNotebookSlugs: ["sub-ghz-industrial-iot-sensor"],
@@ -599,16 +918,22 @@ export const notebookEntries: NotebookEntry[] = [
       },
     ],
     seo: {
-      title: "Building a Governed Engineering Portfolio | Engineering Notebook",
+      title: "Building an Engineering Portfolio as a Product | Raghav Malik",
       description:
-        "A development workflow note on building Raghav Malik's engineering portfolio as a governed Next.js product with typed content, validation gates and publication safety.",
+        "How Raghav Malik designed and built a custom engineering portfolio around stakeholder needs, evidence, progressive disclosure, low operating cost and reusable web architecture.",
+      openGraphTitle: "Building an Engineering Portfolio as a Product",
+      openGraphDescription:
+        "A purpose-built engineering portfolio system shaped by stakeholder needs, evidence-controlled narratives, reusable Notebook and Stories architecture, and low operating cost.",
       canonicalPath: "/notebook/engineering-portfolio-development",
       keywords: [
+        "engineering portfolio",
+        "product development",
         "Next.js",
         "TypeScript",
         "content architecture",
-        "repository governance",
+        "progressive disclosure",
         "publication safety",
+        "repository governance",
         "AI-assisted development",
       ],
     },

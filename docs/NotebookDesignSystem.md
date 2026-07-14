@@ -84,6 +84,7 @@ Current supported entry types are:
 - Build Log
 - Architecture Note
 - Engineering Experiment
+- Product Development
 - Research Note
 - Test Report
 - Development Workflow
@@ -180,17 +181,19 @@ The current Notebook entry page hierarchy is:
 3. Entry title
 4. Summary
 5. Status badge
-6. Optional hero image or intentional no-image technical surface
+6. Optional hero image, or a text-led hero when no hero media is supplied
 7. Metadata grid
-8. At-a-glance snapshot
-9. Optional approved links
-10. Narrative sections
-11. Observations, decisions, callouts, code snippets and images when present
-12. Limitations
-13. Next steps
-14. Related Notebook entries
-15. Related Stories
-16. Global Back to Top control
+8. Optional wide feature visual after metadata when a diagram supports the
+   entry structure
+9. At-a-glance snapshot
+10. Optional approved links
+11. Narrative sections
+12. Observations, decisions, callouts, code snippets and images when present
+13. Limitations
+14. Next steps
+15. Related Notebook entries
+16. Related Stories
+17. Global Back to Top control
 
 Only populated content renders. Do not add empty headings, placeholder copy,
 fake diagrams or unsupported claims.
@@ -199,6 +202,14 @@ Entry metadata keeps the primary cards such as Type, Status, Organisation and
 Period in the first responsive grid rows. Technologies render as a full-width
 metadata panel below those cards, using semantic list markup and a responsive
 four/three/two-column matrix rather than a narrow tag list.
+
+Notebook entries may use compact milestone timelines when the project history
+helps explain the engineering process. Timeline text must remain real semantic
+HTML, not flattened into an image, and should stay lightweight enough that it
+does not dominate the entry.
+
+Decision-led entries should favour concise Decision / Why / Result structures
+when explaining technology, architecture or operating-model choices.
 
 ## Container and Width System
 
@@ -216,6 +227,10 @@ individual entries.
 Transparent PNG hero media is allowed when the approved asset benefits from the
 dark hero surface. In that case the entry data should request a contained image
 treatment so the asset is not cropped, clipped or placed on a white rectangle.
+Transparent SVG diagrams may also render as wide, unframed feature visuals when
+they are public-safe, accessible and support the entry structure after the
+metadata. These diagrams should sit directly on the Notebook background,
+preserve transparency and use the established site accent colour.
 
 ## Visual Hierarchy
 
@@ -257,6 +272,7 @@ Current image roles are:
 
 - card image: vertical Notebook index card only
 - hero image: nested entry hero media
+- feature visual: wide unframed diagram or visual chapter break after metadata
 - narrative figures: section-specific evidence images with figure captions
 - Open Graph image: static approved card/social image when supplied
 

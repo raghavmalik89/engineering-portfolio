@@ -21,6 +21,13 @@ import {
 import type { NotebookEntry } from "@/types/notebook";
 import type { Story } from "@/types/story";
 
+const notebookHeroAspectClassNames = {
+  landscape: "relative aspect-[4/3]",
+  portrait: "relative aspect-[3/4]",
+  wide: "relative aspect-[16/9]",
+  tall: "relative aspect-[9/16]",
+} as const;
+
 type NotebookEntryPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -116,7 +123,13 @@ export default async function NotebookEntryPage({
         <NotebookBackLink />
 
         <div className="grid gap-10">
-          <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,38%)] lg:items-start">
+          <section
+            className={
+              entry.heroImage
+                ? "grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,38%)] lg:items-start"
+                : "max-w-[900px]"
+            }
+          >
             <div>
               <p className={notebookLabelClassName}>
                 {entry.cardEyebrow ?? entry.entryType}
@@ -142,12 +155,19 @@ export default async function NotebookEntryPage({
 
             {entry.heroImage ? (
               <figure className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65">
-                <div className="relative aspect-[4/3]">
+                <div
+                  className={
+                    notebookHeroAspectClassNames[
+                      entry.heroImage.aspect ?? "landscape"
+                    ]
+                  }
+                >
                   <Image
                     src={entry.heroImage.src}
                     alt={entry.heroImage.alt}
                     fill
                     priority
+                    unoptimized={entry.heroImage.src.endsWith(".svg")}
                     sizes="(min-width: 1024px) 34vw, 100vw"
                     className={
                       entry.heroImage.objectFit === "contain"
@@ -167,23 +187,7 @@ export default async function NotebookEntryPage({
                   </figcaption>
                 ) : null}
               </figure>
-            ) : (
-              <div
-                aria-hidden="true"
-                className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/55"
-              >
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(216,184,106,0.12),transparent_34%),linear-gradient(90deg,rgba(216,184,106,0.08)_1px,transparent_1px),linear-gradient(0deg,rgba(216,184,106,0.05)_1px,transparent_1px)] bg-[length:100%_100%,28px_28px,28px_28px]" />
-                <div className="absolute inset-x-6 bottom-6">
-                  <p className="font-mono text-xs tracking-[0.18em] text-accent-copper uppercase">
-                    Technical record
-                  </p>
-                  <p className="mt-2 max-w-[20rem] text-sm leading-6 text-text-muted">
-                    Approved images or diagrams will be added only when they are
-                    available and public-safe.
-                  </p>
-                </div>
-              </div>
-            )}
+            ) : null}
           </section>
 
           <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -239,22 +243,84 @@ export default async function NotebookEntryPage({
                 </ul>
               </div>
             ) : null}
-            {entry.methods?.length ? (
-              <div className="rounded-lg border border-border-subtle/70 bg-surface/55 p-5 sm:col-span-2 lg:col-span-4">
-                <p className={notebookLabelClassName}>Methods</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {entry.methods.map((method) => (
-                    <span
-                      key={method}
-                      className="rounded-full border border-border-subtle/70 px-3 py-1 text-xs text-text-muted"
-                    >
-                      {method}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </section>
+
+          {entry.featureVisual ? (
+            <section className="grid gap-5">
+              {entry.featureVisual.eyebrow ||
+              entry.featureVisual.title ||
+              entry.featureVisual.body ? (
+                <div className="max-w-[780px]">
+                  {entry.featureVisual.eyebrow ? (
+                    <p className={notebookLabelClassName}>
+                      {entry.featureVisual.eyebrow}
+                    </p>
+                  ) : null}
+                  {entry.featureVisual.title ? (
+                    <h2 className="mt-3 text-2xl leading-tight font-semibold text-foreground">
+                      {entry.featureVisual.title}
+                    </h2>
+                  ) : null}
+                  {entry.featureVisual.body ? (
+                    <p className="mt-3 leading-7 text-text-secondary">
+                      {entry.featureVisual.body}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+              <figure className="mx-auto w-full max-w-[1080px]">
+                <div
+                  className={
+                    notebookHeroAspectClassNames[
+                      entry.featureVisual.image.aspect ?? "wide"
+                    ]
+                  }
+                >
+                  <Image
+                    src={entry.featureVisual.image.src}
+                    alt={entry.featureVisual.image.alt}
+                    fill
+                    unoptimized={entry.featureVisual.image.src.endsWith(".svg")}
+                    sizes="(min-width: 1120px) 1080px, calc(100vw - 3rem)"
+                    className={
+                      entry.featureVisual.image.objectFit === "cover"
+                        ? "object-cover"
+                        : "object-contain"
+                    }
+                    style={
+                      entry.featureVisual.image.objectPosition
+                        ? {
+                            objectPosition:
+                              entry.featureVisual.image.objectPosition,
+                          }
+                        : undefined
+                    }
+                  />
+                </div>
+                {entry.featureVisual.image.caption ? (
+                  <figcaption className="mt-3 text-sm leading-6 text-text-muted">
+                    {entry.featureVisual.image.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            </section>
+          ) : null}
+
+          {entry.methods?.length ? (
+            <section className="rounded-lg border border-border-subtle/70 bg-surface/55 p-5">
+              <p className={notebookLabelClassName}>Methods</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {entry.methods.map((method) => (
+                  <span
+                    key={method}
+                    className="rounded-full border border-border-subtle/70 px-3 py-1 text-xs text-text-muted"
+                  >
+                    {method}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           {entry.snapshot?.length ? (
             <section className="rounded-lg border border-border-subtle/70 bg-surface/60 p-6 sm:p-7">

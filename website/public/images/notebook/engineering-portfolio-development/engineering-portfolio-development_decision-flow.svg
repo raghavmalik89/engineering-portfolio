@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc">
+  <title id="title">Engineering portfolio product decision flow</title>
+  <desc id="desc">Stakeholders lead to communication problem, requirements, architecture, technology selection, design system, validation and operation. Three reading depths sit beneath the main flow.</desc>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#d8b86a"/>
+    </marker>
+    <style>
+      .title { font: 700 38px Inter, Arial, sans-serif; fill: #FFFFFF; letter-spacing: .4px; }
+      .subtitle { font: 500 18px Inter, Arial, sans-serif; fill: #B9B4AE; }
+      .node-title { font: 700 20px Inter, Arial, sans-serif; fill: #FFFFFF; }
+      .node-copy { font: 500 15px Inter, Arial, sans-serif; fill: #F4F1ED; }
+      .rail-label { font: 700 17px Inter, Arial, sans-serif; fill: #FFFFFF; }
+      .rail-copy { font: 500 14px Inter, Arial, sans-serif; fill: #B9B4AE; }
+    </style>
+  </defs>
+
+  <text x="800" y="56" text-anchor="middle" class="title">BUILDING AN ENGINEERING PORTFOLIO AS A PRODUCT</text>
+  <text x="800" y="88" text-anchor="middle" class="subtitle">Stakeholder needs drive every architectural, visual and technical decision</text>
+
+  <path d="M150 335 H1450" stroke="#d8b86a" stroke-width="4" fill="none" marker-end="url(#arrow)" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- nodes -->
+  <g transform="translate(40,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">STAKEHOLDERS</text>
+    <text x="95" y="70" text-anchor="middle" class="node-copy"><tspan x="95">Recruiters</tspan><tspan x="95" dy="22">Engineering leaders</tspan><tspan x="95" dy="22">Senior engineers</tspan></text>
+  </g>
+
+  <g transform="translate(235,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">PROBLEM</text>
+    <text x="95" y="72" text-anchor="middle" class="node-copy"><tspan x="95">Linear resumes hide</tspan><tspan x="95" dy="22">multidisciplinary depth</tspan><tspan x="95" dy="22">and evidence</tspan></text>
+  </g>
+
+  <g transform="translate(430,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">REQUIREMENTS</text>
+    <text x="95" y="72" text-anchor="middle" class="node-copy"><tspan x="95">Fast comprehension</tspan><tspan x="95" dy="22">credible ownership</tspan><tspan x="95" dy="22">optional depth</tspan></text>
+  </g>
+
+  <g transform="translate(625,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">ARCHITECTURE</text>
+    <text x="95" y="72" text-anchor="middle" class="node-copy"><tspan x="95">Stories + Notebook</tspan><tspan x="95" dy="22">structured content</tspan><tspan x="95" dy="22">dynamic routes</tspan></text>
+  </g>
+
+  <g transform="translate(820,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">TECHNOLOGY</text>
+    <text x="95" y="72" text-anchor="middle" class="node-copy"><tspan x="95">Next.js + React</tspan><tspan x="95" dy="22">TypeScript</tspan><tspan x="95" dy="22">Tailwind CSS</tspan></text>
+  </g>
+
+  <g transform="translate(1015,150)">
+    <rect width="190" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="95" cy="0" r="10" fill="#d8b86a"/>
+    <text x="95" y="38" text-anchor="middle" class="node-title">DESIGN</text>
+    <text x="95" y="72" text-anchor="middle" class="node-copy"><tspan x="95">Original UX + UI</tspan><tspan x="95" dy="22">editorial system</tspan><tspan x="95" dy="22">copper hierarchy</tspan></text>
+  </g>
+
+  <g transform="translate(1210,150)">
+    <rect width="170" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="85" cy="0" r="10" fill="#d8b86a"/>
+    <text x="85" y="38" text-anchor="middle" class="node-title">VALIDATE</text>
+    <text x="85" y="72" text-anchor="middle" class="node-copy"><tspan x="85">Responsive QA</tspan><tspan x="85" dy="22">lint + build</tspan><tspan x="85" dy="22">evidence review</tspan></text>
+  </g>
+
+  <g transform="translate(1385,150)">
+    <rect width="170" height="155" rx="18" fill="none" stroke="#d8b86a" stroke-width="3"/>
+    <circle cx="85" cy="0" r="10" fill="#d8b86a"/>
+    <text x="85" y="38" text-anchor="middle" class="node-title">OPERATE</text>
+    <text x="85" y="72" text-anchor="middle" class="node-copy"><tspan x="85">Low cost</tspan><tspan x="85" dy="22">version controlled</tspan><tspan x="85" dy="22">continuously refined</tspan></text>
+  </g>
+
+  <!-- node-to-flow stems -->
+  <g stroke="#d8b86a" stroke-width="3" opacity="0.9">
+    <path d="M135 305 V335"/><path d="M330 305 V335"/><path d="M525 305 V335"/>
+    <path d="M720 305 V335"/><path d="M915 305 V335"/><path d="M1110 305 V335"/>
+    <path d="M1295 305 V335"/><path d="M1470 305 V335"/>
+  </g>
+
+  <!-- reading depth rail -->
+  <path d="M260 455 H1340" stroke="#d8b86a" stroke-width="2" fill="none" opacity="0.8"/>
+  <circle cx="360" cy="455" r="8" fill="#d8b86a"/>
+  <circle cx="800" cy="455" r="8" fill="#d8b86a"/>
+  <circle cx="1240" cy="455" r="8" fill="#d8b86a"/>
+
+  <text x="360" y="505" text-anchor="middle" class="rail-label">30-SECOND SKIM</text>
+  <text x="360" y="532" text-anchor="middle" class="rail-copy">Role fit, scope and outcome</text>
+
+  <text x="800" y="505" text-anchor="middle" class="rail-label">3-MINUTE OVERVIEW</text>
+  <text x="800" y="532" text-anchor="middle" class="rail-copy">Architecture, decisions and evidence</text>
+
+  <text x="1240" y="505" text-anchor="middle" class="rail-label">DEEP DIVE</text>
+  <text x="1240" y="532" text-anchor="middle" class="rail-copy">Trade-offs, validation and lessons</text>
+
+  <text x="800" y="612" text-anchor="middle" class="subtitle">READ LESS. UNDERSTAND MORE. GO DEEPER WHEN THE EVIDENCE MATTERS.</text>
+</svg>

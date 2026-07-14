@@ -14,6 +14,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
   const hasObservations =
     section.observations && section.observations.length > 0;
   const hasDecisions = section.decisions && section.decisions.length > 0;
+  const hasMilestones = section.milestones && section.milestones.length > 0;
   const hasCodeSnippets =
     section.codeSnippets && section.codeSnippets.length > 0;
   const hasImages = section.images && section.images.length > 0;
@@ -25,6 +26,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
     !hasBullets &&
     !hasObservations &&
     !hasDecisions &&
+    !hasMilestones &&
     !hasCodeSnippets &&
     !hasImages &&
     !hasCallout &&
@@ -88,6 +90,25 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
             </article>
           ))}
         </div>
+      ) : null}
+
+      {hasMilestones ? (
+        <ol className="mt-6 grid gap-4 border-l border-border-subtle/70 pl-5">
+          {section.milestones?.map((milestone) => (
+            <li key={milestone.title} className="relative">
+              <span
+                aria-hidden="true"
+                className="absolute -left-[1.6rem] top-1.5 h-3 w-3 rounded-full border border-accent-copper bg-background"
+              />
+              <h3 className="text-base font-semibold text-foreground">
+                {milestone.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
+                {milestone.body}
+              </p>
+            </li>
+          ))}
+        </ol>
       ) : null}
 
       {hasCallout ? (
@@ -182,6 +203,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  unoptimized={image.src.endsWith(".svg")}
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className={
                     image.objectFit === "contain"
