@@ -12,7 +12,7 @@ export const stories: Story[] = [
       "From a hazardous field problem to a commercially deployed IIoT product",
     heroSummary:
       "SmartRoller transformed manual load-roller temperature checks on large mining excavators into a rugged connected monitoring system designed for severe heat, shock, vibration, water, steel-obstructed radio paths and remote deployment.",
-    status: "review",
+    status: "published",
     displayOrder: 1,
     presentation: {
       indexVariant: "flagship",
@@ -229,7 +229,7 @@ export const stories: Story[] = [
       "Turning an unstable vision prototype into a connected, field-deployable product for one of mining's most demanding operating environments.",
     heroSummary:
       "As Bradken's Technical Product Lead, Raghav coordinated suppliers, customers, architecture reviews, validation and international deployment. He guided the hardware and machine-integration decisions around power, protection, mounting, serviceability and field readiness, stepping into hands-on installation and fault finding whenever the product met reality.",
-    status: "review",
+    status: "published",
     displayOrder: 2,
     presentation: {
       indexVariant: "flagship",

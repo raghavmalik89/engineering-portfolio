@@ -485,7 +485,7 @@ export const notebookEntries: NotebookEntry[] = [
     cardEyebrow: "Engineering Notebook · Product Development",
     summary:
       "A purpose-built system for communicating a multidisciplinary engineering career through stakeholder-led UX, original visual design, reusable software architecture and evidence-controlled technical storytelling.",
-    status: "review",
+    status: "published",
     visibleStatus: "Active development",
     displayOrder: 2,
     entryType: "Product Development",
