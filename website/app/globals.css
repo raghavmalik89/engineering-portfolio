@@ -46,6 +46,31 @@ button {
   align-self: start;
 }
 
+.portfolio-scrollbar {
+  scrollbar-color:
+    color-mix(in srgb, var(--accent-copper) 55%, transparent)
+    color-mix(in srgb, var(--background) 55%, transparent);
+  scrollbar-width: thin;
+}
+
+.portfolio-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--background) 55%, transparent);
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--accent-copper) 55%, transparent);
+  border: 2px solid color-mix(in srgb, var(--background) 80%, transparent);
+  border-radius: 999px;
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--accent-copper) 80%, transparent);
+}
+
 @media (min-width: 1024px) and (min-height: 860px) {
   .technical-index-sidebar {
     position: sticky;

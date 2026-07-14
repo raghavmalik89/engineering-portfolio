@@ -36,7 +36,7 @@ export function EngineeringFootprint({
 
   return (
     <aside className="self-start lg:sticky lg:top-10">
-      <section className="rounded-lg border border-border-subtle/70 bg-surface/65 p-5 sm:p-6 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto">
+      <section className="portfolio-scrollbar rounded-lg border border-border-subtle/70 bg-surface/65 p-5 sm:p-6 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto">
         <p className="font-mono text-xs tracking-[0.18em] text-accent-copper uppercase">
           Engineering Footprint
         </p>
