@@ -59,7 +59,7 @@ export function StoryCard({
           {story.domains.map((domain) => (
             <span
               key={domain}
-              className="rounded-full border border-border-subtle/70 px-3 py-1 text-xs text-text-muted"
+              className="rounded-full border border-border-subtle/70 px-3 py-1 text-xs text-text-secondary"
             >
               {domain}
             </span>
@@ -67,11 +67,11 @@ export function StoryCard({
         </div>
 
         {canLink ? (
-          <span className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-beige">
+          <span className="mt-auto pt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
             Open story
             <span
               aria-hidden="true"
-              className="transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
+              className="text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
             >
               -&gt;
             </span>

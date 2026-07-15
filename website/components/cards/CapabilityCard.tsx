@@ -37,7 +37,7 @@ export function CapabilityCard({
           <IconGlyph name={icon} />
         </div>
         {hasEvidence ? (
-          <span className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
+          <span className="font-mono text-[10px] tracking-[0.16em] text-text-secondary uppercase">
             Evidence
           </span>
         ) : null}
@@ -69,7 +69,7 @@ export function CapabilityCard({
             </p>
           ) : null}
           {evidenceCaption ? (
-            <p className="mt-2 text-sm leading-6 text-text-muted">
+            <p className="mt-2 text-sm leading-6 text-text-secondary">
               {evidenceCaption}
             </p>
           ) : null}
@@ -77,11 +77,11 @@ export function CapabilityCard({
       ) : null}
 
       {href ? (
-        <span className="mt-auto pt-6 text-sm font-semibold text-accent-beige transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-copper group-focus-visible:text-accent-copper">
+        <span className="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
           {ctaLabel}{" "}
           <span
             aria-hidden="true"
-            className="inline-block transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0"
+            className="inline-block text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0"
           >
             -&gt;
           </span>

@@ -348,7 +348,7 @@ export default async function NotebookEntryPage({
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-border-subtle/70 bg-background/20 p-5 transition-colors duration-200 motion-reduce:transition-none hover:border-accent-copper/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
+                    className="group rounded-lg border border-border-subtle/70 bg-background/20 p-5 transition-colors duration-200 motion-reduce:transition-none hover:border-accent-copper/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
                   >
                     <span className="text-base font-semibold text-foreground">
                       {link.label}
@@ -358,9 +358,14 @@ export default async function NotebookEntryPage({
                         ? "Public GitHub repository for the approved source material."
                         : "Approved external source material."}
                     </span>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-beige">
+                    <span className="mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
                       Open source
-                      <span aria-hidden="true">-&gt;</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
+                      >
+                        -&gt;
+                      </span>
                       <span className="sr-only">
                         Opens in a new tab
                       </span>
