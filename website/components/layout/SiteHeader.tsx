@@ -8,7 +8,7 @@ export function SiteHeader() {
     <header className="relative z-10 border-b border-border-subtle/80">
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-6 py-4 sm:gap-7 sm:py-5 lg:gap-9 lg:py-8 text-center sm:px-8 sm:py-6"
+        className="mx-auto flex max-w-[1200px] flex-col items-center gap-5 px-6 py-4 text-center sm:gap-6 sm:px-8 sm:py-5 lg:gap-5 lg:py-5"
       >
         <Link
           href={routes.home}
@@ -20,7 +20,7 @@ export function SiteHeader() {
             width={300}
             height={168} // Adjusted height to preserve aspect ratio
             priority
-            className="h-auto w-[160px] sm:w-[220px] lg:w-[300px]"
+            className="h-auto w-[150px] sm:w-[185px] lg:w-[200px]"
           />
           <span aria-hidden="true">Raghav Malik</span>
           <span className="block h-px w-full bg-accent-copper transition-transform duration-200 group-hover:scale-x-75" />

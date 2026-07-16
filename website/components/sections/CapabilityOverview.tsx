@@ -8,7 +8,7 @@ import { routes } from "@/lib/routes";
 export function CapabilityOverview() {
   return (
     <section className="relative">
-      <div className="mx-auto max-w-[1200px] px-6 py-16 sm:px-8 lg:py-24">
+      <div className="mx-auto max-w-[1200px] px-6 pt-16 pb-8 sm:px-8 sm:pt-16 sm:pb-10 lg:pt-24 lg:pb-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12">
           <div>
             <SectionHeader
@@ -23,7 +23,7 @@ export function CapabilityOverview() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {capabilities.map((capability) => {
             const linkedStory = capability.evidenceLink
               ? getStoryBySlug(capability.evidenceLink.storySlug)

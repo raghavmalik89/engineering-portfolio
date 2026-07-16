@@ -10,7 +10,7 @@ const philosophyPoints = [
 export function EngineeringPhilosophy() {
   return (
     <section>
-      <div className="mx-auto max-w-[1200px] px-6 py-20 sm:px-8 lg:py-24">
+      <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-20 sm:px-8 sm:pt-12 sm:pb-20 lg:pt-12 lg:pb-24">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-mono text-xs tracking-[0.2em] text-accent-copper uppercase">

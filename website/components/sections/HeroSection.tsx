@@ -4,7 +4,7 @@ import { heroContent } from "@/data/home";
 
 export function HeroSection() {
   return (
-    <section className="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 sm:px-8 sm:py-24 lg:grid-cols-12 lg:gap-12 lg:py-32">
+    <section className="mx-auto grid max-w-[1200px] gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:pt-12 lg:pb-20">
       <div className="lg:col-span-6">
         <p className="font-mono text-xs tracking-[0.22em] text-accent-copper uppercase">
           {heroContent.eyebrow}
@@ -26,7 +26,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="lg:col-span-6 hidden lg:block">
+      <figure className="lg:col-span-6 hidden lg:block">
         <div className="relative lg:-mr-8">
           <div className="relative aspect-[3/2] lg:min-h-[390px]">
             <Image
@@ -38,10 +38,13 @@ export function HeroSection() {
               className="object-contain"
             />
           </div>
+          <figcaption className="mt-3 px-1 text-right font-mono text-[10px] leading-5 tracking-[0.16em] text-text-secondary uppercase">
+            Representative embedded and RF product-architecture concept
+          </figcaption>
         </div>
-      </div>
+      </figure>
 
-      <div className="lg:hidden mt-12">
+      <figure className="lg:hidden mt-12">
         <div className="relative aspect-[3/2] min-h-[200px] max-w-full">
           <Image
             src="/images/hero/hero-pcb-enclosure-concept.png"
@@ -52,7 +55,10 @@ export function HeroSection() {
             className="object-contain"
           />
         </div>
-      </div>
+        <figcaption className="mt-3 text-center font-mono text-[10px] leading-5 tracking-[0.16em] text-text-secondary uppercase">
+          Representative embedded and RF product-architecture concept
+        </figcaption>
+      </figure>
     </section>
   );
 }

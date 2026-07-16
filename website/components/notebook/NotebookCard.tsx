@@ -21,13 +21,14 @@ export function NotebookCard({
   onActivate,
   onClear,
 }: NotebookCardProps) {
+  const isPublished = entry.status === "published";
   const className = [
     "group flex h-full min-h-[420px] w-full flex-col overflow-hidden rounded-lg border text-left transition duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper",
     isActive
       ? "border-accent-copper/80 bg-surface-elevated/80"
       : "border-border-subtle/70 bg-surface/65",
     isSubdued ? "opacity-55" : "opacity-100",
-    canLink ? "hover:border-accent-copper/70" : "",
+    canLink ? "cursor-pointer hover:border-accent-copper/70" : "cursor-default",
   ].join(" ");
 
   const content = (
@@ -98,7 +99,9 @@ export function NotebookCard({
 
         {canLink ? (
           <span className="mt-auto pt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
-            {entry.actionLabel ?? "Read notebook entry"}
+            {isPublished
+              ? entry.actionLabel ?? "Open notebook entry"
+              : "Preview notebook entry"}
             <span
               aria-hidden="true"
               className="text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
@@ -107,8 +110,8 @@ export function NotebookCard({
             </span>
           </span>
         ) : (
-          <span className="mt-auto pt-6 text-sm font-semibold text-text-muted">
-            In development
+          <span className="mt-auto pt-6 text-sm font-semibold text-text-secondary">
+            In development — preview only
           </span>
         )}
       </div>
@@ -133,17 +136,13 @@ export function NotebookCard({
   }
 
   return (
-    <button
-      type="button"
+    <article
       className={className}
-      aria-label={`${entry.title} technical index relationships`}
       onMouseEnter={() => onActivate(entry.slug)}
       onMouseLeave={onClear}
-      onFocus={() => onActivate(entry.slug)}
-      onBlur={onClear}
       data-notebook-card={entry.slug}
     >
       {content}
-    </button>
+    </article>
   );
 }

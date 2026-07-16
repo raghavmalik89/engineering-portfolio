@@ -33,6 +33,12 @@ export function EngineeringFootprint({
   const visibleStorySlugs = new Set(stories.map((story) => story.slug));
 
   const hasActiveStory = Boolean(activeStorySlug);
+  const hasProvisionalLocations = locations.some(
+    (location) => location.isProvisional,
+  );
+  const hasConfirmedLocations = locations.some(
+    (location) => !location.isProvisional,
+  );
 
   return (
     <aside className="self-start lg:sticky lg:top-10">
@@ -47,6 +53,20 @@ export function EngineeringFootprint({
           Country relationships are shown with their names and activity context.
           Provisional items are kept separate from confirmed project claims.
         </p>
+        <p className="mt-3 text-sm leading-6 text-text-secondary">
+          Select a location to filter the related engineering stories.
+        </p>
+
+        {hasConfirmedLocations && hasProvisionalLocations ? (
+          <div className="mt-4 flex flex-wrap gap-2 text-xs text-text-secondary">
+            <span className="rounded-full border border-border-subtle/70 px-2.5 py-1">
+              Confirmed
+            </span>
+            <span className="rounded-full border border-border-subtle/70 px-2.5 py-1">
+              Provisional
+            </span>
+          </div>
+        ) : null}
 
         <div className="mt-6 grid gap-2">
           {locations.map((location) => {
@@ -89,9 +109,14 @@ export function EngineeringFootprint({
                     className="h-5 w-auto shrink-0 rounded-[2px]"
                   />
                   <span className="min-w-0">
-                    <span className="block truncate font-semibold">
+                    <span className="block whitespace-normal break-words font-semibold leading-snug">
                       {formatLocation(location)}
                     </span>
+                    {activeLocationCode === location.code ? (
+                      <span className="block font-mono text-[10px] tracking-[0.14em] text-accent-copper uppercase">
+                        Selected
+                      </span>
+                    ) : null}
                     {location.isProvisional ? (
                       <span className="block text-xs text-text-muted">
                         Provisional

@@ -20,13 +20,14 @@ export function CompactStoryCard({
   onActivate,
   onClear,
 }: CompactStoryCardProps) {
+  const isPublished = story.status === "published";
   const className = [
     "group block h-full rounded-lg border p-5 text-left transition duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper",
     isActive
       ? "border-accent-copper/80 bg-surface-elevated/80"
       : "border-border-subtle/70 bg-surface/55",
     isSubdued ? "opacity-55" : "opacity-100",
-    canLink ? "hover:border-accent-copper/70" : "",
+    canLink ? "cursor-pointer hover:border-accent-copper/70" : "cursor-default",
   ].join(" ");
 
   const content = (
@@ -55,7 +56,7 @@ export function CompactStoryCard({
       </div>
       {canLink ? (
         <span className="mt-auto inline-flex w-fit items-center gap-2 pt-5 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
-          Open story
+          {isPublished ? "Open story" : "Preview story"}
           <span
             aria-hidden="true"
             className="text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
@@ -64,8 +65,8 @@ export function CompactStoryCard({
           </span>
         </span>
       ) : (
-        <span className="mt-auto pt-5 text-sm font-semibold text-text-muted">
-          Story in development
+        <span className="mt-auto pt-5 text-sm font-semibold text-text-secondary">
+          Story in development — preview only
         </span>
       )}
     </div>
@@ -88,17 +89,13 @@ export function CompactStoryCard({
   }
 
   return (
-    <button
-      type="button"
+    <article
       className={className}
-      aria-label={`${story.title} story relationships`}
       onMouseEnter={() => onActivate(story.slug)}
       onMouseLeave={onClear}
-      onFocus={() => onActivate(story.slug)}
-      onBlur={onClear}
       data-story-card={story.slug}
     >
       {content}
-    </button>
+    </article>
   );
 }
