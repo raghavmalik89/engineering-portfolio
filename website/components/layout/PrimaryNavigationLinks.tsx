@@ -20,11 +20,24 @@ function isActiveRoute(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function PrimaryNavigationLinks() {
+type PrimaryNavigationLinksProps = {
+  variant?: "masthead" | "compact";
+};
+
+export function PrimaryNavigationLinks({
+  variant = "masthead",
+}: PrimaryNavigationLinksProps) {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm sm:gap-x-16">
+    <div
+      className={[
+        "flex flex-wrap justify-center text-sm",
+        variant === "compact"
+          ? "gap-x-6 gap-y-2 sm:gap-x-8 md:justify-end lg:gap-x-10"
+          : "gap-x-12 gap-y-3 sm:gap-x-16",
+      ].join(" ")}
+    >
       {homeNavigation.map((item) => {
         const isActive = isActiveRoute(pathname, item.href);
 
