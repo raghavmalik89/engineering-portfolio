@@ -5,6 +5,7 @@ export type StoryImage = {
   alt: string;
   caption?: string;
   aspect?: "landscape" | "portrait" | "wide" | "tall";
+  objectFit?: "cover" | "contain";
   objectPosition?: string;
 };
 

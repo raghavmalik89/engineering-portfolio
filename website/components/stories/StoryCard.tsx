@@ -91,7 +91,16 @@ export function StoryCard({
             alt={story.cardImage.alt}
             fill
             sizes="(min-width: 1024px) 28vw, 100vw"
-            className="object-cover"
+            className={
+              story.cardImage.objectFit === "contain"
+                ? "object-contain p-4"
+                : "object-cover"
+            }
+            style={
+              story.cardImage.objectPosition
+                ? { objectPosition: story.cardImage.objectPosition }
+                : undefined
+            }
           />
         </div>
       ) : null}

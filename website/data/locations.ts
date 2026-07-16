@@ -25,10 +25,10 @@ export const footprintLocations: FootprintLocation[] = [
     city: "Adelaide",
     flagPath: "/images/flags/H40/au.png",
     flagAlt: "Flag of Australia",
-    relatedProjectSlugs: ["space-propulsion-electronics"],
+    relatedProjectSlugs: ["neumann-space-plasma-thruster-electronics"],
     relatedCompanyNames: ["Neumann Space"],
     activityLabels: [
-      "Propulsion-electronics development",
+      "Aerospace electronics and propulsion-system development",
       "Technical leadership",
       "Programme recovery",
     ],

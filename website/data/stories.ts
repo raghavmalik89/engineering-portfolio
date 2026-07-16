@@ -543,37 +543,233 @@ export const stories: Story[] = [
     relatedProjectSlugs: ["smartroller"],
   },
   {
-    title: "Recovering a Plasma-Thruster Power and Control Programme",
-    shortTitle: "Plasma-Thruster Power Electronics",
-    slug: "space-propulsion-electronics",
+    title: "Recovering a Plasma-Thruster Electronics Workstream",
+    cardTitle: "Plasma-Thruster Electronics Recovery",
+    shortTitle: "Plasma-Thruster Electronics",
+    slug: "neumann-space-plasma-thruster-electronics",
     company: "Neumann Space",
+    eyebrow: "Neumann Space",
     summary:
-      "Recovering a stalled satellite-propulsion electronics programme by redesigning critical switched-mode power and control architecture, resolving thermal and embedded-system blockers, and restoring a practical path toward launch readiness.",
-    status: "planned",
+      "Recovered and stabilised an inherited plasma-thruster power-and-control platform, led a small electronics workstream and progressed the system into sustained firing and integrated vacuum testing.",
+    heroProposition:
+      "Stabilising an inherited power-and-control platform and leading it into sustained vacuum testing for the SpIRIT mission.",
+    heroSummary:
+      "Raghav joined as an Electronics Engineer and functionally led a small electronics workstream supporting Neumann Space propulsion development for the SpIRIT programme. The public lesson is deliberately high-level: stabilise and verify before redesigning.",
+    status: "published",
     displayOrder: 3,
     presentation: {
       indexVariant: "flagship",
       indexGroup: "flagship",
       showOnStoriesIndex: true,
     },
-    role: "Electronics Team Lead",
-    period: "06/2020 - 12/2020",
+    role: "Electronics Engineer | Functional Technical Lead",
+    period: "2020",
     domains: [
-      "Power Electronics",
-      "Space Systems",
-      "Systems Architecture",
-      "Technical Leadership",
-      "Programme Recovery",
+      "Aerospace electronics",
+      "Electric propulsion",
+      "Power electronics",
+      "Embedded control",
+      "Vacuum testing",
+      "Technical programme recovery",
+      "Engineering leadership",
     ],
     technologies: [
-      "Switched-mode power supplies",
-      "Power and control electronics",
+      "Aerospace electronics",
+      "Power electronics",
       "Embedded control",
-      "Thermal problem solving",
+      "Vacuum testing",
+      "Technical leadership",
     ],
     countries: ["AU-ADELAIDE"],
-    sections: [],
-    relatedProjectSlugs: ["proton-therapy-commissioning"],
+    cardImage: {
+      src: "/images/stories/neumann-space/neumann-thruster-flight-model.png",
+      alt: "Publicly released Neumann Space plasma-thruster hardware shown against a transparent background.",
+      aspect: "landscape",
+      objectFit: "contain",
+    },
+    heroImage: {
+      src: "/images/stories/neumann-space/neumann-thruster-flight-model.png",
+      alt: "Publicly released Neumann Space plasma-thruster hardware shown against a transparent background.",
+      caption:
+        "Publicly released Neumann Space thruster image. Raghav's work occurred during the earlier electronics-development and vacuum-test phase; the final flight configuration may include later revisions.",
+      aspect: "landscape",
+      objectFit: "contain",
+    },
+    snapshot: [
+      {
+        label: "Company",
+        value: "Neumann Space",
+      },
+      {
+        label: "Role",
+        value: "Electronics Engineer | Functional Technical Lead",
+      },
+      {
+        label: "Period",
+        value: "2020",
+      },
+      {
+        label: "Footprint",
+        value: "Adelaide, Australia",
+      },
+      {
+        label: "Mission context",
+        value: "SpIRIT",
+      },
+      {
+        label: "Domains",
+        value:
+          "Aerospace electronics, electric propulsion, power electronics, embedded control and vacuum testing",
+      },
+      {
+        label: "Challenge",
+        value:
+          "A representative propulsion-electronics platform was not operating reliably, development hardware was scarce and an immediate redesign risked consuming schedule without identifying the root cause.",
+      },
+      {
+        label: "Responsibility",
+        value:
+          "Lead the electronics recovery path, allocate meaningful work across two early-career engineers and retain responsibility for technical direction, integration and test sequencing.",
+      },
+      {
+        label: "Approach",
+        value:
+          "Preserve the inherited architecture, isolate the failure systematically, change one meaningful variable at a time and defer non-essential redesign until the system was stable.",
+      },
+      {
+        label: "Outcome",
+        value:
+          "Recovered the electronics path and enabled sustained firing and integrated vacuum testing toward the programme's next maturity milestone.",
+      },
+    ],
+    sections: [
+      {
+        id: "entering-a-blocked-programme",
+        title: "Entering a blocked programme",
+        body: [
+          "Raghav joined Neumann Space as an Electronics Engineer and functionally led a small electronics workstream supporting plasma-propulsion development for the SpIRIT mission context.",
+          "The propulsion concept had previously been demonstrated, but the more representative power-and-control electronics were not operating reliably. Electronics had become a critical path to further integrated testing, with limited development hardware, instrumentation and schedule margin.",
+          "The workstream included Raghav and two early-career engineers. His public role is best described as Electronics Engineer with functional technical leadership responsibility, not as the confirmed contractual title of Technical Lead.",
+        ],
+      },
+      {
+        id: "choosing-recovery-before-redesign",
+        title: "Choosing recovery before redesign",
+        body: [
+          "A new PCB was one possible response, but the failure was not yet understood. An immediate redesign could have reproduced the same problem, consumed schedule and destroyed useful diagnostic evidence from the inherited system.",
+          "Raghav recommended understanding and stabilising the existing architecture first. This was a systems and programme-risk decision rather than reluctance to design.",
+          "Under schedule pressure, architecture change is not automatically progress.",
+        ],
+      },
+      {
+        id: "reconstructing-the-system",
+        title: "Reconstructing the system",
+        body: [
+          "Raghav reconstructed the expected system behaviour and compared it with measured operation. The investigation moved through static checks, operating observations and high-level review of magnetic, thermal and switching-loss possibilities.",
+          "Plausible causes were eliminated systematically. The initiating problem was traced into the control path, a controlled correction was applied and repeatable operation was restored without a clean-sheet redesign.",
+          "This public account deliberately excludes the exact fault mechanism, topology, component identities, operating values, timing, control constants, PCB details and test configuration.",
+        ],
+      },
+      {
+        id: "leading-the-electronics-workstream",
+        title: "Leading the electronics workstream",
+        body: [
+          "Raghav led two early-career engineers, one focused primarily on electronics and one primarily on firmware. He allocated meaningful supporting-circuit, assembly, embedded and test work, reviewed the results and retained responsibility for architecture, integration and test sequencing.",
+          "The leadership task was to maintain technical direction under significant programme pressure while protecting the team's ability to focus.",
+        ],
+        quote: "The leader owns the mistakes; the success belongs to the team.",
+      },
+      {
+        id: "moving-into-verification",
+        title: "Moving into verification",
+        body: [
+          "After the electronics path was recovered, the work shifted from intervention to repeatability and verification. Raghav corrected engineering records, assembled additional hardware and helped move the workstream into sustained firing campaigns.",
+          "The integrated system entered vacuum testing, with thermal and pulsed-current behaviour monitored at a high level. The workstream moved from blocking programme progress to representative-environment testing.",
+        ],
+      },
+      {
+        id: "contribution-boundaries-and-later-mission-context",
+        title: "Contribution boundaries and later mission context",
+        body: [
+          "Raghav left while the TRL-6-oriented ground campaign remained underway. Later qualification, later flight-hardware revisions, spacecraft integration and on-orbit operations remained with Neumann Space and the wider SpIRIT team.",
+          "SpIRIT later launched and publicly demonstrated a Neumann Space propulsion system in orbit. That later outcome is programme context, not a claim that Raghav's exact 2020 electronics revision flew.",
+          "This Story does not claim that Raghav invented the thruster, designed the complete propulsion system, delivered flight-qualified hardware or formally certified TRL 6.",
+        ],
+        images: [
+          {
+            src: "/images/stories/neumann-space/spirit-mission-context.webp",
+            alt: "SpIRIT spacecraft hardware photographed with Earth visible in the background.",
+            caption:
+              "The SpIRIT mission later launched and demonstrated a Neumann Space propulsion system in orbit. This later outcome is included as programme context and does not establish that Raghav's exact 2020 electronics revision flew. Image reuse remains subject to confirmation before publication.",
+            aspect: "wide",
+            objectFit: "contain",
+          },
+        ],
+      },
+      {
+        id: "engineering-and-leadership-lessons",
+        title: "Engineering and leadership lessons",
+        bullets: [
+          "Recovering an inherited design may be harder than designing from scratch.",
+          "Measure the operating system rather than relying only on nominal assumptions.",
+          "Change one meaningful variable at a time.",
+          "Do not redesign before the failure is understood.",
+          "A technical lead protects the team's ability to think.",
+          "Ownership belongs with the leader; credit belongs with the team.",
+        ],
+      },
+    ],
+    externalLinks: [
+      {
+        label: "Official company",
+        description:
+          "Neumann Space public company website. Link provided for organisational context only.",
+        cta: "Visit Neumann Space",
+        href: "https://neumannspace.com/",
+      },
+      {
+        label: "SpIRIT mission",
+        description:
+          "University of Melbourne public mission page for the SpIRIT satellite programme.",
+        cta: "View SpIRIT mission",
+        href: "https://spirit.research.unimelb.edu.au/",
+      },
+      {
+        label: "SpIRIT thruster technology",
+        description:
+          "Public mission technology page describing the Neumann Space propulsion payload.",
+        cta: "View thruster technology",
+        href: "https://spirit.research.unimelb.edu.au/technology/thruster/",
+      },
+      {
+        label: "In-orbit propulsion demonstration",
+        description:
+          "University of Melbourne public update on the later in-orbit demonstration. This is programme context, not an individual contribution claim.",
+        cta: "Read mission update",
+        href: "https://spirit.research.unimelb.edu.au/2024/08/21/spirit-successfully-demonstrates-australian-propulsion-technology/",
+      },
+    ],
+    seo: {
+      title: "Plasma-Thruster Electronics Recovery | Raghav Malik",
+      description:
+        "How Raghav Malik recovered an inherited plasma-thruster power-and-control platform, led a small electronics workstream and progressed the system into sustained vacuum testing for the SpIRIT programme.",
+      openGraphTitle:
+        "Plasma-Thruster Electronics Recovery",
+      openGraphDescription:
+        "A conservative engineering Story about recovering an inherited plasma-thruster electronics workstream, leading a small team and preserving contribution boundaries around later mission outcomes.",
+      canonicalPath: "/stories/neumann-space-plasma-thruster-electronics",
+      keywords: [
+        "Neumann Space",
+        "SpIRIT mission",
+        "plasma thruster electronics",
+        "aerospace electronics",
+        "power electronics",
+        "embedded control",
+        "vacuum testing",
+        "technical leadership",
+      ],
+    },
+    relatedProjectSlugs: ["smartroller", "get-vision"],
   },
   {
     title: "Commissioning a Proteus One Proton-Therapy Accelerator",
@@ -608,7 +804,7 @@ export const stories: Story[] = [
     ],
     countries: ["BE", "PL", "JP-TOYOHASHI"],
     sections: [],
-    relatedProjectSlugs: ["space-propulsion-electronics"],
+    relatedProjectSlugs: [],
   },
   {
     title: "Mining IoT Gateway",

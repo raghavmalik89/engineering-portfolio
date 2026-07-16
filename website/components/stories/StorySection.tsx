@@ -89,7 +89,11 @@ export function StorySection({ section }: { section: StorySectionType }) {
                   alt={image.alt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
+                  className={
+                    image.objectFit === "contain"
+                      ? "object-contain p-4"
+                      : "object-cover"
+                  }
                   style={
                     image.objectPosition
                       ? { objectPosition: image.objectPosition }

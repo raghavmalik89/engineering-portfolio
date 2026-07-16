@@ -43,7 +43,17 @@ export function StoryHero({ story }: { story: Story }) {
               fill
               priority
               sizes="(min-width: 1120px) 600px, (min-width: 1024px) 52vw, 100vw"
-              className="rounded-lg object-cover"
+              className={[
+                "rounded-lg",
+                story.heroImage.objectFit === "contain"
+                  ? "object-contain p-4 sm:p-6"
+                  : "object-cover",
+              ].join(" ")}
+              style={
+                story.heroImage.objectPosition
+                  ? { objectPosition: story.heroImage.objectPosition }
+                  : undefined
+              }
             />
           </div>
           {story.heroImage.caption ? (
