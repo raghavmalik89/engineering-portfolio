@@ -9,6 +9,7 @@ type CompactStoryCardProps = {
   isSubdued: boolean;
   canLink: boolean;
   onActivate: (slug: string) => void;
+  onSelect?: (slug: string) => void;
   onClear: () => void;
 };
 

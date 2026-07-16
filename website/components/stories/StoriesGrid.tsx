@@ -9,6 +9,7 @@ type StoriesGridProps = {
   canLinkStories: boolean;
   variant?: "flagship" | "compact";
   onStoryActivate: (slug: string) => void;
+  onStorySelect: (slug: string) => void;
   onClear: () => void;
 };
 
@@ -19,6 +20,7 @@ export function StoriesGrid({
   canLinkStories,
   variant = "flagship",
   onStoryActivate,
+  onStorySelect,
   onClear,
 }: StoriesGridProps) {
   const hasActiveProjects = activeProjectSlugs.length > 0;
@@ -44,6 +46,7 @@ export function StoriesGrid({
             isSubdued={hasActiveProjects && !isRelated}
             canLink={canLinkStories || story.status === "published"}
             onActivate={onStoryActivate}
+            onSelect={onStorySelect}
             onClear={onClear}
           />
         );

@@ -7,7 +7,7 @@ import type { FootprintLocation, Story } from "@/types/story";
 
 type ActiveState =
   | { kind: "none" }
-  | { kind: "story"; slug: string }
+  | { kind: "story"; slug: string; sticky: boolean }
   | { kind: "location"; code: string; sticky: boolean };
 
 type StoriesExperienceProps = {
@@ -93,11 +93,23 @@ export function StoriesExperience({
               activeProjectSlugs={activeProjectSlugs}
               activeStorySlug={activeStory?.slug}
               canLinkStories={canLinkStories}
-              onStoryActivate={(slug) => setActive({ kind: "story", slug })}
+              onStoryActivate={(slug) =>
+                setActive((current) =>
+                  current.kind === "location" && current.sticky
+                    ? current
+                    : { kind: "story", slug, sticky: false },
+                )
+              }
+              onStorySelect={(slug) =>
+                setActive({ kind: "story", slug, sticky: true })
+              }
               onClear={() => {
-                if (active.kind !== "location" || !active.sticky) {
-                  setActive({ kind: "none" });
-                }
+                setActive((current) =>
+                  (current.kind === "story" && !current.sticky) ||
+                  (current.kind === "location" && !current.sticky)
+                    ? { kind: "none" }
+                    : current,
+                );
               }}
             />
           </div>
@@ -118,11 +130,23 @@ export function StoriesExperience({
               activeStorySlug={activeStory?.slug}
               canLinkStories={canLinkStories}
               variant="compact"
-              onStoryActivate={(slug) => setActive({ kind: "story", slug })}
+              onStoryActivate={(slug) =>
+                setActive((current) =>
+                  current.kind === "location" && current.sticky
+                    ? current
+                    : { kind: "story", slug, sticky: false },
+                )
+              }
+              onStorySelect={(slug) =>
+                setActive({ kind: "story", slug, sticky: true })
+              }
               onClear={() => {
-                if (active.kind !== "location" || !active.sticky) {
-                  setActive({ kind: "none" });
-                }
+                setActive((current) =>
+                  (current.kind === "story" && !current.sticky) ||
+                  (current.kind === "location" && !current.sticky)
+                    ? { kind: "none" }
+                    : current,
+                );
               }}
             />
           </div>
@@ -135,6 +159,7 @@ export function StoriesExperience({
           stories={visibleStories}
           activeLocationCode={activeLocation?.code}
           activeStorySlug={activeStory?.slug}
+          canLinkStories={canLinkStories}
           onLocationToggle={(code) => {
             setActive((current) =>
               current.kind === "location" &&
@@ -158,6 +183,7 @@ export function StoriesExperience({
                 : current,
             );
           }}
+          onClearSelection={() => setActive({ kind: "none" })}
         />
       </div>
     </div>
