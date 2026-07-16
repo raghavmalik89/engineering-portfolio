@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { routes } from "@/lib/routes";
+import { site } from "@/data/site";
 import {
   careerHighlights,
   education,
@@ -18,9 +19,31 @@ import {
 } from "@/data/resume";
 
 export const metadata: Metadata = {
-  title: "Resume | Raghav Malik",
+  title: "Resume - Product Systems Architecture and Engineering Leadership",
   description:
     "Resume for Raghav Malik, Product Systems Architect and Technical Lead across Industrial IoT, RF systems, electronics, mechatronics, AI vision, and harsh-environment product development.",
+  alternates: {
+    canonical: "/resume",
+  },
+  openGraph: {
+    title: "Resume - Product Systems Architecture and Engineering Leadership",
+    description:
+      "Resume for Raghav Malik, covering product systems architecture, technical leadership, Industrial IoT, RF systems, electronics, mechatronics and harsh-environment product delivery.",
+    url: "/resume",
+    images: [
+      {
+        url: site.defaultSocialImage.src,
+        alt: site.defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume - Product Systems Architecture and Engineering Leadership",
+    description:
+      "Resume for Raghav Malik across product systems architecture, Industrial IoT, RF systems, electronics and technical leadership.",
+    images: [site.defaultSocialImage.src],
+  },
 };
 
 const sectionHeading =

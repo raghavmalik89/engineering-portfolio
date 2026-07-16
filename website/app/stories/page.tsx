@@ -3,11 +3,34 @@ import { StoriesExperience } from "@/components/stories/StoriesExperience";
 import { PageShell } from "@/components/layout/PageShell";
 import { getStoriesForIndex } from "@/data/stories";
 import { footprintLocations } from "@/data/locations";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Stories | Raghav Malik",
+  title: "Engineering Stories - Industrial IoT, Mining Technology and Product Delivery",
   description:
     "Engineering projects, decisions and field experience from problem definition through validation and deployment.",
+  alternates: {
+    canonical: "/stories",
+  },
+  openGraph: {
+    title: "Engineering Stories - Industrial IoT, Mining Technology and Product Delivery",
+    description:
+      "Engineering project stories covering Industrial IoT, mining technology, field validation, product architecture and deployment.",
+    url: "/stories",
+    images: [
+      {
+        url: site.defaultSocialImage.src,
+        alt: site.defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Stories",
+    description:
+      "Engineering projects, decisions and field experience from problem definition through validation and deployment.",
+    images: [site.defaultSocialImage.src],
+  },
 };
 
 export default function StoriesPage() {

@@ -8,6 +8,7 @@ import { StoryHero } from "@/components/stories/StoryHero";
 import { StoryMetadata } from "@/components/stories/StoryMetadata";
 import { StorySection } from "@/components/stories/StorySection";
 import { footprintLocations } from "@/data/locations";
+import { site } from "@/data/site";
 import {
   canExposeStoryPage,
   getStories,
@@ -35,29 +36,52 @@ export async function generateMetadata({
   }
 
   const isPublished = story.status === "published";
+  const canonicalPath = story.seo?.canonicalPath ?? `/stories/${story.slug}`;
+  const socialImage = story.heroImage ?? story.heroMedia?.fallbackImage;
+  const storyTitle =
+    story.seo?.title ?? `${story.title} | Stories | Raghav Malik`;
+  const pageTitle = storyTitle.includes("Raghav Malik")
+    ? storyTitle
+    : `${storyTitle} | Raghav Malik`;
 
   return {
-    title: story.seo?.title ?? `${story.title} | Stories | Raghav Malik`,
+    title: {
+      absolute: pageTitle,
+    },
     description: story.seo?.description ?? story.summary,
     keywords: story.seo?.keywords,
-    alternates: story.seo?.canonicalPath
-      ? { canonical: story.seo.canonicalPath }
-      : undefined,
+    alternates: { canonical: canonicalPath },
     openGraph: {
+      type: "article",
+      siteName: site.name,
       title: story.seo?.openGraphTitle ?? story.seo?.title ?? story.title,
       description:
         story.seo?.openGraphDescription ??
         story.seo?.description ??
         story.summary,
-      url: story.seo?.canonicalPath,
-      images: story.heroImage
+      url: canonicalPath,
+      images: socialImage
         ? [
             {
-              url: story.heroImage.src,
-              alt: story.heroImage.alt,
+              url: socialImage.src,
+              alt: socialImage.alt,
             },
           ]
-        : undefined,
+        : [
+            {
+              url: site.defaultSocialImage.src,
+              alt: site.defaultSocialImage.alt,
+            },
+          ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: story.seo?.openGraphTitle ?? story.seo?.title ?? story.title,
+      description:
+        story.seo?.openGraphDescription ??
+        story.seo?.description ??
+        story.summary,
+      images: [socialImage?.src ?? site.defaultSocialImage.src],
     },
     robots: isPublished ? undefined : { index: false, follow: false },
   };

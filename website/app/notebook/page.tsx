@@ -2,11 +2,34 @@ import type { Metadata } from "next";
 import { NotebookExperience } from "@/components/notebook/NotebookExperience";
 import { PageShell } from "@/components/layout/PageShell";
 import { getNotebookEntriesForIndex } from "@/data/notebookEntries";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Engineering Notebook | Raghav Malik",
+  title: "Engineering Notebook - Embedded Systems, RF and Product Architecture",
   description:
     "Technical investigations, architecture notes, experiments and development records from electronics, RF, sensing, software and product-system work.",
+  alternates: {
+    canonical: "/notebook",
+  },
+  openGraph: {
+    title: "Engineering Notebook - Embedded Systems, RF and Product Architecture",
+    description:
+      "Technical investigations, architecture notes and development records from embedded systems, RF, sensing, software and product-system work.",
+    url: "/notebook",
+    images: [
+      {
+        url: site.defaultSocialImage.src,
+        alt: site.defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Notebook",
+    description:
+      "Technical investigations, architecture notes and development records from embedded systems, RF and product architecture.",
+    images: [site.defaultSocialImage.src],
+  },
 };
 
 export default function NotebookPage() {

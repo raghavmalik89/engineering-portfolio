@@ -2,12 +2,35 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { routes } from "@/lib/routes";
+import { site } from "@/data/site";
 import { resumeContact } from "@/data/resume";
 
 export const metadata: Metadata = {
-  title: "Contact | Raghav Malik",
+  title: "Contact - Engineering Leadership, Product Architecture and Consulting",
   description:
     "Contact Raghav Malik for systems architecture, product architecture, Industrial IoT, RF, electronics, mechatronics, technical leadership, and consulting opportunities.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact - Engineering Leadership, Product Architecture and Consulting",
+    description:
+      "Contact Raghav Malik for product systems architecture, Industrial IoT, RF, electronics, mechatronics, technical leadership and consulting discussions.",
+    url: "/contact",
+    images: [
+      {
+        url: site.defaultSocialImage.src,
+        alt: site.defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Raghav Malik",
+    description:
+      "Contact Raghav Malik for engineering leadership, product architecture and consulting discussions.",
+    images: [site.defaultSocialImage.src],
+  },
 };
 
 const linkedInUrl = "https://www.linkedin.com/in/malikraghav/";

@@ -4,11 +4,34 @@ import { CapabilityOverview } from "@/components/sections/CapabilityOverview";
 import { EngineeringPhilosophy } from "@/components/sections/EngineeringPhilosophy";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HomeCallToAction } from "@/components/sections/HomeCallToAction";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Raghav Malik - Systems Architect & Product Engineer",
+  title: {
+    absolute: site.defaultTitle,
+  },
   description:
-    "Systems architecture, embedded electronics, RF communications, industrial IoT, and field-deployed product engineering across mining, aerospace, robotics, and medical accelerator environments.",
+    "Product systems architecture, technical leadership and end-to-end engineering delivery across Industrial IoT, RF communications, electronics, mechatronics, mining technology, aerospace and complex physical products.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: site.defaultTitle,
+    description: site.description,
+    url: "/",
+    images: [
+      {
+        url: site.defaultSocialImage.src,
+        alt: site.defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.defaultTitle,
+    description: site.description,
+    images: [site.defaultSocialImage.src],
+  },
 };
 
 export default function HomePage() {

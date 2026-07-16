@@ -8,6 +8,7 @@ import { RelatedNotebookEntries } from "@/components/notebook/RelatedNotebookEnt
 import { RelatedStoryLinks } from "@/components/notebook/RelatedStoryLinks";
 import { notebookLabelClassName } from "@/components/notebook/notebookTypography";
 import { PageShell } from "@/components/layout/PageShell";
+import { site } from "@/data/site";
 import {
   canExposeNotebookEntry,
   getNotebookEntries,
@@ -49,37 +50,55 @@ export async function generateMetadata({
   }
 
   const isPublished = entry.status === "published";
+  const canonicalPath = entry.seo?.canonicalPath ?? `/notebook/${entry.slug}`;
+  const entrySocialImage =
+    entry.seo?.openGraphImage ??
+    entry.cardImage ??
+    entry.heroImage;
+  const socialImage =
+    entrySocialImage && !entrySocialImage.src.endsWith(".svg")
+      ? entrySocialImage
+      : site.defaultSocialImage;
+  const entryTitle =
+    entry.seo?.title ??
+    `${entry.title} | Engineering Notebook | Raghav Malik`;
+  const pageTitle = entryTitle.includes("Raghav Malik")
+    ? entryTitle
+    : `${entryTitle} | Raghav Malik`;
 
   return {
-    title:
-      entry.seo?.title ?? `${entry.title} | Engineering Notebook | Raghav Malik`,
+    title: {
+      absolute: pageTitle,
+    },
     description: entry.seo?.description ?? entry.summary,
     keywords: entry.seo?.keywords,
-    alternates: entry.seo?.canonicalPath
-      ? { canonical: entry.seo.canonicalPath }
-      : undefined,
+    alternates: { canonical: canonicalPath },
     openGraph: {
+      type: "article",
+      siteName: site.name,
       title: entry.seo?.openGraphTitle ?? entry.seo?.title ?? entry.title,
       description:
         entry.seo?.openGraphDescription ??
         entry.seo?.description ??
         entry.summary,
-      url: entry.seo?.canonicalPath,
-      images: entry.seo?.openGraphImage
+      url: canonicalPath,
+      images: socialImage
         ? [
             {
-              url: entry.seo.openGraphImage.src,
-              alt: entry.seo.openGraphImage.alt,
-            },
-          ]
-        : entry.heroImage
-        ? [
-            {
-              url: entry.heroImage.src,
-              alt: entry.heroImage.alt,
+              url: socialImage.src,
+              alt: socialImage.alt,
             },
           ]
         : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: entry.seo?.openGraphTitle ?? entry.seo?.title ?? entry.title,
+      description:
+        entry.seo?.openGraphDescription ??
+        entry.seo?.description ??
+        entry.summary,
+      images: socialImage ? [socialImage.src] : undefined,
     },
     robots: isPublished ? undefined : { index: false, follow: false },
   };
