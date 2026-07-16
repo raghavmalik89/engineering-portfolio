@@ -22,7 +22,7 @@ export function StoryHero({ story }: { story: Story }) {
             {story.heroProposition}
           </p>
         ) : null}
-        <p className="mt-6 max-w-[760px] text-lg leading-8 text-text-secondary">
+        <p className="readable-copy mt-6 max-w-[760px] text-lg">
           {story.heroSummary ?? story.summary}
         </p>
         {showDevelopmentBadge ? (
@@ -57,7 +57,7 @@ export function StoryHero({ story }: { story: Story }) {
           <p className={storyLabelClassName}>
             Images pending
           </p>
-          <p className="mt-4 text-sm leading-6 text-text-secondary">
+          <p className="readable-copy mt-4 text-sm">
             This story scaffold is ready for approved project photography.
           </p>
         </div>

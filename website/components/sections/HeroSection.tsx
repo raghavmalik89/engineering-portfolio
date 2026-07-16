@@ -12,7 +12,7 @@ export function HeroSection() {
         <h1 className="mt-8 max-w-[760px] text-[52px] leading-[1.04] font-medium text-foreground sm:text-[64px] lg:text-[76px]">
           {heroContent.headline}
         </h1>
-        <p className="mt-8 max-w-[740px] text-lg leading-8 text-text-secondary">
+        <p className="readable-copy mt-8 max-w-[740px] text-lg">
           {heroContent.body}
         </p>
 

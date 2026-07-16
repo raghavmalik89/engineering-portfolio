@@ -107,7 +107,7 @@ export function StoriesExperience({
           <h2 className="text-2xl leading-tight font-semibold text-foreground">
             Additional Bradken R&D and Product Programmes
           </h2>
-          <p className="mt-3 max-w-[760px] leading-7 text-text-secondary">
+          <p className="readable-copy mt-3 max-w-[760px]">
             Selected research, prototype and product-improvement programmes that
             contributed to Bradken&apos;s wider mining-technology portfolio.
           </p>

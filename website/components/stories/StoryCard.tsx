@@ -52,7 +52,7 @@ export function StoryCard({
           <StoryStatusBadge status={story.status} />
         </div>
 
-        <p className="mt-5 max-w-[680px] leading-7 text-text-secondary">
+        <p className="readable-copy mt-5 max-w-[680px]">
           {story.summary}
         </p>
 

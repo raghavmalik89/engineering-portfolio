@@ -23,7 +23,7 @@ export default function NotebookPage() {
           <h1 className="mt-5 text-4xl leading-tight font-semibold text-accent-copper sm:text-5xl lg:text-6xl">
             Engineering Notebook
           </h1>
-          <p className="mt-6 text-lg leading-8 text-text-secondary">
+          <p className="readable-copy mt-6 text-lg">
             Technical investigations, architecture notes, experiments and
             development records from electronics, RF, sensing, software and
             product-system work.

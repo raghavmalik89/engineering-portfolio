@@ -19,7 +19,7 @@ export function ProjectCard({ title, type, context }: ProjectCardProps) {
       <h3 className="mt-5 text-xl leading-snug font-semibold text-foreground">
         {title}
       </h3>
-      <p className="mt-4 leading-7 text-text-secondary">{context}</p>
+      <p className="readable-copy mt-4">{context}</p>
       <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-beige">
         View overview
         <span

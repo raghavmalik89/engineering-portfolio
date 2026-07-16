@@ -49,11 +49,11 @@ export function EngineeringFootprint({
         <h2 className="mt-4 text-2xl leading-tight font-semibold text-foreground">
           Field, training and deployment contexts
         </h2>
-        <p className="mt-4 leading-7 text-text-secondary">
+        <p className="readable-copy mt-4">
           Country relationships are shown with their names and activity context.
           Provisional items are kept separate from confirmed project claims.
         </p>
-        <p className="mt-3 text-sm leading-6 text-text-secondary">
+        <p className="readable-copy mt-3 text-sm">
           Select a location to filter the related engineering stories.
         </p>
 

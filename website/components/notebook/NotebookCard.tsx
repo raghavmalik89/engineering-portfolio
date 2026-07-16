@@ -84,7 +84,7 @@ export function NotebookCard({
           />
         </div>
 
-        <p className="mt-5 leading-7 text-text-secondary">{entry.summary}</p>
+        <p className="readable-copy mt-5">{entry.summary}</p>
 
         <div className="mt-6 flex flex-wrap gap-2">
           {entry.technologies.slice(0, 5).map((technology) => (

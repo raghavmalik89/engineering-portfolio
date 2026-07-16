@@ -41,25 +41,25 @@ export function StorySection({ section }: { section: StorySectionType }) {
       </h2>
 
       {hasBody ? (
-        <div className="mt-5 grid gap-5 text-base leading-8 text-text-secondary">
+        <div className="readable-copy mt-5 grid gap-5 text-base">
           {section.body?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
       ) : null}
 
       {hasOrderedItems ? (
-        <ol className="mt-5 grid list-decimal gap-3 pl-6 text-base leading-8 text-text-secondary marker:text-accent-copper">
+        <ol className="readable-copy mt-5 grid list-decimal gap-3 pl-6 text-base marker:text-accent-copper">
           {section.orderedItems?.map((item) => <li key={item}>{item}</li>)}
         </ol>
       ) : null}
 
       {hasBullets ? (
-        <ul className="mt-5 grid list-disc gap-3 pl-6 text-base leading-8 text-text-secondary marker:text-accent-copper">
+        <ul className="readable-copy mt-5 grid list-disc gap-3 pl-6 text-base marker:text-accent-copper">
           {section.bullets?.map((item) => <li key={item}>{item}</li>)}
         </ul>
       ) : null}
 
       {hasClosingBody ? (
-        <div className="mt-5 grid gap-5 text-base leading-8 text-text-secondary">
+        <div className="readable-copy mt-5 grid gap-5 text-base">
           {section.closingBody?.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

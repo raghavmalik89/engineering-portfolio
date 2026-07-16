@@ -12,7 +12,7 @@ export function HomeCallToAction() {
           <h2 className="mt-4 text-3xl leading-tight font-semibold text-foreground">
             Discuss a product architecture or engineering delivery challenge
           </h2>
-          <p className="mt-5 leading-8 text-text-secondary">
+          <p className="readable-copy mt-5">
             For Industrial IoT, embedded hardware, mechatronic systems, field
             deployment, or product architecture conversations.
           </p>

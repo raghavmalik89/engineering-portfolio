@@ -41,7 +41,7 @@ export function CompactStoryCard({
       <h3 className="mt-4 text-lg leading-snug font-semibold text-foreground">
         {story.cardTitle ?? story.title}
       </h3>
-      <p className="mt-4 text-sm leading-6 text-text-secondary">
+      <p className="readable-copy mt-4 text-sm">
         {story.summary}
       </p>
       <div className="mt-5 flex flex-wrap gap-2">

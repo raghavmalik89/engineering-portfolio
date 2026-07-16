@@ -142,7 +142,7 @@ export default async function NotebookEntryPage({
                   {entry.heroProposition}
                 </p>
               ) : null}
-              <p className="mt-6 max-w-[760px] text-lg leading-8 text-text-secondary">
+              <p className="readable-copy mt-6 max-w-[760px] text-lg">
                 {entry.heroSummary ?? entry.summary}
               </p>
               <div className="mt-6">
@@ -262,7 +262,7 @@ export default async function NotebookEntryPage({
                     </h2>
                   ) : null}
                   {entry.featureVisual.body ? (
-                    <p className="mt-3 leading-7 text-text-secondary">
+                    <p className="readable-copy mt-3">
                       {entry.featureVisual.body}
                     </p>
                   ) : null}
@@ -329,7 +329,7 @@ export default async function NotebookEntryPage({
                 {entry.snapshot.map((item) => (
                   <div key={item.label}>
                     <p className={notebookLabelClassName}>{item.label}</p>
-                    <p className="mt-2 leading-7 text-text-secondary">
+                    <p className="readable-copy mt-2">
                       {item.value}
                     </p>
                   </div>
@@ -394,7 +394,7 @@ export default async function NotebookEntryPage({
                           <p className="text-sm font-semibold text-accent-beige">
                             {item.name}
                           </p>
-                          <p className="mt-1 text-sm leading-6 text-text-secondary">
+                          <p className="readable-copy mt-1 text-sm">
                             {item.purpose}
                           </p>
                         </div>
@@ -418,7 +418,7 @@ export default async function NotebookEntryPage({
                     <h2 className="text-lg font-semibold text-foreground">
                       {profile.title}
                     </h2>
-                    <p className="mt-3 text-sm leading-6 text-text-secondary">
+                    <p className="readable-copy mt-3 text-sm">
                       {profile.body}
                     </p>
                   </article>
@@ -438,7 +438,7 @@ export default async function NotebookEntryPage({
                   <h2 className="text-2xl leading-tight font-semibold text-foreground">
                     Limitations
                   </h2>
-                  <ul className="mt-5 grid list-disc gap-3 pl-6 text-base leading-8 text-text-secondary marker:text-accent-copper">
+                  <ul className="readable-copy mt-5 grid list-disc gap-3 pl-6 text-base marker:text-accent-copper">
                     {entry.limitations.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -451,7 +451,7 @@ export default async function NotebookEntryPage({
                   <h2 className="text-2xl leading-tight font-semibold text-foreground">
                     Next steps
                   </h2>
-                  <ul className="mt-5 grid list-disc gap-3 pl-6 text-base leading-8 text-text-secondary marker:text-accent-copper">
+                  <ul className="readable-copy mt-5 grid list-disc gap-3 pl-6 text-base marker:text-accent-copper">
                     {entry.nextSteps.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -471,7 +471,7 @@ export default async function NotebookEntryPage({
           ) : (
             <section className="mx-auto max-w-[900px] rounded-lg border border-border-subtle/70 bg-surface/55 p-6">
               <p className={notebookLabelClassName}>In development</p>
-              <p className="mt-4 leading-7 text-text-secondary">
+              <p className="readable-copy mt-4">
                 This Notebook entry is available locally for progressive
                 drafting. Public production builds will not expose unpublished
                 Notebook pages.

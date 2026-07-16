@@ -47,7 +47,7 @@ export function CapabilityCard({
         <h3 className="text-xl leading-snug font-semibold text-foreground">
           {title}
         </h3>
-        <p className="mt-4 leading-7 text-text-secondary">{body}</p>
+        <p className="readable-copy mt-4">{body}</p>
       </div>
 
       {hasEvidence ? (

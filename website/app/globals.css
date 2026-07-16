@@ -42,6 +42,11 @@ button {
   outline-color: var(--accent-copper);
 }
 
+.readable-copy {
+  color: color-mix(in srgb, var(--foreground) 78%, var(--text-secondary));
+  line-height: 1.72;
+}
+
 .technical-index-sidebar {
   align-self: start;
 }

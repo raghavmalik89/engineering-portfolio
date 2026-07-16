@@ -26,7 +26,7 @@ export function SectionHeader({
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-text-secondary sm:text-lg">
+        <p className="readable-copy mt-5 text-base sm:text-lg">
           {description}
         </p>
       ) : null}

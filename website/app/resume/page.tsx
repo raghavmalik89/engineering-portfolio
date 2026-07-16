@@ -29,6 +29,8 @@ const sectionTitle =
   "mt-3 text-2xl font-semibold text-accent-copper sm:text-3xl";
 const subtleLink =
   "text-accent-beige underline decoration-accent-copper/40 underline-offset-4 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper";
+const timelineDateClassName =
+  "font-mono text-sm font-semibold leading-6 tracking-[0.06em] text-accent-copper/85 uppercase";
 
 function ResumeSection({
   id,
@@ -60,7 +62,7 @@ function BulletList({ items }: { items: readonly string[] }) {
   return (
     <ul className="grid gap-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3 text-text-secondary">
+        <li key={item} className="readable-copy flex gap-3">
           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-copper/75" />
           <span>{item}</span>
         </li>
@@ -193,7 +195,7 @@ export default function ResumePage() {
 
         <div className="mt-12 grid gap-12">
           <ResumeSection id="summary" eyebrow="Summary" title="Professional Summary">
-            <div className="grid gap-5 text-lg leading-8 text-text-secondary">
+            <div className="readable-copy grid gap-5 text-lg">
               {resumeProfile.summary.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -241,7 +243,7 @@ export default function ResumePage() {
                         >
                           {skill.label}
                         </th>
-                        <td className="p-5 leading-7 text-text-secondary">
+                        <td className="readable-copy p-5">
                           {skill.details}
                         </td>
                       </tr>
@@ -270,7 +272,7 @@ export default function ResumePage() {
                         <dt className="font-semibold text-foreground">
                           {skill.label}
                         </dt>
-                        <dd className="mt-1 leading-7 text-text-secondary">
+                        <dd className="readable-copy mt-1">
                           {skill.details}
                         </dd>
                       </div>
@@ -294,9 +296,7 @@ export default function ResumePage() {
                   className="rounded-lg border border-border-subtle/70 bg-surface/50 p-6 sm:p-7"
                 >
                   <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
-                    <p className="font-mono text-sm leading-6 tracking-[0.12em] text-text-muted uppercase">
-                      {role.dates}
-                    </p>
+                    <p className={timelineDateClassName}>{role.dates}</p>
                     <div>
                       <h3
                         id={`role-${index}-title`}
@@ -311,7 +311,7 @@ export default function ResumePage() {
                         />{" "}
                         / {role.location}
                       </p>
-                      <p className="mt-5 leading-8 text-text-secondary">
+                      <p className="readable-copy mt-5">
                         {role.summary}
                       </p>
 
@@ -361,9 +361,7 @@ export default function ResumePage() {
                   key={`${item.dates}-${item.qualification}`}
                   className="grid gap-3 rounded-lg border border-border-subtle/70 bg-surface/45 p-5 sm:grid-cols-[160px_minmax(0,1fr)]"
                 >
-                  <p className="font-mono text-sm tracking-[0.12em] text-text-muted uppercase">
-                    {item.dates}
-                  </p>
+                  <p className={timelineDateClassName}>{item.dates}</p>
                   <div>
                     <h3 className="font-semibold text-foreground">
                       {item.qualification}
@@ -391,7 +389,7 @@ export default function ResumePage() {
                   <dt className="font-semibold text-accent-beige">
                     {item.label}
                   </dt>
-                  <dd className="mt-3 leading-7 text-text-secondary">
+                  <dd className="readable-copy mt-3">
                     {item.details}
                   </dd>
                 </div>
@@ -407,7 +405,7 @@ export default function ResumePage() {
             <h2 id="referees-title" className={sectionTitle}>
               Referees available on request
             </h2>
-            <p className="mt-5 max-w-[760px] leading-8 text-text-secondary">
+            <p className="readable-copy mt-5 max-w-[760px]">
               The downloadable PDF remains the formal CV record. For role
               discussions, technical leadership enquiries, or product
               architecture conversations, contact Raghav directly.
@@ -416,7 +414,7 @@ export default function ResumePage() {
               <p className="font-mono text-[11px] tracking-[0.16em] text-accent-copper uppercase">
                 Consulting & work rights
               </p>
-              <p className="mt-3 leading-7 text-text-secondary">
+              <p className="readable-copy mt-3">
                 Australian citizen. Consulting details: Australian ABN{" "}
                 {resumeContact.abn}.
               </p>

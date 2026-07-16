@@ -107,7 +107,7 @@ export default async function StoryDetailPage({ params }: StoryPageProps) {
               <p className="font-mono text-xs tracking-[0.16em] text-accent-copper uppercase">
                 Story in development
               </p>
-              <p className="mt-4 leading-7 text-text-secondary">
+              <p className="readable-copy mt-4">
                 This page is available locally for progressive content drafting.
                 Public production builds will not expose unpublished story pages.
               </p>

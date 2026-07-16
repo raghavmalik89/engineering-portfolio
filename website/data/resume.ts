@@ -5,7 +5,7 @@ export const resumeContact = {
   name: "Raghav Malik",
   location: "Tokyo",
   citizenship: "Australian citizen",
-  japanPhone: "+81 (0)70 2477 2310",
+  japanPhone: "+81 70 2477 2310",
   australiaPhone: "+61 449 204 552",
   email: "raghavmalik89@gmail.com",
   abn: "56 384 076 880",
@@ -329,7 +329,7 @@ export const employmentHistory = [
 export const education = [
   {
     dates: "2015",
-    qualification: "Antenna design (Professional Development intense course)",
+    qualification: "Antenna Design — Professional Development Course",
     institution: "The University of Queensland",
     location: "Queensland, Australia",
   },

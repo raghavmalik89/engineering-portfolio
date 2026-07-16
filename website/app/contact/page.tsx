@@ -35,6 +35,7 @@ const contactMethods = [
   {
     label: "Japan phone",
     value: resumeContact.japanPhone,
+    note: "070 2477 2310 within Japan",
     href: "tel:+817024772310",
     external: false,
   },
@@ -97,7 +98,7 @@ function BulletList({ items }: { items: readonly string[] }) {
       {items.map((item) => (
         <li
           key={item}
-          className="flex gap-3 text-base leading-7 text-text-secondary"
+          className="readable-copy flex gap-3 text-base"
         >
           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-copper/75" />
           <span>{item}</span>
@@ -124,13 +125,13 @@ export default function ContactPage() {
               Electronics | RF Communications | Mechatronics | Industrial IoT |
               AI Vision | Harsh-Environment Products
             </p>
-            <p className="mt-7 max-w-[720px] text-lg leading-8 text-text-secondary">
+            <p className="readable-copy mt-7 max-w-[720px] text-lg">
               For senior systems and product architecture, Industrial IoT,
               RF/electronics, mechatronics, harsh-environment product delivery,
               and focused consulting discussions where the technical scope is
               substantial.
             </p>
-            <p className="mt-4 max-w-[700px] text-base leading-8 text-text-secondary">
+            <p className="readable-copy mt-4 max-w-[700px] text-base">
               Currently based in Tokyo as an Australian citizen, open to
               selected senior engineering, product architecture, and consulting
               conversations where the engineering problem is well defined.
@@ -141,7 +142,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold text-accent-beige">
               Best first contact
             </h2>
-            <p className="mt-3 text-base leading-7 text-text-secondary">
+            <p className="readable-copy mt-3 text-base">
               For role, architecture, consulting, or technical leadership
               discussions, send the context, expected scope, location, and
               timing.
@@ -175,6 +176,11 @@ export default function ContactPage() {
                     >
                       {method.value}
                     </a>
+                    {"note" in method ? (
+                      <p className="mt-1 text-sm leading-6 text-text-secondary">
+                        {method.note}
+                      </p>
+                    ) : null}
                   </dd>
                 </div>
               ))}
@@ -192,7 +198,7 @@ export default function ContactPage() {
           >
             What to contact me about
           </h2>
-          <p className="mt-4 max-w-[760px] leading-8 text-text-secondary">
+          <p className="readable-copy mt-4 max-w-[760px]">
             The best fit is work where product direction, architecture,
             electronics, RF, field constraints, and delivery risk need to be
             considered together.
@@ -206,7 +212,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-semibold text-accent-beige">
                   {area.title}
                 </h3>
-                <p className="mt-2 text-base leading-7 text-text-secondary">
+                <p className="readable-copy mt-2 text-base">
                   {area.body}
                 </p>
               </div>
@@ -218,7 +224,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-semibold text-accent-copper sm:text-3xl">
             What to include in your first message
           </h2>
-          <p className="mt-4 max-w-[760px] text-base leading-8 text-text-secondary">
+          <p className="readable-copy mt-4 max-w-[760px] text-base">
             A useful first message should make the role, system, constraint,
             and timing clear.
           </p>
@@ -287,7 +293,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold text-accent-copper sm:text-3xl">
               Start with the scope, timing, and decision context.
             </h2>
-            <p className="mt-4 text-base leading-8 text-text-secondary">
+            <p className="readable-copy mt-4 text-base">
               For role, architecture, consulting, or technical leadership
               discussions, email me with the context, expected scope, and
               timing.

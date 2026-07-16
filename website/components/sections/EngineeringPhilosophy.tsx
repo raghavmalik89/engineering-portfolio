@@ -22,7 +22,7 @@ export function EngineeringPhilosophy() {
           </div>
 
           <div className="lg:col-span-7">
-            <p className="text-lg leading-8 text-text-secondary">
+            <p className="readable-copy text-lg">
               A prototype proves that something can work. Product architecture
               proves whether it can keep working across manufacturing,
               deployment, maintenance, and real operating conditions.
@@ -31,7 +31,7 @@ export function EngineeringPhilosophy() {
               {philosophyPoints.map((point) => (
                 <li
                   key={point}
-                  className="flex gap-3 rounded-lg border border-border-subtle/60 bg-surface/50 p-4 text-text-secondary"
+                  className="readable-copy flex gap-3 rounded-lg border border-border-subtle/60 bg-surface/50 p-4"
                 >
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-copper" />
                   <span>{point}</span>

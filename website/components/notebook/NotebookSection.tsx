@@ -45,13 +45,13 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
       </h2>
 
       {hasBody ? (
-        <div className="mt-5 grid gap-5 text-base leading-8 text-text-secondary">
+        <div className="readable-copy mt-5 grid gap-5 text-base">
           {section.body?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
       ) : null}
 
       {hasBullets ? (
-        <ul className="mt-5 grid list-disc gap-3 pl-6 text-base leading-8 text-text-secondary marker:text-accent-copper">
+        <ul className="readable-copy mt-5 grid list-disc gap-3 pl-6 text-base marker:text-accent-copper">
           {section.bullets?.map((item) => <li key={item}>{item}</li>)}
         </ul>
       ) : null}
@@ -84,7 +84,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
               <h3 className="text-base font-semibold text-foreground">
                 {decision.title}
               </h3>
-              <p className="mt-3 leading-7 text-text-secondary">
+              <p className="readable-copy mt-3">
                 {decision.body}
               </p>
             </article>
@@ -116,7 +116,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
           <p className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-accent-copper uppercase">
             {section.callout?.label}
           </p>
-          <p className="mt-3 leading-7 text-text-secondary">
+          <p className="readable-copy mt-3">
             {section.callout?.body}
           </p>
         </aside>
