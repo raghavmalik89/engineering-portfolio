@@ -18,14 +18,14 @@ export function RelatedNotebookEntries({
 
   return (
     <section className="border-t border-border-subtle/70 pt-9">
-      <h2 className="text-2xl leading-tight font-semibold text-foreground">
+      <h2 className="break-words text-2xl leading-tight font-semibold text-foreground [overflow-wrap:anywhere]">
         Related notebook entries
       </h2>
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <div className="mt-5 grid min-w-0 gap-4 sm:grid-cols-2">
         {entries.map((entry) => {
           const canLink = canLinkEntries || entry.status === "published";
           const className =
-            "rounded-lg border border-border-subtle/70 bg-surface/65 p-5 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper";
+            "min-w-0 rounded-lg border border-border-subtle/70 bg-surface/65 p-5 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper";
           const content = (
             <>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -34,10 +34,10 @@ export function RelatedNotebookEntries({
                 </p>
                 <NotebookStatusBadge status={entry.status} />
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-foreground">
+              <h3 className="mt-3 break-words text-lg font-semibold text-foreground [overflow-wrap:anywhere]">
                 {entry.shortTitle}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-text-secondary">
+              <p className="mt-3 break-words text-sm leading-6 text-text-secondary [overflow-wrap:anywhere]">
                 {entry.summary}
               </p>
             </>
