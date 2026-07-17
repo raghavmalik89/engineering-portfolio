@@ -1,5 +1,72 @@
 # Engineering Portfolio v1.1 Release Notes
 
+## v1.1.1 Release Candidate
+
+- Release name: Engineering Portfolio v1.1.1
+- Release status: release candidate / not yet deployed
+- Source development branch: `phase/5-post-launch`
+- Production status: production remains on the accepted v1.1.0 release until
+  final release QA and owner approval.
+
+### Validated Changes Since v1.1.0
+
+Home:
+
+- Homepage repositioned around engineering leadership for complex physical
+  products.
+- Four capability cards now provide distinct evidence through SmartRoller, GET
+  Vision, Neumann Space and IBA ProteusONE.
+- Homepage metadata is aligned with the revised positioning.
+
+Stories:
+
+- Neumann Space plasma-thruster electronics recovery Story added and published.
+- IBA ProteusONE Toyohashi commissioning Story added and published.
+- Stories landing page refined with compact cards and an interactive
+  Engineering Footprint context inspector.
+- Published Story cards are clickable across their full non-interactive area.
+- Story image presentation supports contained transparent media and controlled
+  supporting-image crops.
+- IBA delivery-lifecycle visual and responsive fallback added.
+
+Notebook:
+
+- Technical Index upgraded into a technology/project context inspector.
+- Curated demonstrated evidence and current engineering focus/state shown for
+  selected projects.
+- Technology selection surfaces engineering use, related published projects and
+  evidence.
+- Existing card-level navigation remains intact.
+- Short-viewport and themed-scrollbar safeguards remain preserved.
+
+Layout and readability:
+
+- Compact internal header.
+- Improved body-copy readability.
+- Stronger content-link and metadata contrast.
+- Homepage hierarchy and spacing refinements.
+- Short-viewport sidebar scroll-trap correction.
+- Dark-theme sidebar scrollbar integration.
+
+Resume:
+
+- Web Resume phone and course wording corrected.
+- Downloadable six-page Resume PDF updated to match.
+
+SEO and discovery:
+
+- Canonical metadata, Open Graph and Twitter metadata.
+- `robots.txt` and `sitemap.xml`.
+- Production sitemap is expected to contain exactly 11 approved public URLs.
+- Gated routes remain excluded.
+
+Deferred:
+
+- Dedicated branded 1200 x 630 social-preview asset.
+- Low-priority homepage SVG mobile scaling refinement.
+- Finance and Decision Systems Notebook content.
+- Sector-rotation project publication.
+
 ## Release Identity
 
 - Release name: Engineering Portfolio v1.1
