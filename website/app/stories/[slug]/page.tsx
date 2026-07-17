@@ -4,6 +4,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { RelatedStories } from "@/components/stories/RelatedStories";
 import { StoryGallery } from "@/components/stories/StoryGallery";
 import { StoryBackLink } from "@/components/stories/StoryBackLink";
+import { StoryDeliveryLifecycle } from "@/components/stories/StoryDeliveryLifecycle";
 import { StoryHero } from "@/components/stories/StoryHero";
 import { StoryMetadata } from "@/components/stories/StoryMetadata";
 import { StorySection } from "@/components/stories/StorySection";
@@ -117,6 +118,9 @@ export default async function StoryDetailPage({ params }: StoryPageProps) {
 
         <div className="grid gap-12">
           <StoryHero story={story} />
+          {story.deliveryLifecycle ? (
+            <StoryDeliveryLifecycle lifecycle={story.deliveryLifecycle} />
+          ) : null}
           <StoryMetadata story={story} countryNames={countryNames} />
 
           {story.sections.length ? (

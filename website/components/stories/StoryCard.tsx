@@ -92,28 +92,29 @@ export function StoryCard({
           </div>
 
           <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-5">
-            <button
-              type="button"
-              onClick={() => onSelect(story.slug)}
-              className="text-sm font-semibold text-text-secondary underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
-              aria-pressed={isActive}
-            >
-              Explore footprint
-            </button>
-
             {canLink ? (
-              <Link
-                href={routes.story(story.slug)}
-                className="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
-              >
-                {isPublished ? "Open story" : "Preview story"}
-                <span
-                  aria-hidden="true"
-                  className="text-accent-copper transition-transform duration-200 group-hover/link:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover/link:translate-x-0"
+              <>
+                <button
+                  type="button"
+                  onClick={() => onSelect(story.slug)}
+                  className="text-sm font-semibold text-text-secondary underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
+                  aria-pressed={isActive}
                 >
-                  -&gt;
-                </span>
-              </Link>
+                  Explore footprint
+                </button>
+                <Link
+                  href={routes.story(story.slug)}
+                  className="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
+                >
+                  {isPublished ? "Open story" : "Preview story"}
+                  <span
+                    aria-hidden="true"
+                    className="text-accent-copper transition-transform duration-200 group-hover/link:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover/link:translate-x-0"
+                  >
+                    -&gt;
+                  </span>
+                </Link>
+              </>
             ) : (
               <span className="text-sm font-semibold text-text-secondary">
                 Story in development - preview only

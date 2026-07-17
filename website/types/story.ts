@@ -39,6 +39,18 @@ export type StorySection = {
   images?: StoryImage[];
 };
 
+export type StoryLifecycleStage = {
+  label: string;
+  detail: string;
+};
+
+export type StoryLifecycle = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  stages: StoryLifecycleStage[];
+};
+
 export type StorySnapshotItem = {
   label: string;
   value: string;
@@ -82,6 +94,7 @@ export type Story = {
   cardImage?: StoryImage;
   heroImage?: StoryImage;
   heroMedia?: StoryVideoMedia;
+  deliveryLifecycle?: StoryLifecycle;
   sections: StorySection[];
   gallery?: StoryImage[];
   externalLinks?: StoryExternalLink[];

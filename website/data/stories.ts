@@ -772,13 +772,19 @@ export const stories: Story[] = [
     relatedProjectSlugs: ["smartroller", "get-vision"],
   },
   {
-    title: "Commissioning a Proteus One Proton-Therapy Accelerator",
-    shortTitle: "Proteus One Commissioning",
-    slug: "proton-therapy-commissioning",
+    title: "From an Empty Building to Clinical Operation: ProteusONE in Toyohashi",
+    cardTitle: "Commissioning a ProteusONE Proton-Therapy Centre",
+    shortTitle: "ProteusONE Toyohashi",
+    slug: "iba-proteusone-toyohashi-commissioning",
     company: "IBA",
+    eyebrow: "Ion Beam Applications S.A. (IBA)",
     summary:
-      "Delivering the electromechanical integration and commissioning of a complex proton-therapy accelerator system across precision mechanics, electrical systems, RF, vacuum, cryogenics, cooling and international site coordination.",
-    status: "planned",
+      "Helped take a regulated proton-therapy installation from an empty building through multidisciplinary integration, acceptance, first-patient operation and local-team handover.",
+    heroProposition:
+      "Electromechanical systems integration, commissioning, quality assurance and operational handover at Narita Memorial Proton Center.",
+    heroSummary:
+      "As an IBA Electromechanical Engineer, Raghav helped integrate and commission a ProteusONE proton-therapy centre from empty-site mobilisation through installation quality, multidisciplinary testing, customer acceptance, first-patient operation and handover to a local technical team.",
+    status: "published",
     displayOrder: 4,
     presentation: {
       indexVariant: "flagship",
@@ -786,25 +792,274 @@ export const stories: Story[] = [
       showOnStoriesIndex: true,
     },
     role: "Electromechanical Engineer",
-    period: "02/2017 - 06/2019",
+    period: "2017-2019",
     domains: [
       "Medical Accelerators",
-      "Electromechanical Systems",
-      "Precision Commissioning",
-      "Multidisciplinary Integration",
-      "International Delivery",
+      "Systems Integration",
+      "Commissioning",
+      "Patient-positioning robotics",
+      "PLC/SCADA",
+      "Precision metrology",
+      "Vacuum systems",
+      "Technical handover",
+      "Installation quality",
     ],
     technologies: [
-      "Electrical systems",
-      "RF systems",
-      "Vacuum",
-      "Cryogenics",
-      "Water cooling",
-      "Precision mechanical alignment",
+      "Electromechanical installation",
+      "Patient-positioning robotics",
+      "PLC, SCADA and HMI interfaces",
+      "Conditioned-water cooling",
+      "Vacuum leak detection",
+      "X-ray installation and alignment",
+      "Precision metrology",
+      "Acceptance testing",
     ],
     countries: ["BE", "PL", "JP-TOYOHASHI"],
-    sections: [],
-    relatedProjectSlugs: [],
+    snapshot: [
+      {
+        label: "Company",
+        value: "IBA",
+      },
+      {
+        label: "Customer",
+        value: "Narita Memorial Proton Center / Meiyokai",
+      },
+      {
+        label: "Role",
+        value: "Electromechanical Engineer",
+      },
+      {
+        label: "Period",
+        value: "2017-2019",
+      },
+      {
+        label: "Footprint",
+        value: "Toyohashi, Japan; technical training in Belgium and Poland",
+      },
+      {
+        label: "System",
+        value: "ProteusONE compact single-room proton therapy system",
+      },
+      {
+        label: "Domain",
+        value:
+          "Medical particle accelerators, regulated medical technology and multidisciplinary systems integration",
+      },
+      {
+        label: "Challenge",
+        value:
+          "Turn a newly constructed facility and separately installed subsystems into one stable, verified and accepted medical accelerator system.",
+      },
+      {
+        label: "Responsibility",
+        value:
+          "Electromechanical installation, system interfaces, subcontractor quality, corrective engineering, testing, acceptance support and local-team handover.",
+      },
+      {
+        label: "Approach",
+        value:
+          "Inspect and sign off installation quality, isolate faults across disciplines, return corrections through unit and integration testing, and document evidence before acceptance.",
+      },
+      {
+        label: "Outcome",
+        value:
+          "A fully operational system handed over to the local technical team, with Raghav present when the centre treated its first patient in September 2018.",
+      },
+    ],
+    cardImage: {
+      src: "/images/stories/iba/narita-proton-center-treatment-room.webp",
+      alt: "Completed ProteusONE treatment room at Narita Memorial Proton Center in Toyohashi.",
+      aspect: "wide",
+      objectFit: "contain",
+    },
+    heroImage: {
+      src: "/images/stories/iba/narita-proton-center-treatment-room.webp",
+      alt: "Completed ProteusONE treatment room at Narita Memorial Proton Center in Toyohashi.",
+      caption:
+        "The completed ProteusONE treatment room at Narita Memorial Proton Center. Raghav's role covered electromechanical installation, multidisciplinary integration, commissioning support and operational handover.",
+      aspect: "wide",
+      objectFit: "contain",
+    },
+    deliveryLifecycle: {
+      eyebrow: "Delivery lifecycle",
+      title: "From empty site to operational handover",
+      description:
+        "A public-safe delivery view of the Toyohashi workstream, showing the project arc without exposing accelerator architecture or proprietary test detail.",
+      stages: [
+        {
+          label: "Empty Site",
+          detail: "Facility mobilisation",
+        },
+        {
+          label: "Installation",
+          detail: "Equipment and interfaces",
+        },
+        {
+          label: "Quality & Correction",
+          detail: "Inspect, reject, rework",
+        },
+        {
+          label: "System Recovery",
+          detail: "Patient positioning",
+        },
+        {
+          label: "Verification",
+          detail: "Unit to acceptance",
+        },
+        {
+          label: "First Patient",
+          detail: "Clinical operation begins",
+        },
+        {
+          label: "Handover",
+          detail: "Local technical team",
+        },
+      ],
+    },
+    sections: [
+      {
+        id: "from-an-empty-building",
+        title: "From an Empty Building",
+        body: [
+          "Raghav joined IBA as an Electromechanical Engineer and completed technical and safety training in Belgium and Poland before deployment to Toyohashi, Japan.",
+          "He arrived as the first IBA engineer at the Narita Memorial Proton Center site. The building was largely empty: major equipment still had to be received, rigged, aligned, connected and integrated with the facility.",
+          "The work depended on an international IBA team, Japanese contractors and specialist vendors. Engineering communication had to be explicit, visual, documented and verified rather than assumed.",
+        ],
+      },
+      {
+        id: "quality-before-commissioning",
+        title: "Quality Before Commissioning",
+        body: [
+          "Within his assigned scope, Raghav supervised subcontractor work, inspected installation against drawings and expected function, and rejected incomplete or substandard work before it could progress.",
+          "Where corrections were required, the priority was not cosmetic neatness. Cable routing, connector work, labelling, pneumatic installation and maintainability all affected whether later commissioning could start from a trustworthy foundation.",
+          "Corrected work was manually tested, documented and signed off before unit testing. The emphasis was quality, clarity and maintainability rather than a personal claim of schedule acceleration.",
+        ],
+      },
+      {
+        id: "recovering-the-positioning-system",
+        title: "Recovering the Positioning System",
+        body: [
+          "One demanding thread involved the patient-positioning system, where drivetrain, braking, power, controls and alignment issues interacted rather than appearing as isolated faults.",
+          "Raghav worked hands-on through disassembly, measurement, diagnosis and corrective-design input while treating the mechanical and electrical issues as one integrated positioning system.",
+          "Specialist metrology supported repeat validation. Corrected work returned through testing before acceptance, without publishing proprietary geometry, settings, acceptance parameters or failure mechanisms.",
+        ],
+      },
+      {
+        id: "commissioning-across-system-boundaries",
+        title: "Commissioning Across System Boundaries",
+        body: [
+          "The commissioning environment crossed treatment-room mechanics, major assemblies, pneumatics, conditioned-water cooling, PLC, SCADA and HMI interfaces, X-ray installation and alignment, beam-line vacuum leak detection, industrial computers and facility utilities.",
+          "Raghav collaborated with accelerator, beam, IT and specialist vendor teams while faults were isolated across subsystem boundaries and returned through controlled checks.",
+          "Rotating-shift work required disciplined handover, issue tracking and careful control of what was safe to access or energise. This Story intentionally avoids safety-control design detail and proprietary architecture.",
+        ],
+      },
+      {
+        id: "disciplined-acceptance-campaign",
+        title: "A Disciplined Acceptance Campaign",
+        body: [
+          "Acceptance was treated as evidence of readiness, not as a place to discover unresolved fundamentals. Work moved through unit tests, subsystem integration, full-system integration, customer acceptance and regression after corrective work.",
+          "Documentation and sign-off mattered because each correction had to leave a traceable path back into the relevant verification activity.",
+        ],
+        quote:
+          "Installation was not complete when the equipment was in place. It was complete when the interfaces had been tested, documented and trusted.",
+      },
+      {
+        id: "training-for-operational-readiness",
+        title: "Training for Operational Readiness",
+        body: [
+          "As the system moved toward routine support, Raghav trained four locally engaged technicians in system architecture, start-up and shutdown, PLC, SCADA and HMI concepts, conditioned-water systems, alarms, practical fault isolation and escalation boundaries.",
+          "The aim was operational readiness: the local technical team needed to operate, interpret and escalate safely, not become accelerator designers or clinical specialists.",
+        ],
+      },
+      {
+        id: "first-patient-to-stable-handover",
+        title: "From First Patient to Stable Handover",
+        body: [
+          "Customer acceptance was completed, the system entered operation and Raghav was present when the centre treated its first patient in September 2018.",
+          "He remained through early operational support and stabilisation as routine responsibility transitioned to the local technical team. His role remained technical.",
+          "Clinical decisions, medical-physics acceptance and authority to treat patients remained with the relevant authorised specialists.",
+        ],
+        images: [
+          {
+            src: "/images/stories/iba/narita-proton-center-exterior.webp",
+            alt: "Exterior of Narita Memorial Proton Center in Toyohashi at night.",
+            caption:
+              "Narita Memorial Proton Center in Toyohashi, where the ProteusONE system progressed from installation through clinical operation and local technical handover.",
+            aspect: "wide",
+            objectFit: "cover",
+            objectPosition: "center 55%",
+          },
+        ],
+      },
+      {
+        id: "engineering-lessons",
+        title: "Engineering Lessons",
+        bullets: [
+          "Installed equipment is not yet a delivered system.",
+          "Interface quality determines commissioning quality.",
+          "Corrective work must return through the relevant regression tests.",
+          "Acceptance should demonstrate readiness, not discover unresolved fundamentals.",
+          "Technical authority can be exercised through standards, evidence and sign-off without a formal management title.",
+          "Handover is complete only when the receiving team can operate, interpret and escalate safely.",
+        ],
+      },
+    ],
+    externalLinks: [
+      {
+        label: "IBA centre profile",
+        description:
+          "IBA public centre profile for Narita Memorial Proton Center in Toyohashi.",
+        cta: "View IBA centre profile",
+        href: "https://www.iba-protontherapy.com/iba-center/narita-memorial-proton-center",
+      },
+      {
+        label: "Narita Memorial Proton Center",
+        description:
+          "Public Narita Memorial Proton Center information from Meiyokai.",
+        cta: "Visit centre website",
+        href: "https://www.meiyokai.or.jp/proton/",
+      },
+      {
+        label: "IBA ProteusONE",
+        description:
+          "IBA product information for the ProteusONE compact single-room proton therapy system.",
+        cta: "View ProteusONE",
+        href: "https://www.iba-protontherapy.com/proteusone",
+      },
+      {
+        label: "First patient announcement",
+        description:
+          "IBA public announcement of first patient treatment in Toyohashi, Japan.",
+        cta: "Read announcement",
+        href: "https://www.iba-worldwide.com/first-patient-treated-proton-therapy-toyohashi-japan",
+      },
+      {
+        label: "Japan installation announcement",
+        description:
+          "IBA public announcement about completing two ProteusONE installations in Japan.",
+        cta: "Read installation update",
+        href: "https://www.iba-worldwide.com/iba-completes-installation-two-proteusrone-solutions-less-12-months-japan",
+      },
+    ],
+    seo: {
+      title: "ProteusONE Commissioning in Toyohashi | Raghav Malik",
+      description:
+        "How Raghav Malik helped integrate and commission an IBA ProteusONE proton-therapy centre from empty-site mobilisation through acceptance, first-patient operation and local-team handover.",
+      openGraphTitle: "ProteusONE Commissioning in Toyohashi",
+      openGraphDescription:
+        "A public-safe engineering Story about regulated medical-technology installation, commissioning, acceptance and local-team handover.",
+      canonicalPath: "/stories/iba-proteusone-toyohashi-commissioning",
+      keywords: [
+        "IBA ProteusONE",
+        "proton therapy",
+        "medical accelerators",
+        "systems integration",
+        "commissioning",
+        "Toyohashi",
+        "Narita Memorial Proton Center",
+      ],
+    },
+    relatedProjectSlugs: ["neumann-space-plasma-thruster-electronics", "smartroller"],
   },
   {
     title: "Mining IoT Gateway",

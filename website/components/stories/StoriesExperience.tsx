@@ -69,6 +69,11 @@ export function StoriesExperience({
   const bradkenProgrammeStories = visibleStories.filter(
     (story) => story.presentation?.indexGroup === "bradken-programmes",
   );
+  const canInspectStory = (slug: string) => {
+    const story = visibleStories.find((candidate) => candidate.slug === slug);
+
+    return Boolean(story && (canLinkStories || story.status === "published"));
+  };
 
   const activeProjectSlugs = useMemo(() => {
     if (activeLocation) {
@@ -97,11 +102,17 @@ export function StoriesExperience({
                 setActive((current) =>
                   current.kind === "location" && current.sticky
                     ? current
-                    : { kind: "story", slug, sticky: false },
+                    : canInspectStory(slug)
+                      ? { kind: "story", slug, sticky: false }
+                      : current,
                 )
               }
               onStorySelect={(slug) =>
-                setActive({ kind: "story", slug, sticky: true })
+                setActive((current) =>
+                  canInspectStory(slug)
+                    ? { kind: "story", slug, sticky: true }
+                    : current,
+                )
               }
               onClear={() => {
                 setActive((current) =>
@@ -134,11 +145,17 @@ export function StoriesExperience({
                 setActive((current) =>
                   current.kind === "location" && current.sticky
                     ? current
-                    : { kind: "story", slug, sticky: false },
+                    : canInspectStory(slug)
+                      ? { kind: "story", slug, sticky: false }
+                      : current,
                 )
               }
               onStorySelect={(slug) =>
-                setActive({ kind: "story", slug, sticky: true })
+                setActive((current) =>
+                  canInspectStory(slug)
+                    ? { kind: "story", slug, sticky: true }
+                    : current,
+                )
               }
               onClear={() => {
                 setActive((current) =>

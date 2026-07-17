@@ -4,6 +4,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getStoriesForIndex } from "@/data/stories";
 import { footprintLocations } from "@/data/locations";
 import { site } from "@/data/site";
+import type { Story } from "@/types/story";
 
 export const metadata: Metadata = {
   title: "Engineering Stories - Industrial IoT, Mining Technology and Product Delivery",
@@ -33,8 +34,33 @@ export const metadata: Metadata = {
   },
 };
 
+function storiesForLandingPage(stories: Story[]) {
+  if (process.env.NODE_ENV !== "production") {
+    return stories;
+  }
+
+  return stories.map((story) =>
+    story.status === "published"
+      ? story
+      : {
+          ...story,
+          heroProposition: undefined,
+          heroSummary: undefined,
+          snapshot: undefined,
+          heroImage: undefined,
+          heroMedia: undefined,
+          deliveryLifecycle: undefined,
+          sections: [],
+          gallery: undefined,
+          externalLinks: undefined,
+          seo: undefined,
+          relatedProjectSlugs: [],
+        },
+  );
+}
+
 export default function StoriesPage() {
-  const stories = getStoriesForIndex();
+  const stories = storiesForLandingPage(getStoriesForIndex());
   const canLinkStories = process.env.NODE_ENV !== "production";
 
   return (
