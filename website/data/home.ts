@@ -1,14 +1,16 @@
 export const heroContent = {
-  eyebrow: "Welcome to our Engineering Portfolio",
-  headline: "Product Architecture for Demanding Engineering Environments",
-  body: "Systems architecture across electronics, RF communications, mechatronics, Industrial IoT, and AI-enabled vision — from concept to field deployment.",
+  eyebrow:
+    "Product Systems Architect | Technical Lead | Product Delivery Specialist",
+  headline: "Engineering leadership for complex physical products",
+  body: "I lead multidisciplinary engineering from product architecture and technical recovery through validation, deployment and operational handover—across industrial IoT, aerospace electronics and medical systems.",
   primaryCta: {
     label: "Explore Engineering Stories",
-    href: "/stories"
+    href: "/stories",
   },
   secondaryCta: {
     label: "View Resume",
-    href: "/resume"
+    href: "/resume",
   },
-  context: "Discover how we deliver robust, reliable solutions for demanding environments."
+  context:
+    "Evidence-led product and systems engineering across demanding operating environments.",
 };

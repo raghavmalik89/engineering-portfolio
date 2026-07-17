@@ -26,51 +26,52 @@ export type SelectedWork = {
 };
 
 export const capabilityOverview = {
-  eyebrow: "Product Architecture",
-  title: "Where Engineering Strategy Meets Product Reality",
+  eyebrow: "Evidence in practice",
+  title: "Engineering leadership in practice",
   description:
-    "Translating complex engineering problems into product direction, system architecture, and practical development roadmaps for Industrial IoT and mechatronic systems in harsh environments — shaping reliable solutions for some of the most demanding operating conditions.",
+    "Four projects showing product architecture, field delivery, programme recovery and multidisciplinary systems integration.",
 } as const;
 
 export const capabilities: Capability[] = [
   {
-    title: "Engineering Product Strategy",
-    body: "Turning complex engineering intent into product direction, architecture choices, and practical development paths before costly decisions are locked in.",
+    title: "Product Strategy & Commercialisation",
+    body: "Turning an unresolved field problem into a connected industrial product through architecture decisions, iterative validation, deployment and commercial handover.",
     icon: "diagram",
     evidenceLink: {
       storySlug: "smartroller",
-      destinationLabel: "the SmartRoller productisation story",
+      destinationLabel:
+        "the SmartRoller product strategy and commercialisation story",
       ctaLabel: "See SmartRoller",
     },
   },
   {
-    title: "Industrial IoT Platforms",
-    body: "Shaping connected industrial systems where sensors, RF communication, embedded hardware, and field data must work reliably as one.",
-    icon: "antenna",
-    evidenceLink: {
-      storySlug: "smartroller",
-      destinationLabel: "the SmartRoller product architecture story",
-      ctaLabel: "See SmartRoller",
-    },
-  },
-  {
-    title: "Harsh-Environment Product Design",
-    body: "Shaping product decisions around harsh operating conditions, reliability demands, and the realities of field use.",
+    title: "AI-Enabled Field Product Delivery",
+    body: "Leading supplier integration, hardware-system delivery and customer deployment as an early vision concept became a rugged monitoring product for mining operations.",
     icon: "field",
     evidenceLink: {
       storySlug: "get-vision",
-      destinationLabel: "the GET Vision ruggedisation story",
+      destinationLabel: "the GET Vision field product delivery story",
       ctaLabel: "See GET Vision",
     },
   },
   {
-    title: "Integrated Engineering Systems",
-    body: "Bringing cross-domain engineering decisions together so complex systems behave as one product, not separate parts.",
+    title: "Technical Programme Recovery & Team Leadership",
+    body: "Recovering a blocked aerospace-electronics workstream through evidence-led diagnosis, architecture judgement, small-team leadership and sustained vacuum testing.",
+    icon: "signal",
+    evidenceLink: {
+      storySlug: "neumann-space-plasma-thruster-electronics",
+      destinationLabel: "the Neumann Space electronics recovery story",
+      ctaLabel: "See Neumann Space",
+    },
+  },
+  {
+    title: "Multidisciplinary Systems Delivery",
+    body: "Delivering electromechanical integration, quality correction, commissioning, verification and technical handover for a complex proton-therapy accelerator system.",
     icon: "chip",
     evidenceLink: {
-      storySlug: "get-vision",
-      destinationLabel: "the GET Vision product architecture story",
-      ctaLabel: "See GET Vision",
+      storySlug: "iba-proteusone-toyohashi-commissioning",
+      destinationLabel: "the IBA ProteusONE systems delivery story",
+      ctaLabel: "See IBA ProteusONE",
     },
   },
 ];
@@ -121,5 +122,5 @@ export const philosophyPoints = [
   "Architect for the operating environment.",
   "Keep interfaces clear, robust, and maintainable.",
   "Validate assumptions before they become costly.",
-  "Balance technical depth with product reality."
+  "Balance technical depth with product reality.",
 ];

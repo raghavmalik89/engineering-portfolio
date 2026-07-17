@@ -8,16 +8,17 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: site.defaultTitle,
+    absolute: "Raghav Malik | Product Systems Architect & Technical Lead",
   },
   description:
-    "Product systems architecture, technical leadership and end-to-end engineering delivery across Industrial IoT, RF communications, electronics, mechatronics, mining technology, aerospace and complex physical products.",
+    "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: site.defaultTitle,
-    description: site.description,
+    title: "Raghav Malik | Product Systems Architect & Technical Lead",
+    description:
+      "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
     url: "/",
     images: [
       {
@@ -28,8 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: site.defaultTitle,
-    description: site.description,
+    title: "Raghav Malik | Product Systems Architect & Technical Lead",
+    description:
+      "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
     images: [site.defaultSocialImage.src],
   },
 };
