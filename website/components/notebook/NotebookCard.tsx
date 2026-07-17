@@ -10,6 +10,7 @@ type NotebookCardProps = {
   isSubdued: boolean;
   canLink: boolean;
   onActivate: (slug: string) => void;
+  onSelect: (slug: string) => void;
   onClear: () => void;
 };
 
@@ -19,20 +20,29 @@ export function NotebookCard({
   isSubdued,
   canLink,
   onActivate,
+  onSelect,
   onClear,
 }: NotebookCardProps) {
   const isPublished = entry.status === "published";
   const className = [
-    "group flex h-full min-h-[420px] w-full flex-col overflow-hidden rounded-lg border text-left transition duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper",
+    "group relative flex h-full min-h-[420px] w-full flex-col overflow-hidden rounded-lg border text-left transition duration-200 motion-reduce:transition-none",
     isActive
-      ? "border-accent-copper/80 bg-surface-elevated/80"
+      ? "border-accent-copper/80 bg-surface-elevated/80 shadow-[0_0_0_1px_rgba(216,184,106,0.16)]"
       : "border-border-subtle/70 bg-surface/65",
     isSubdued ? "opacity-55" : "opacity-100",
-    canLink ? "cursor-pointer hover:border-accent-copper/70" : "cursor-default",
+    canLink
+      ? "cursor-pointer hover:border-accent-copper/70 hover:bg-surface-elevated/70"
+      : "cursor-default",
   ].join(" ");
 
-  const content = (
-    <>
+  return (
+    <article
+      className={className}
+      onMouseEnter={() => onActivate(entry.slug)}
+      onMouseLeave={onClear}
+      data-notebook-card={entry.slug}
+      aria-label={`${entry.title} notebook card`}
+    >
       {entry.cardImage ? (
         <div className="relative aspect-[16/9] border-b border-border-subtle/70 bg-background/40">
           <Image
@@ -98,51 +108,37 @@ export function NotebookCard({
         </div>
 
         {canLink ? (
-          <span className="mt-auto pt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 motion-reduce:transition-none group-hover:text-accent-beige group-hover:decoration-accent-copper/80 group-focus-visible:text-accent-beige group-focus-visible:decoration-accent-copper/80">
-            {isPublished
-              ? entry.actionLabel ?? "Open notebook entry"
-              : "Preview notebook entry"}
-            <span
-              aria-hidden="true"
-              className="text-accent-copper transition-transform duration-200 motion-reduce:transition-none group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
+          <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-6">
+            <button
+              type="button"
+              onClick={() => onSelect(entry.slug)}
+              className="relative z-20 text-sm font-semibold text-text-secondary underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
+              aria-pressed={isActive}
             >
-              -&gt;
-            </span>
-          </span>
+              Explore technologies
+            </button>
+            <Link
+              href={routes.notebookEntry(entry.slug)}
+              aria-label={`Read ${entry.title} in the engineering notebook`}
+              className="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 after:absolute after:inset-0 after:z-10 after:content-[''] hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper focus-visible:after:rounded-lg focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-accent-copper motion-reduce:transition-none"
+            >
+              {isPublished
+                ? entry.actionLabel ?? "Open notebook entry"
+                : "Preview notebook entry"}
+              <span
+                aria-hidden="true"
+                className="text-accent-copper transition-transform duration-200 group-hover/link:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover/link:translate-x-0"
+              >
+                -&gt;
+              </span>
+            </Link>
+          </div>
         ) : (
           <span className="mt-auto pt-6 text-sm font-semibold text-text-secondary">
             In development — preview only
           </span>
         )}
       </div>
-    </>
-  );
-
-  if (canLink) {
-    return (
-      <Link
-        href={routes.notebookEntry(entry.slug)}
-        className={className}
-        aria-label={`Read ${entry.title} in the engineering notebook`}
-        onMouseEnter={() => onActivate(entry.slug)}
-        onMouseLeave={onClear}
-        onFocus={() => onActivate(entry.slug)}
-        onBlur={onClear}
-        data-notebook-card={entry.slug}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <article
-      className={className}
-      onMouseEnter={() => onActivate(entry.slug)}
-      onMouseLeave={onClear}
-      data-notebook-card={entry.slug}
-    >
-      {content}
     </article>
   );
 }

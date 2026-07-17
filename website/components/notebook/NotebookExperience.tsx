@@ -7,7 +7,7 @@ import type { NotebookEntry } from "@/types/notebook";
 
 type ActiveState =
   | { kind: "none" }
-  | { kind: "entry"; slug: string }
+  | { kind: "entry"; slug: string; sticky: boolean }
   | { kind: "technology"; name: string; sticky: boolean };
 
 type NotebookExperienceProps = {
@@ -23,7 +23,10 @@ export function NotebookExperience({
 
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
-      if (active.kind !== "technology" || !active.sticky) {
+      if (
+        (active.kind !== "technology" && active.kind !== "entry") ||
+        !active.sticky
+      ) {
         return;
       }
 
@@ -32,7 +35,10 @@ export function NotebookExperience({
         return;
       }
 
-      if (!target.closest("[data-technical-index-root]")) {
+      if (
+        !target.closest("[data-technical-index-root]") &&
+        !target.closest("[data-notebook-card]")
+      ) {
         setActive({ kind: "none" });
       }
     }
@@ -47,11 +53,18 @@ export function NotebookExperience({
       : undefined;
   const activeTechnology =
     active.kind === "technology" ? active.name : undefined;
+  const inspectableEntries = useMemo(
+    () =>
+      entries.filter(
+        (entry) => canLinkEntries || entry.status === "published",
+      ),
+    [entries, canLinkEntries],
+  );
 
   const indexItems = useMemo(() => {
     const map = new Map<string, string[]>();
 
-    for (const entry of entries) {
+    for (const entry of inspectableEntries) {
       for (const technology of entry.technologies) {
         const slugs = map.get(technology) ?? [];
         slugs.push(entry.slug);
@@ -62,7 +75,7 @@ export function NotebookExperience({
     return [...map.entries()]
       .map(([name, entrySlugs]) => ({ name, entrySlugs }))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [entries]);
+  }, [inspectableEntries]);
 
   const activeEntrySlugs = useMemo(() => {
     if (!activeTechnology) {
@@ -94,9 +107,26 @@ export function NotebookExperience({
                 isActive={isActive}
                 isSubdued={isSubdued}
                 canLink={canLink}
-                onActivate={(slug) => setActive({ kind: "entry", slug })}
+                onActivate={(slug) => {
+                  if (canLink) {
+                    setActive((current) =>
+                      (current.kind === "technology" && current.sticky) ||
+                      (current.kind === "entry" && current.sticky)
+                        ? current
+                        : { kind: "entry", slug, sticky: false },
+                    );
+                  }
+                }}
+                onSelect={(slug) => {
+                  if (canLink) {
+                    setActive({ kind: "entry", slug, sticky: true });
+                  }
+                }}
                 onClear={() => {
-                  if (active.kind !== "technology" || !active.sticky) {
+                  if (
+                    (active.kind !== "technology" && active.kind !== "entry") ||
+                    !active.sticky
+                  ) {
                     setActive({ kind: "none" });
                   }
                 }}
@@ -109,7 +139,7 @@ export function NotebookExperience({
       <div data-technical-index-root>
         <TechnicalIndex
           items={indexItems}
-          entries={entries}
+          entries={inspectableEntries}
           activeTechnology={activeTechnology}
           activeEntrySlug={activeEntry?.slug}
           onTechnologyToggle={(name) => {
@@ -135,6 +165,7 @@ export function NotebookExperience({
                 : current,
             );
           }}
+          onClearSelection={() => setActive({ kind: "none" })}
         />
       </div>
     </div>

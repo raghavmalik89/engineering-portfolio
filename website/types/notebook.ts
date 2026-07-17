@@ -87,6 +87,15 @@ export type NotebookApplicationProfile = {
   body: string;
 };
 
+export type NotebookInspector = {
+  title?: string;
+  evidenceLabel?: string;
+  evidence: string[];
+  currentLabel?: string;
+  currentFocus: string;
+  technologyEvidence?: Record<string, string>;
+};
+
 export type NotebookFeatureVisual = {
   eyebrow?: string;
   title?: string;
@@ -124,6 +133,7 @@ export type NotebookEntry = {
   methods?: string[];
   technologyGroups?: NotebookTechnologyGroup[];
   applicationProfiles?: NotebookApplicationProfile[];
+  inspector?: NotebookInspector;
   cardImage?: NotebookImage;
   heroImage?: NotebookImage;
   featureVisual?: NotebookFeatureVisual;

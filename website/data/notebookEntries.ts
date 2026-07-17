@@ -43,6 +43,37 @@ export const notebookEntries: NotebookEntry[] = [
       "Receiver decoding",
       "Instrument-verified workflow",
     ],
+    inspector: {
+      evidenceLabel: "Demonstrated",
+      evidence: [
+        "Custom PCB assembled and brought up",
+        "Motion and environmental sensing integrated",
+        "End-to-end 920 MHz packet path verified",
+      ],
+      currentLabel: "Current engineering focus",
+      currentFocus:
+        "Low-power sleep architecture and measurement-led battery optimisation.",
+      technologyEvidence: {
+        "920 MHz ISM":
+          "End-to-end transmit and receiver packet path validated on custom hardware.",
+        "Sub-GHz RF":
+          "Compact observation packets were transmitted and decoded through the receiver path.",
+        CC1310:
+          "The custom CC1310 sensor board was assembled, brought up and used as the first complete node.",
+        "Embedded Electronics":
+          "Board bring-up connected the RF, sensing and diagnostic paths into a working prototype.",
+        "PCB Bring-Up":
+          "Custom hardware reached functional bring-up with sensor and RF paths active.",
+        "Environmental Sensing":
+          "Temperature and humidity readings were integrated into the transmitted observation summary.",
+        "Motion Detection":
+          "Motion events drive bounded observation instead of continuous accelerometer streaming.",
+        "Packet Architecture":
+          "A compact versioned observation packet carried motion state and environmental context.",
+        "RF Validation":
+          "Transmit and receiver behavior was checked through measured RF and decode workflows.",
+      },
+    },
     cardImage: {
       src: "/images/notebook/sub-ghz-industrial-iot-sensor/card.webp",
       alt: "Custom Sub-GHz sensor platform under development on an electronics test bench.",
@@ -516,6 +547,33 @@ export const notebookEntries: NotebookEntry[] = [
       "Evidence-controlled editorial workflow",
       "Responsive validation",
     ],
+    inspector: {
+      evidenceLabel: "Demonstrated",
+      evidence: [
+        "Reusable Story and Notebook publishing architecture",
+        "Production metadata, route gating and sitemap controls",
+        "Documented low-cost build and release workflow",
+      ],
+      currentLabel: "Current state",
+      currentFocus:
+        "Live platform with continued evidence-led editorial expansion.",
+      technologyEvidence: {
+        "Next.js":
+          "Published routes, metadata and static editorial pages run through the same app architecture.",
+        TypeScript:
+          "Typed content records constrain statuses, routes, media, links and metadata before build.",
+        "Information Architecture":
+          "Stories, Notebook records and homepage evidence mapping give different readers controlled levels of depth.",
+        "Content Architecture":
+          "Structured data separates public evidence, presentation metadata and route exposure.",
+        "Publication Safety":
+          "Status-aware route gating and sitemap controls keep unpublished work out of production routes.",
+        "Repository Governance":
+          "Documented branch, release and validation rules keep publication work auditable.",
+        "Static Editorial Content":
+          "Public pages are generated from version-controlled content without a runtime CMS dependency.",
+      },
+    },
     cardImage: {
       src: "/images/notebook/engineering-portfolio-development/engineering-portfolio-development_decision-flow.svg",
       alt: "Decision flow linking portfolio stakeholders, communication requirements, architecture, technology, design, validation and operation.",
@@ -1025,6 +1083,8 @@ export function getNotebookEntriesForIndex() {
     period: entry.period,
     lastUpdatedLabel: entry.lastUpdatedLabel,
     technologies: entry.technologies,
+    technologyGroups: entry.technologyGroups,
+    inspector: entry.inspector,
     methods: entry.methods,
     cardImage: entry.cardImage,
     heroImage: undefined,
