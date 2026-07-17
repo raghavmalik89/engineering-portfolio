@@ -38,35 +38,35 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
   return (
     <section
       id={section.id}
-      className="scroll-mt-28 border-t border-border-subtle/70 pt-9 sm:scroll-mt-32"
+      className="min-w-0 scroll-mt-28 border-t border-border-subtle/70 pt-9 sm:scroll-mt-32"
     >
-      <h2 className="text-2xl leading-tight font-semibold text-foreground">
+      <h2 className="break-words text-2xl leading-tight font-semibold text-foreground [overflow-wrap:anywhere]">
         {section.title}
       </h2>
 
       {hasBody ? (
-        <div className="readable-copy mt-5 grid gap-5 text-base">
+        <div className="readable-copy mt-5 grid min-w-0 gap-5 break-words text-base [overflow-wrap:anywhere]">
           {section.body?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
       ) : null}
 
       {hasBullets ? (
-        <ul className="readable-copy mt-5 grid list-disc gap-3 pl-6 text-base marker:text-accent-copper">
+        <ul className="readable-copy mt-5 grid min-w-0 list-disc gap-3 break-words pl-6 text-base marker:text-accent-copper [overflow-wrap:anywhere]">
           {section.bullets?.map((item) => <li key={item}>{item}</li>)}
         </ul>
       ) : null}
 
       {hasObservations ? (
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="mt-6 grid min-w-0 gap-3 sm:grid-cols-2">
           {section.observations?.map((observation) => (
             <div
               key={observation.label}
-              className="rounded-lg border border-border-subtle/70 bg-surface/55 p-4"
+              className="min-w-0 rounded-lg border border-border-subtle/70 bg-surface/55 p-4"
             >
               <p className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-accent-copper uppercase">
                 {observation.label}
               </p>
-              <p className="mt-2 text-sm leading-6 text-text-secondary">
+              <p className="mt-2 break-words text-sm leading-6 text-text-secondary [overflow-wrap:anywhere]">
                 {observation.value}
               </p>
             </div>
@@ -75,16 +75,16 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
       ) : null}
 
       {hasDecisions ? (
-        <div className="mt-6 grid gap-4">
+        <div className="mt-6 grid min-w-0 gap-4">
           {section.decisions?.map((decision) => (
             <article
               key={decision.title}
-              className="rounded-lg border border-border-subtle/70 bg-background/20 p-5"
+              className="min-w-0 rounded-lg border border-border-subtle/70 bg-background/20 p-5"
             >
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="break-words text-base font-semibold text-foreground [overflow-wrap:anywhere]">
                 {decision.title}
               </h3>
-              <p className="readable-copy mt-3">
+              <p className="readable-copy mt-3 break-words [overflow-wrap:anywhere]">
                 {decision.body}
               </p>
             </article>
@@ -93,17 +93,17 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
       ) : null}
 
       {hasMilestones ? (
-        <ol className="mt-6 grid gap-4 border-l border-border-subtle/70 pl-5">
+        <ol className="mt-6 grid min-w-0 gap-4 border-l border-border-subtle/70 pl-5">
           {section.milestones?.map((milestone) => (
             <li key={milestone.title} className="relative">
               <span
                 aria-hidden="true"
                 className="absolute -left-[1.6rem] top-1.5 h-3 w-3 rounded-full border border-accent-copper bg-background"
               />
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="break-words text-base font-semibold text-foreground [overflow-wrap:anywhere]">
                 {milestone.title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-text-secondary">
+              <p className="mt-2 break-words text-sm leading-6 text-text-secondary [overflow-wrap:anywhere]">
                 {milestone.body}
               </p>
             </li>
@@ -112,24 +112,24 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
       ) : null}
 
       {hasCallout ? (
-        <aside className="mt-6 rounded-lg border border-accent-copper/40 bg-surface-elevated/65 p-5">
+        <aside className="mt-6 min-w-0 rounded-lg border border-accent-copper/40 bg-surface-elevated/65 p-5">
           <p className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-accent-copper uppercase">
             {section.callout?.label}
           </p>
-          <p className="readable-copy mt-3">
+          <p className="readable-copy mt-3 break-words [overflow-wrap:anywhere]">
             {section.callout?.body}
           </p>
         </aside>
       ) : null}
 
       {hasTable ? (
-        <div className="mt-6 overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/55">
+        <div className="mt-6 max-w-full overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/55">
           {section.table?.caption ? (
             <p className="border-b border-border-subtle/70 px-4 py-3 text-sm leading-6 text-text-muted">
               {section.table.caption}
             </p>
           ) : null}
-          <div className="overflow-x-auto">
+          <div className="max-w-full overflow-x-auto">
             <table className="min-w-[680px] text-left text-sm">
               <thead className="bg-background/35 text-accent-copper">
                 <tr>
@@ -168,14 +168,14 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
           {section.codeSnippets?.map((snippet) => (
             <figure
               key={`${snippet.label ?? snippet.language ?? "code"}-${snippet.code}`}
-              className="overflow-hidden rounded-lg border border-border-subtle/70 bg-background/65"
+              className="max-w-full overflow-hidden rounded-lg border border-border-subtle/70 bg-background/65"
             >
               {snippet.label ? (
                 <figcaption className="border-b border-border-subtle/70 px-4 py-3 font-mono text-xs tracking-[0.12em] text-accent-copper uppercase">
                   {snippet.label}
                 </figcaption>
               ) : null}
-              <pre className="overflow-x-auto p-4 text-sm leading-6 text-accent-beige">
+              <pre className="max-w-full overflow-x-auto p-4 text-sm leading-6 text-accent-beige">
                 <code>{snippet.code}</code>
               </pre>
             </figure>
@@ -187,14 +187,14 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
         <div
           className={
             section.images && section.images.length > 1
-              ? "mt-8 grid gap-4 sm:grid-cols-2"
-              : "mt-8 grid gap-4"
+              ? "mt-8 grid min-w-0 gap-4 sm:grid-cols-2"
+              : "mt-8 grid min-w-0 gap-4"
           }
         >
           {section.images?.map((image) => (
             <figure
               key={image.src}
-              className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65"
+              className="min-w-0 max-w-full overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/65"
             >
               <div
                 className={imageAspectClassNames[image.aspect ?? "landscape"]}
@@ -218,7 +218,7 @@ export function NotebookSection({ section }: { section: NotebookSectionType }) {
                 />
               </div>
               {image.caption ? (
-                <figcaption className="border-t border-border-subtle/70 px-4 py-3 text-sm leading-6 text-text-muted">
+                <figcaption className="break-words border-t border-border-subtle/70 px-4 py-3 text-sm leading-6 text-text-muted [overflow-wrap:anywhere]">
                   {image.caption}
                 </figcaption>
               ) : null}
