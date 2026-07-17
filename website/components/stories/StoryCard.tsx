@@ -30,12 +30,14 @@ export function StoryCard({
     0,
   );
   const className = [
-    "block w-full overflow-hidden rounded-lg border text-left transition duration-200 motion-reduce:transition-none",
+    "group relative block w-full overflow-hidden rounded-lg border text-left transition duration-200 motion-reduce:transition-none",
     isActive
       ? "border-accent-copper/85 bg-surface-elevated/80 shadow-[0_0_0_1px_rgba(216,184,106,0.18)]"
       : "border-border-subtle/70 bg-surface/65",
     isSubdued ? "opacity-55" : "opacity-100",
-    "hover:border-accent-copper/70",
+    canLink
+      ? "cursor-pointer hover:border-accent-copper/70 hover:bg-surface-elevated/70"
+      : "cursor-default",
   ].join(" ");
 
   return (
@@ -97,14 +99,15 @@ export function StoryCard({
                 <button
                   type="button"
                   onClick={() => onSelect(story.slug)}
-                  className="text-sm font-semibold text-text-secondary underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
+                  className="relative z-20 text-sm font-semibold text-text-secondary underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
                   aria-pressed={isActive}
                 >
                   Explore footprint
                 </button>
                 <Link
                   href={routes.story(story.slug)}
-                  className="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper motion-reduce:transition-none"
+                  aria-label={`${isPublished ? "Open" : "Preview"} ${story.cardTitle ?? story.title}`}
+                  className="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent-copper/35 underline-offset-4 transition-colors duration-200 after:absolute after:inset-0 after:z-10 after:content-[''] hover:text-accent-beige hover:decoration-accent-copper/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper focus-visible:after:rounded-lg focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-accent-copper motion-reduce:transition-none"
                 >
                   {isPublished ? "Open story" : "Preview story"}
                   <span
