@@ -11,7 +11,7 @@ export const footprintLocations: FootprintLocation[] = [
     activityLabels: [
       "SmartRoller development and field learning in Western Australia and eastern Australia",
       "GET Vision feasibility, hardware-system integration, validation, deployment preparation and field deployment",
-      "GET Tracker development and New South Wales field-trial context",
+      "Embedded wear-monitoring research and New South Wales field-trial context",
       "Broader Adelaide engineering experience",
       "Future project links to confirm",
     ],

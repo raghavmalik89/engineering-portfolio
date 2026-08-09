@@ -19,13 +19,13 @@ export const resumeProfile = {
   summary: [
     "Product Systems Architect, Technical Lead, and Product Delivery Specialist with 12+ years of experience turning complex engineering concepts into validated products ready for field deployment and commercial use.",
     "Core expertise spans electronics hardware, RF communications, mechatronics, mechanical integration, Industrial IoT, AI-enabled vision systems, robotics, aerospace electronics, mining technology, and medical accelerator systems.",
-    "Specialises in high-reliability products for harsh operating environments, leading architecture decisions, technical scope, validation, vendor coordination, field trials, deployment support, and production transition.",
+    "Specialises in high-reliability products for harsh operating environments, leading architecture decisions, technical scope, supplier and vendor delivery, customer deployment, validation, field trials, and operational handover.",
   ],
 } as const;
 
 export const careerHighlights = [
   "Led Bradken SmartRoller from field problem to commercial product, enabling multi-million-dollar global mining technology sales.",
-  "Led Tooth Fairy / GET Tracker from field problem to deployed mining wear-monitoring product.",
+  "Led Embedded Wear-Monitoring Research from field problem through sensing architecture, field trials and deployment-oriented development.",
   "Led GET Vision from prototype to commercial AI-enabled vision product for mining asset monitoring.",
   "Drove international validation and deployment across harsh mining environments, including Zambia, Finland, and Alaska.",
   "Acted as Bradken's sole dedicated hardware, electronics, RF, and mechatronics specialist across R&D programs, carrying technical ownership across multiple parallel product initiatives.",
@@ -189,6 +189,7 @@ export const employmentHistory = [
       "Provide specialist architecture support across requirements definition, system architecture, custom PCB design, hardware-firmware integration, prototyping, validation, and commercialisation planning.",
       "Support field deployment, validation, and technical troubleshooting of mining technology systems in harsh operating environments.",
       "Advise on technical investigations, architecture reviews, technology selection, reference platforms, and product development strategy.",
+      "Support customer, supplier, and product-stakeholder discussions where connected sensing architecture, validation evidence, or deployment readiness need senior technical review.",
     ],
     achievements: [
       "Led development and commercial deployment of industrial IoT sensing technologies supporting multi-million-dollar mining operations across global sites.",
@@ -224,7 +225,7 @@ export const employmentHistory = [
     projects: [
       "SmartRoller - Industrial IoT condition monitoring platform incorporating embedded RF sensing, thermal transfer optimisation, ruggedised mechanical design, environmental sealing, and deployment across mining operations in Australia, Finland and Zambia.",
       "GET Vision - Computer vision and AI-enabled monitoring platform for mining asset performance and operational insights.",
-      "Tooth Fairy - rugged RF sensing platform for mining wear component monitoring.",
+      "Embedded Wear-Monitoring Research - rugged RF sensing platform for mining wear component monitoring.",
       "Industrial Gateway - LTE, GNSS, BLE, Sub-GHz RF, and MQTT-enabled connectivity platform for industrial IoT deployments.",
     ],
   },
@@ -239,7 +240,7 @@ export const employmentHistory = [
     responsibilities: [
       "Led redesign of control, power, and integration architecture to resolve stability, fault-handling, and maintainability issues.",
       "Directed electronics design, PCB development, prototyping, verification, and system-level testing across mission-critical subsystems.",
-      "Guided engineers through design reviews, technical documentation, failure analysis, and aerospace-quality verification discipline.",
+      "Mentored less-experienced engineers through design review, failure analysis, documentation discipline, verification planning and system-level thinking while retaining technical ownership of the electronics workstream.",
       "Collaborated with industry experts, vendors, and stakeholders to refine the product architecture and streamline rollout.",
     ],
     achievements: [
@@ -284,14 +285,15 @@ export const employmentHistory = [
     companyUrl: "https://www.iba-worldwide.com/",
     location: "Japan",
     summary:
-      "Design-adjacent systems engineer responsible for integration, stabilisation, and commissioning of a high-energy particle accelerator system. Provided system-level feedback into electrical, RF, mechanical, and cooling design decisions during commissioning in a regulated medical environment.",
+      "Design-adjacent systems engineer responsible for integration, stabilisation, and commissioning of a high-energy particle accelerator system. Coordinated design-team, specialist-supplier, site and customer-facing interfaces during commissioning in a regulated medical environment.",
     responsibilities: [
       "Integrated and validated high-power electrical systems, RF chains, vacuum systems, cryogenic subsystems, and water-cooled infrastructure.",
       "Identified system-level design gaps during commissioning and implemented corrective design and integration changes.",
-      "Acted as technical interface between design teams, site execution, and long-term operational requirements.",
+      "Acted as technical interface between design teams, specialist suppliers, site execution, customer operations, and long-term operational requirements.",
+      "Trained the local technical team in system architecture, start-up and shutdown, controls, utilities, practical fault isolation, and escalation boundaries before operational handover.",
     ],
     achievements: [
-      "Delivered an EUR8M proton therapy accelerator ahead of schedule by resolving system-level integration and commissioning risks across electrical, RF, mechanical, cooling, and control subsystems.",
+      "Helped deliver an operational proton therapy accelerator by resolving system-level integration and commissioning risks across electrical, RF, mechanical, cooling, vacuum and control subsystems.",
     ],
   },
   {
@@ -318,7 +320,7 @@ export const employmentHistory = [
   },
   {
     dates: "07/2010 - 10/2010",
-    title: "Customer Service Engineer",
+    title: "Building Systems Service Engineer",
     company: "The Siemens Group",
     location: "India",
     summary:

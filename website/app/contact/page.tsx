@@ -6,16 +6,16 @@ import { site } from "@/data/site";
 import { resumeContact } from "@/data/resume";
 
 export const metadata: Metadata = {
-  title: "Contact - Engineering Leadership, Product Architecture and Consulting",
+  title: "Contact - Senior Technical Leadership and Product Architecture",
   description:
-    "Contact Raghav Malik for systems architecture, product architecture, Industrial IoT, RF, electronics, mechatronics, technical leadership, and consulting opportunities.",
+    "Contact Raghav Malik for senior technical leadership, product systems architecture, embedded programme leadership, focused technical review and complex physical-product engineering.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact - Engineering Leadership, Product Architecture and Consulting",
+    title: "Contact - Senior Technical Leadership and Product Architecture",
     description:
-      "Contact Raghav Malik for product systems architecture, Industrial IoT, RF, electronics, mechatronics, technical leadership and consulting discussions.",
+      "Contact Raghav Malik for senior technical leadership, product systems architecture, embedded programme leadership and focused technical review.",
     url: "/contact",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Raghav Malik",
     description:
-      "Contact Raghav Malik for engineering leadership, product architecture and consulting discussions.",
+      "Contact Raghav Malik for senior technical leadership, product architecture and focused engineering review discussions.",
     images: [site.defaultSocialImage.src],
   },
 };
@@ -70,26 +70,40 @@ const contactMethods = [
   },
 ] as const;
 
-const opportunityAreas = [
+const engagementModels = [
   {
-    title: "Senior engineering roles",
-    body: "Technical leadership and product delivery roles where systems judgment matters.",
+    title: "Senior Technical Leadership",
+    label: "Primary",
+    body: "Full-time or long-term Product Systems Architect, Technical Lead, Principal-level or similarly senior technically grounded engineering role.",
+  },
+  {
+    title: "Embedded Programme Leadership",
+    body: "Joining an existing organisation for a defined product, architecture, technical recovery, supplier-management, validation or deployment phase.",
+  },
+  {
+    title: "Independent Technical Review",
+    body: "Focused architecture, technical-risk, supplier-capability, validation-evidence or field-readiness review.",
+  },
+] as const;
+
+const technicalAreas = [
+  "Industrial IoT",
+  "RF & connected products",
+  "Electronics",
+  "Mechatronics",
+  "Automation",
+  "Harsh-environment systems",
+  "Multidisciplinary physical products",
+] as const;
+
+const discussionAreas = [
+  {
+    title: "Customer, supplier and field-facing engineering",
+    body: "Requirements, interfaces, site realities, supplier delivery and handover treated as part of the engineering system.",
   },
   {
     title: "Product/system architecture",
     body: "Product direction, architecture choices, interfaces, and development roadmaps.",
-  },
-  {
-    title: "Industrial IoT and connected products",
-    body: "Connected hardware, sensing, field data, RF links, and deployment realities.",
-  },
-  {
-    title: "RF, electronics, and mechatronics",
-    body: "Electronics, communications, motion, automation, and embedded product constraints.",
-  },
-  {
-    title: "Consulting / architecture review",
-    body: "Independent review of technical direction, delivery risk, validation, or architecture.",
   },
   {
     title: "Product recovery, validation, and field deployment",
@@ -119,10 +133,7 @@ function BulletList({ items }: { items: readonly string[] }) {
   return (
     <ul className="grid gap-3">
       {items.map((item) => (
-        <li
-          key={item}
-          className="readable-copy flex gap-3 text-base"
-        >
+        <li key={item} className="readable-copy flex gap-3 text-base">
           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-copper/75" />
           <span>{item}</span>
         </li>
@@ -149,15 +160,15 @@ export default function ContactPage() {
               AI Vision | Harsh-Environment Products
             </p>
             <p className="readable-copy mt-7 max-w-[720px] text-lg">
-              For senior systems and product architecture, Industrial IoT,
-              RF/electronics, mechatronics, harsh-environment product delivery,
-              and focused consulting discussions where the technical scope is
-              substantial.
+              For senior technical leadership, product systems architecture,
+              supplier and customer-facing product delivery, and focused
+              independent review where the engineering scope is substantial.
             </p>
             <p className="readable-copy mt-4 max-w-[700px] text-base">
-              Currently based in Tokyo as an Australian citizen, open to
-              selected senior engineering, product architecture, and consulting
-              conversations where the engineering problem is well defined.
+              Currently based in Tokyo as an Australian citizen, open to senior
+              full-time or long-term technical leadership conversations,
+              selective embedded programme leadership, and focused technical
+              review work where the engineering problem is well defined.
             </p>
           </div>
 
@@ -166,7 +177,7 @@ export default function ContactPage() {
               Best first contact
             </h2>
             <p className="readable-copy mt-3 text-base">
-              For role, architecture, consulting, or technical leadership
+              For role, architecture, technical leadership, or review
               discussions, send the context, expected scope, location, and
               timing.
             </p>
@@ -212,22 +223,80 @@ export default function ContactPage() {
         </section>
 
         <section
-          aria-labelledby="opportunities-title"
+          aria-labelledby="engagement-title"
           className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
         >
           <h2
-            id="opportunities-title"
+            id="engagement-title"
             className="text-2xl font-semibold text-accent-copper sm:text-3xl"
           >
-            What to contact me about
+            Ways to work together
           </h2>
           <p className="readable-copy mt-4 max-w-[760px]">
-            The best fit is work where product direction, architecture,
-            electronics, RF, field constraints, and delivery risk need to be
-            considered together.
+            The best fit is senior, technically grounded work where product
+            direction, architecture, suppliers, field constraints and delivery
+            risk need to be considered together.
           </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {opportunityAreas.map((area) => (
+          <div className="mt-6 grid gap-3 lg:grid-cols-3">
+            {engagementModels.map((area) => (
+              <div
+                key={area.title}
+                className="rounded-lg border border-border-subtle/70 bg-surface-elevated/45 p-4"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-base font-semibold text-accent-beige">
+                    {area.title}
+                  </h3>
+                  {"label" in area ? (
+                    <span className="rounded-full border border-accent-copper/45 px-2 py-0.5 font-mono text-[10px] tracking-[0.12em] text-accent-copper uppercase">
+                      {area.label}
+                    </span>
+                  ) : null}
+                </div>
+                <p className="readable-copy mt-2 text-base">{area.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="technical-areas-title"
+          className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
+        >
+          <h2
+            id="technical-areas-title"
+            className="text-2xl font-semibold text-accent-copper sm:text-3xl"
+          >
+            Technical areas
+          </h2>
+          <p className="readable-copy mt-4 max-w-[760px]">
+            Technical scope is strongest where connected hardware, physical
+            systems, validation and field use meet.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {technicalAreas.map((area) => (
+              <li
+                key={area}
+                className="rounded-full border border-border-subtle/70 bg-surface-elevated/45 px-3 py-1.5 text-sm leading-6 text-text-secondary"
+              >
+                {area}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="discussion-title"
+          className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
+        >
+          <h2
+            id="discussion-title"
+            className="text-2xl font-semibold text-accent-copper sm:text-3xl"
+          >
+            Technical discussion areas
+          </h2>
+          <div className="mt-6 grid gap-3 lg:grid-cols-3">
+            {discussionAreas.map((area) => (
               <div
                 key={area.title}
                 className="rounded-lg border border-border-subtle/70 bg-surface-elevated/45 p-4"
@@ -235,9 +304,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-semibold text-accent-beige">
                   {area.title}
                 </h3>
-                <p className="readable-copy mt-2 text-base">
-                  {area.body}
-                </p>
+                <p className="readable-copy mt-2 text-base">{area.body}</p>
               </div>
             ))}
           </div>
@@ -264,7 +331,7 @@ export default function ContactPage() {
 
             <div>
               <h3 className="text-xl font-semibold text-accent-beige">
-                Founders, CTOs, and consulting clients
+                Founders, CTOs, and review clients
               </h3>
               <div className="mt-5">
                 <BulletList items={consultingDetails} />
@@ -317,7 +384,7 @@ export default function ContactPage() {
               Start with the scope, timing, and decision context.
             </h2>
             <p className="readable-copy mt-4 text-base">
-              For role, architecture, consulting, or technical leadership
+              For role, architecture, review, or technical leadership
               discussions, email me with the context, expected scope, and
               timing.
             </p>

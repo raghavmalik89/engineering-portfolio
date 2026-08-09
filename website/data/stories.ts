@@ -190,8 +190,8 @@ export const stories: Story[] = [
     relatedProjectSlugs: ["get-vision"],
   },
   {
-    title: "GET Tracker / Tooth Fairy",
-    shortTitle: "GET Tracker",
+    title: "Embedded Wear-Monitoring Research",
+    shortTitle: "Wear-Monitoring Research",
     slug: "get-tracker",
     company: "Bradken",
     summary:
