@@ -6,19 +6,20 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { HomeCallToAction } from "@/components/sections/HomeCallToAction";
 import { site } from "@/data/site";
 
+const homeDescription =
+  "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems, from architecture and technical recovery through supplier delivery, customer deployment, validation and handover.";
+
 export const metadata: Metadata = {
   title: {
     absolute: "Raghav Malik | Product Systems Architect & Technical Lead",
   },
-  description:
-    "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
+  description: homeDescription,
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Raghav Malik | Product Systems Architect & Technical Lead",
-    description:
-      "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
+    description: homeDescription,
     url: "/",
     images: [
       {
@@ -30,8 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Raghav Malik | Product Systems Architect & Technical Lead",
-    description:
-      "Engineering leadership across complex physical products, industrial IoT, aerospace electronics and medical systems—from architecture and technical recovery through validation, deployment and handover.",
+    description: homeDescription,
     images: [site.defaultSocialImage.src],
   },
 };

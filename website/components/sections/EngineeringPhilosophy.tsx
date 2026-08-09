@@ -1,11 +1,5 @@
 import { PhilosophyImagePanel } from "@/components/visual/PhilosophyImagePanel";
-
-const philosophyPoints = [
-  "Architect for the operating environment.",
-  "Keep interfaces clear, robust, and maintainable.",
-  "Validate assumptions before they become costly.",
-  "Balance technical depth with product reality.",
-];
+import { philosophyPoints } from "@/data/homeContent";
 
 export function EngineeringPhilosophy() {
   return (

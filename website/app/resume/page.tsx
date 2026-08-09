@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { routes } from "@/lib/routes";
+import { leadershipExperience } from "@/data/home";
 import { site } from "@/data/site";
 import {
   careerHighlights,
@@ -91,6 +92,31 @@ function BulletList({ items }: { items: readonly string[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function LeadershipMetrics() {
+  return (
+    <dl className="grid gap-4 md:grid-cols-3">
+      {leadershipExperience.map((metric) => (
+        <div
+          key={metric.value}
+          className="rounded-lg border border-border-subtle/70 bg-surface/55 p-5"
+        >
+          <dt className="text-3xl leading-none font-semibold text-foreground">
+            {metric.value.toUpperCase()}
+          </dt>
+          <dd className="mt-3">
+            <p className="text-sm leading-6 font-semibold text-accent-beige">
+              {metric.label}
+            </p>
+            <p className="mt-2 text-xs leading-5 text-text-secondary">
+              {metric.evidence}
+            </p>
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -223,6 +249,21 @@ export default function ResumePage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+          </ResumeSection>
+
+          <ResumeSection
+            id="leadership-collaboration"
+            eyebrow="Leadership"
+            title="Leadership & Collaboration"
+          >
+            <LeadershipMetrics />
+            <p className="readable-copy mt-6 max-w-[860px] text-lg">
+              Experience includes translating customer and operational
+              requirements, selecting and reviewing suppliers, managing external
+              technical delivery, communicating risk and trade-offs, mentoring
+              engineers, and coordinating multidisciplinary teams through
+              validation, deployment and operational handover.
+            </p>
           </ResumeSection>
 
           <ResumeSection
