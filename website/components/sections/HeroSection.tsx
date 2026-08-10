@@ -37,7 +37,7 @@ function LeadershipExperienceMetrics() {
 
 export function HeroSection() {
   return (
-    <section className="mx-auto grid max-w-[1200px] gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:pt-12 lg:pb-20">
+    <section className="mx-auto grid max-w-[1200px] gap-12 px-6 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-8 lg:pt-12 lg:pb-20">
       <div className="lg:col-span-6">
         <p className="font-mono text-xs tracking-[0.22em] text-accent-copper uppercase">
           {heroContent.eyebrow}
@@ -57,54 +57,53 @@ export function HeroSection() {
             {heroContent.secondaryCta.label}
           </ButtonLink>
         </div>
-
-        <section
-          aria-labelledby="primary-focus-title"
-          className="mt-8 max-w-[760px] rounded-lg border border-border-subtle/70 bg-surface/50 p-5 sm:p-6"
-        >
-          <p
-            id="primary-focus-title"
-            className="font-mono text-[0.68rem] font-semibold tracking-[0.18em] text-accent-copper uppercase"
-          >
-            {heroContent.primaryFocus.label}
-          </p>
-          <ul className="mt-4 grid gap-x-5 gap-y-3 md:grid-cols-3">
-            {heroContent.primaryFocus.items.map((item) => (
-              <li
-                key={item}
-                className="text-base leading-6 font-semibold text-foreground sm:text-lg"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 border-t border-border-subtle/60 pt-4 text-sm leading-6 text-text-secondary">
-            {heroContent.primaryFocus.secondary}
-          </p>
-        </section>
       </div>
 
-      <div className="lg:col-span-6">
-        <figure>
-          <div className="relative lg:-mr-8">
-            <div className="relative aspect-[3/2] lg:min-h-[390px]">
-              <Image
-                src="/images/hero/hero-pcb-enclosure-concept.png"
-                alt="Concept visual of a PCB and rugged enclosure representing embedded, RF, and industrial IoT systems."
-                fill
-                priority
-                sizes="(min-width: 1024px) 640px, calc(100vw - 48px)"
-                className="object-contain"
-              />
-            </div>
-            <figcaption className="mt-3 px-1 text-right font-mono text-[10px] leading-5 tracking-[0.16em] text-text-secondary uppercase">
-              Representative embedded and RF product-architecture concept
-            </figcaption>
+      <figure className="lg:col-span-6">
+        <div className="relative lg:-mr-8">
+          <div className="relative aspect-[3/2] lg:min-h-[390px]">
+            <Image
+              src="/images/hero/hero-pcb-enclosure-concept.png"
+              alt="Concept visual of a PCB and rugged enclosure representing embedded, RF, and industrial IoT systems."
+              fill
+              priority
+              sizes="(min-width: 1024px) 640px, calc(100vw - 48px)"
+              className="object-contain"
+            />
           </div>
-        </figure>
-        <div className="mt-8">
-          <LeadershipExperienceMetrics />
+          <figcaption className="mt-3 px-1 text-right font-mono text-[10px] leading-5 tracking-[0.16em] text-text-secondary uppercase">
+            Representative embedded and RF product-architecture concept
+          </figcaption>
         </div>
+      </figure>
+
+      <section
+        aria-labelledby="primary-focus-title"
+        className="max-w-[760px] rounded-lg border border-border-subtle/70 bg-surface/50 p-5 sm:p-6 lg:col-span-6"
+      >
+        <p
+          id="primary-focus-title"
+          className="font-mono text-[0.68rem] font-semibold tracking-[0.18em] text-accent-copper uppercase"
+        >
+          {heroContent.primaryFocus.label}
+        </p>
+        <ul className="mt-4 grid gap-x-5 gap-y-3 md:grid-cols-3">
+          {heroContent.primaryFocus.items.map((item) => (
+            <li
+              key={item}
+              className="text-base leading-6 font-semibold text-foreground sm:text-lg"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 border-t border-border-subtle/60 pt-4 text-sm leading-6 text-text-secondary">
+          {heroContent.primaryFocus.secondary}
+        </p>
+      </section>
+
+      <div className="lg:col-span-6">
+        <LeadershipExperienceMetrics />
       </div>
     </section>
   );
