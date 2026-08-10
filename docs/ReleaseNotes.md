@@ -17,6 +17,8 @@ Home:
 - Four capability cards now provide distinct evidence through SmartRoller, GET
   Vision, Neumann Space and IBA ProteusONE.
 - Homepage metadata is aligned with the revised positioning.
+- Primary Focus, international-delivery and 10+ / 8+ / 5+ leadership-experience signals added.
+- Hero layout refined so Primary Focus and Leadership Experience form one aligned desktop tier.
 
 Stories:
 
@@ -38,6 +40,7 @@ Notebook:
   evidence.
 - Existing card-level navigation remains intact.
 - Short-viewport and themed-scrollbar safeguards remain preserved.
+- Notebook detail pages contain long titles, metadata, technology grids, pills and media on narrow screens.
 
 Layout and readability:
 
@@ -45,6 +48,7 @@ Layout and readability:
 - Improved body-copy readability.
 - Stronger content-link and metadata contrast.
 - Homepage hierarchy and spacing refinements.
+- Homepage technical-leadership, supplier/customer and field-delivery evidence mapping refined.
 - Short-viewport sidebar scroll-trap correction.
 - Dark-theme sidebar scrollbar integration.
 
@@ -52,6 +56,13 @@ Resume:
 
 - Web Resume phone and course wording corrected.
 - Downloadable six-page Resume PDF updated to match.
+- Leadership and collaboration evidence surfaced earlier through customer, supplier/vendor and technical-leadership experience signals.
+- Role wording refined for supplier coordination, mentoring and operational handover boundaries.
+
+Contact:
+
+- Engagement hierarchy clarified around senior technical leadership, embedded programme leadership and focused independent review.
+- Technical domains separated from ways-of-working guidance.
 
 SEO and discovery:
 
@@ -59,6 +70,7 @@ SEO and discovery:
 - `robots.txt` and `sitemap.xml`.
 - Production sitemap is expected to contain exactly 11 approved public URLs.
 - Gated routes remain excluded.
+- Public internal project naming cleaned up for the embedded wear-monitoring research programme.
 
 Deferred:
 
