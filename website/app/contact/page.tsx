@@ -297,23 +297,17 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="contact-topic" className={detailLabel}>
-                What is this about?
+              <label htmlFor="contact-subject" className={detailLabel}>
+                Subject
               </label>
-              <select
-                id="contact-topic"
-                name="topic"
-                className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base text-foreground transition-colors focus:border-accent-copper focus:outline-none"
-              >
-                <option value="senior-role">Senior technical role</option>
-                <option value="programme-leadership">
-                  Embedded programme leadership
-                </option>
-                <option value="technical-review">
-                  Independent technical review
-                </option>
-                <option value="other">Something else</option>
-              </select>
+              <input
+                id="contact-subject"
+                name="subject"
+                type="text"
+                required
+                placeholder="e.g. Permanent role, contract work, technical review"
+                className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base text-foreground placeholder:text-text-muted/60 transition-colors focus:border-accent-copper focus:outline-none"
+              />
             </div>
 
             <div>
