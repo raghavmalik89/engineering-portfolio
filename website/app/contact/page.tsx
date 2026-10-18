@@ -239,6 +239,108 @@ export default function ContactPage() {
         </section>
 
         <section
+          aria-labelledby="message-form-title"
+          className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
+        >
+          <h2
+            id="message-form-title"
+            className="text-2xl font-semibold text-accent-copper sm:text-3xl"
+          >
+            Send a message
+          </h2>
+          <p className="readable-copy mt-4 max-w-[760px]">
+            Prefer not to open your mail client? Send the context directly —
+            it lands in the same inbox.
+          </p>
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            className="mt-7 grid gap-5"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden" aria-hidden="true">
+              <label>
+                Do not fill this out: <input name="bot-field" />
+              </label>
+            </p>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label htmlFor="contact-name" className={detailLabel}>
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base text-foreground transition-colors focus:border-accent-copper focus:outline-none"
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-email" className={detailLabel}>
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base text-foreground transition-colors focus:border-accent-copper focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="contact-topic" className={detailLabel}>
+                What is this about?
+              </label>
+              <select
+                id="contact-topic"
+                name="topic"
+                className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base text-foreground transition-colors focus:border-accent-copper focus:outline-none"
+              >
+                <option value="senior-role">Senior technical role</option>
+                <option value="programme-leadership">
+                  Embedded programme leadership
+                </option>
+                <option value="technical-review">
+                  Independent technical review
+                </option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="contact-message" className={detailLabel}>
+                Message — context, scope, timing
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                rows={6}
+                className="mt-2 w-full rounded-lg border border-border-subtle/70 bg-background/60 px-4 py-3 text-base leading-7 text-foreground transition-colors focus:border-accent-copper focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-accent-copper bg-accent-copper px-5 text-sm font-semibold text-background transition-colors duration-200 hover:bg-accent-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-copper"
+              >
+                Send message
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section
           aria-labelledby="engagement-title"
           className="mt-10 rounded-lg border border-border-subtle/70 bg-surface/55 p-6 sm:p-8"
         >
