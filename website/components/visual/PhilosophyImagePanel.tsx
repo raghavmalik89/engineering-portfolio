@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const philosophyImage = "/images/philosophy/selected.svg";
+const philosophyImage = "/images/philosophy/selected.webp";
 
 export function PhilosophyImagePanel() {
   const [imageLoaded, setImageLoaded] = useState(false);

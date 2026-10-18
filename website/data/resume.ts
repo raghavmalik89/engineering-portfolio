@@ -1,165 +1,126 @@
 export const resumePdfPath = "/resume/Raghav_Malik_CV.pdf";
-export const resumePortraitPath = "/images/resume/raghav-portrait.png";
+export const resumePortraitPath = "/images/resume/raghav-portrait.webp";
 
 export const resumeContact = {
   name: "Raghav Malik",
-  location: "Tokyo",
+  location: "Tokyo, Japan",
+  relocation: "Open to relocation: Sydney, Australia",
   citizenship: "Australian citizen",
   japanPhone: "+81 70 2477 2310",
   australiaPhone: "+61 449 204 552",
   email: "raghavmalik89@gmail.com",
+  linkedin: "linkedin.com/in/malikraghav",
+  website: "raghavmalik.com.au",
   abn: "56 384 076 880",
 } as const;
 
 export const resumeProfile = {
-  title:
-    "Product Systems Architect | Technical Lead | Product Delivery Specialist",
+  title: "Hardware Systems & R&D Technical Lead",
   domains:
-    "Electronics | RF Communications | Mechatronics | Industrial IoT | AI Vision | Harsh-Environment Products",
+    "Multidisciplinary R&D Leadership | Electronics | RF | Mechatronics | Validation & Field Deployment",
   summary: [
-    "Product Systems Architect, Technical Lead, and Product Delivery Specialist with 12+ years of experience turning complex engineering concepts into validated products ready for field deployment and commercial use.",
-    "Core expertise spans electronics hardware, RF communications, mechatronics, mechanical integration, Industrial IoT, AI-enabled vision systems, robotics, aerospace electronics, mining technology, and medical accelerator systems.",
-    "Specialises in high-reliability products for harsh operating environments, leading architecture decisions, technical scope, supplier and vendor delivery, customer deployment, validation, field trials, and operational handover.",
+    "Hardware systems engineer who grew into multidisciplinary R&D technical leadership. Over 12+ years, built, integrated and deployed complex physical systems: mining IoT and AI-vision products, space-propulsion electronics, a proton-therapy accelerator, a robotic metal-additive platform and underground RF communications.",
+    "Technical leadership that starts in the lab. Hands-on depth in electronics, RF and mechatronics — bring-up, RF characterization, reproducing failures, finding root cause — is the basis for architecture and schedule decisions, reviews of supplier designs, recovery of stalled programs and the commitments made to customers. Most recently served as technical and program lead, or principal hardware specialist, across five parallel mining R&D programs at Bradken (Hitachi Construction Machinery), in a lean team where engineering, product and program roles overlapped.",
   ],
 } as const;
 
+export const languages =
+  "English native-level · Hindi native · Japanese basic–intermediate · Mandarin Chinese elementary";
+
 export const careerHighlights = [
-  "Led Bradken SmartRoller from field problem to commercial product, enabling multi-million-dollar global mining technology sales.",
-  "Led Embedded Wear-Monitoring Research from field problem through sensing architecture, field trials and deployment-oriented development.",
-  "Led GET Vision from prototype to commercial AI-enabled vision product for mining asset monitoring.",
-  "Drove international validation and deployment across harsh mining environments, including Zambia, Finland, and Alaska.",
-  "Acted as Bradken's sole dedicated hardware, electronics, RF, and mechatronics specialist across R&D programs, carrying technical ownership across multiple parallel product initiatives.",
-  "Recovered a stalled space propulsion electronics programme by redesigning critical power and control architecture.",
-  "Re-architected AML3D's robotic WAAM control platform, helping transition a research prototype toward commercial deployment.",
-  "Delivered electromechanical integration of an EUR8M proton therapy accelerator across electrical, RF, mechanical, cooling, vacuum, and control systems.",
+  "SmartRoller (Bradken) — Took a mining condition-monitoring product from field problem to commercial deployment: three product generations, ~5 vendors evaluated, 10+ systems built or fielded, and international field validation and deployment from Zambia to Alaska.",
+  "GET Vision (Bradken) — Recovered a delayed, vendor-led AI-vision program. Deferred a redesign that would have missed a six-month customer commitment, kept the date and used the deployment to collect field data for the next design. Deployed in Australia, Finland and Zambia.",
+  "SmartLiner (Bradken) — ~10× improvement in measurement resolution on a deployed sensing product, with simpler installation.",
+  "SmartMill (Bradken) — Solved a critical RF link problem in a battery-powered rotating sensor operating inside a metal-dense mill.",
+  "Plasma-thruster electronics (Neumann Space) — Restarted power/control electronics stalled for ~6 months by diagnosing before redesigning; recovered ~1 month of program schedule while leading the electronics workstream.",
+  "ProteusONE (IBA, Japan) — Electromechanical installation and commissioning of a ~€9M proton-therapy system; the project team completed installation ~2 months ahead of a 12-month plan.",
 ] as const;
 
 export const skillGroups = [
   {
-    category: "Product Architecture & Technical Leadership",
+    category: "Architecture & Technical Leadership",
     skills: [
       {
-        label: "Systems Architecture",
+        label: "Product / Systems Architecture",
         details:
-          "System architecture, product architecture, requirements definition, interface management, technical trade-offs",
+          "Turning field problems into requirements; feasibility; system architecture and interfaces; technical trade-offs; reusing sensing platforms across products",
       },
       {
-        label: "Product Development",
+        label: "Technical Program Leadership",
         details:
-          "Concept development, architecture ownership, prototyping, verification & validation, productization",
+          "Running parallel R&D programs; schedules, critical path, risks and dependencies; documented design decisions; deciding when to fix, redesign or defer; protecting customer milestones",
       },
       {
-        label: "Technical Leadership",
+        label: "Supplier & Cross-Functional Leadership",
         details:
-          "Architecture governance, technical leadership, multidisciplinary teams, mentoring, technical decision-making, technology road mapping",
-      },
-      {
-        label: "Cross-Functional Leadership",
-        details:
-          "Vendor management, customer engagement, deployment support, cross-functional collaboration",
+          "Vendor evaluation and selection; technical scopes and acceptance criteria; supplier design reviews; aligning embedded, AI/vision, UX, mechanical, field and customer teams",
       },
     ],
   },
   {
-    category: "Electronics, RF & Connected Product Systems",
+    category: "Electronics, RF & Mechatronics",
     skills: [
       {
-        label: "Electronics Design",
+        label: "Electronics",
         details:
-          "Analog, digital & mixed-signal design, PCB design, power & low-power electronics",
+          "Analog, digital and mixed-signal electronics; power and low-power design; sensing; embedded integration; hardware bring-up",
       },
       {
         label: "RF & Wireless",
         details:
-          "RF engineering, antenna systems, LTE, BLE, GNSS, MQTT, ISM-band communications",
+          "RF engineering, antennas and wireless; BLE, Sub-GHz/ISM, LTE, GNSS, MQTT; RF characterization and antenna/VNA work",
       },
       {
-        label: "Embedded Systems",
+        label: "Mechatronics & Integration",
         details:
-          "STM32, ATmega, TI CC13xx, Embedded C/C++, TI-RTOS, FreeRTOS, I2C, SPI, UART/USART, CAN",
-      },
-      {
-        label: "Connected Devices & IoT",
-        details:
-          "Wireless sensor networks, condition monitoring, asset monitoring, industrial IoT",
-      },
-      {
-        label: "Hardware, Mechanical & Product Integration",
-        details:
-          "Mechanical integration, thermal management, environmental sealing, shock & vibration design, sensor integration, hardware bring-up, reliability engineering and DFM/DFA",
+          "Mechanical, thermal and environmental integration; sealing, shock and vibration; controls; serviceability for harsh environments",
       },
     ],
   },
   {
-    category: "Product Validation & Deployment",
+    category: "Validation, Productization & Deployment",
     skills: [
       {
-        label: "Test & Validation",
-        details: "RF characterisation, mixed-signal validation, DVT, EMC compliance",
-      },
-      {
-        label: "Test Equipment",
-        details: "VNA, Spectrum Analyzer, Logic Analyzer, Power Meters",
-      },
-      {
-        label: "Field Deployment",
+        label: "Bench & Field Validation",
         details:
-          "Commissioning, acceptance testing, field validation, reliability engineering",
+          "Bench validation and RF characterization; failure reproduction and root cause; FAT/SAT; field trials; commissioning",
+      },
+      {
+        label: "Productization & Handover",
+        details:
+          "Production readiness; installation readiness; deployment and operational handover; customer training",
+      },
+      {
+        label: "Test & Measurement",
+        details:
+          "VNA, spectrum analyzer, oscilloscope, logic analyzer, power profiling, electronic loads, rework and inspection",
       },
     ],
   },
   {
-    category: "Robotics, Automation & Manufacturing",
+    category: "Embedded, Interfaces & Controls",
     skills: [
       {
-        label: "Robotics & Control",
-        details: "ABB, Fanuc, KUKA, PLC, Siemens Simatic, B&R IEC61131",
+        label: "Embedded Platforms",
+        details: "STM32, TI CC13xx; Embedded C/C++; hardware/firmware integration",
       },
       {
-        label: "Industrial Networks",
+        label: "Industrial Interfaces & Controls",
         details:
-          "Modbus, Profibus, PROFINET, EtherNet/IP, EtherCAT, DeviceNet",
-      },
-      {
-        label: "Manufacturing",
-        details: "CNC machining, WAAM, laser cutting, SLA/FDM 3D printing",
+          "CAN, RS485/RS232, I2C, SPI; PLC/SCADA, ABB RAPID, industrial robotics",
       },
     ],
   },
   {
-    category: "Vision, AI & Data Systems",
+    category: "Design & Analysis Tools",
     skills: [
       {
-        label: "Vision & AI Systems",
-        details:
-          "OpenCV, YOLO, CVAT, computer vision, image annotation, neural networks, NI Vision (LabVIEW)",
+        label: "Design Tools",
+        details: "Altium, KiCad, LTspice, ANSYS HFSS / Mechanical",
       },
       {
-        label: "Applied AI",
-        details:
-          "AI model training support, dataset preparation, particle size distribution prototyping, image-based monitoring systems",
-      },
-      {
-        label: "AI-Assisted Engineering",
-        details:
-          "AI-assisted software development, agent-assisted workflows, engineering automation, technical documentation acceleration",
-      },
-    ],
-  },
-  {
-    category: "Software & Tools",
-    skills: [
-      {
-        label: "Engineering Tools",
-        details: "Altium, KiCad, Eagle, LTspice, ANSYS HFSS, ANSYS Mechanical FEA",
-      },
-      {
-        label: "Programming",
-        details: "C, C++, Python, MATLAB",
-      },
-      {
-        label: "Platforms",
-        details: "Linux, Windows, Jira, Agile, SAP",
+        label: "Software & Platforms",
+        details: "Python, MATLAB, C/C++; Jira, SAP; Linux and Windows",
       },
     ],
   },
@@ -167,9 +128,9 @@ export const skillGroups = [
     category: "Industry Experience",
     skills: [
       {
-        label: "Domain Expertise",
+        label: "Domains",
         details:
-          "Mining Technology, Aerospace, Healthcare (Radiotherapy), Manufacturing, Telecommunications",
+          "Mining technology and industrial IoT, aerospace electronics, medical systems (proton therapy), metal additive manufacturing, telecommunications",
       },
     ],
   },
@@ -178,90 +139,64 @@ export const skillGroups = [
 export const employmentHistory = [
   {
     dates: "10/2025 - Present",
-    title: "Contract Product Systems Architect (IIoT)",
-    company: "Bradken (Hitachi)",
+    title: "Principal R&D Engineer (Contract)",
+    company: "Bradken (Hitachi Construction Machinery)",
     companyUrl: "https://www.bradken.com/products-and-services/digital-solutions",
     location: "Japan",
+    functionalRole: "Product systems architect, connected sensing",
     summary:
-      "Provides contract-based systems architecture, field deployment support, and independent commercial-grade IoT product development for mining technology programs. Focused on connected sensing platforms, RF communications, custom electronics, low-power architecture, validation, and deployment readiness for harsh operating environments.",
+      "Bradken is a mining wear-parts manufacturer building digital monitoring products for large excavators, mills and ground-engaging tools. This role develops connected-sensing reference platforms for future mining products and supports international field deployment.",
     responsibilities: [
-      "Develop commercial-grade Industrial IoT sensing platforms incorporating BLE, Sub-GHz wireless communications, custom electronics, embedded integration, cloud connectivity, and ultra-low-power architecture.",
-      "Provide specialist architecture support across requirements definition, system architecture, custom PCB design, hardware-firmware integration, prototyping, validation, and commercialisation planning.",
-      "Support field deployment, validation, and technical troubleshooting of mining technology systems in harsh operating environments.",
-      "Advise on technical investigations, architecture reviews, technology selection, reference platforms, and product development strategy.",
-      "Support customer, supplier, and product-stakeholder discussions where connected sensing architecture, validation evidence, or deployment readiness need senior technical review.",
-    ],
-    achievements: [
-      "Led development and commercial deployment of industrial IoT sensing technologies supporting multi-million-dollar mining operations across global sites.",
-      "Designed and validated industrial IoT reference platforms incorporating custom hardware, embedded integration, BLE and Sub-GHz communications, supporting future product development, field deployment, and commercial engineering services.",
-    ],
-    projects: [
-      "Industrial IoT Sensor Platform (BLE & Sub-GHz) - Development of wireless sensing platform incorporating custom PCB design, embedded integration, BLE, Sub-GHz communications, cloud connectivity, and ultra-low-power architecture.",
-      "Arctic Monitoring Trial (Alaska) - Field deployment, validation, and technical support of industrial sensing technologies under extreme environmental conditions.",
-      "Mining Technology Architecture Consulting - Systems architecture, embedded systems, RF communications, and industrial IoT support for product strategy, technical investigations, and technology roadmaps.",
+      "Develop connected-sensing reference platforms for future mining products: custom electronics, BLE/Sub-GHz RF, low-power architecture, hardware/firmware integration and technology selection.",
+      "Support Arctic-region deployment and U.S. market-expansion activity through Alaska field validation, commissioning and product readiness work.",
     ],
   },
   {
     dates: "01/2021 - 09/2025",
     title: "Senior Mechatronics Engineer (R&D)",
-    company: "Bradken (Hitachi)",
+    company: "Bradken (Hitachi Construction Machinery)",
     companyUrl: "https://www.bradken.com/products-and-services/digital-solutions",
     location: "Australia",
+    functionalRole:
+      "Technical, product and program lead; principal hardware/RF specialist",
     summary:
-      "Functioned as technical product owner for high-reliability mining technology systems, translating field problems into product architectures, vendor scopes, validation plans, field trials, and commercially deployable Industrial IoT and AI-enabled monitoring products.",
-    responsibilities: [
-      "Owned product definition and technical direction across multiple R&D programs, translating customer, field, and stakeholder requirements into product concepts, architecture decisions, technical scopes, and delivery plans.",
-      "Led early-stage ideation, feasibility research, proof-of-concept development, and technical risk assessment before committing to larger engineering, vendor, or deployment investment.",
-      "Defined system architecture across electronics hardware, RF communications, sensing, power, mechanical integration, environmental sealing, field installation, and deployment constraints.",
-      "Prepared technical documentation, validation requirements, test plans, supplier scopes, and product evidence required to move concepts from prototype stage toward field deployment and commercial use.",
-      "Identified, evaluated, and coordinated external vendors, supporting tender activity, supplier selection, technical reviews, delivery tracking, and acceptance against engineering requirements.",
-      "Served as technical product lead during design reviews, vendor discussions, site trials, installation planning, troubleshooting, and deployment decisions.",
-      "Oversaw lab validation, field testing, site installation, and international deployment activities across harsh mining environments, including direct involvement in Zambia, Finland, and Alaska.",
-      "Mentored engineers and coordinated multidisciplinary contributors across electronics, RF, firmware, mechanical design, vendors, site teams, and product stakeholders.",
-    ],
-    achievements: [
-      "Led architecture, development, and commercial deployment of an embedded RF sensing system for harsh mining environments, generating multi-million-AUD revenue while improving measurement resolution by 10x and reducing installation complexity and lifecycle cost.",
-    ],
+      "The R&D team was small: initially a technical manager, a mechanical engineer and this role, growing to ~6 with embedded, AI/vision, UX and junior engineers. Most detailed development was outsourced, so the technical lead also owned product definition, schedules, validation and deployment across parallel programs, and decided what stayed in-house and what went to suppliers.",
     projects: [
-      "SmartRoller - Industrial IoT condition monitoring platform incorporating embedded RF sensing, thermal transfer optimisation, ruggedised mechanical design, environmental sealing, and deployment across mining operations in Australia, Finland and Zambia.",
-      "GET Vision - Computer vision and AI-enabled monitoring platform for mining asset performance and operational insights.",
-      "Embedded Wear-Monitoring Research - rugged RF sensing platform for mining wear component monitoring.",
-      "Industrial Gateway - LTE, GNSS, BLE, Sub-GHz RF, and MQTT-enabled connectivity platform for industrial IoT deployments.",
+      "R&D lab — Built and ran the team's electronics, RF and mechatronics lab: PCB bring-up, RF characterization and antenna/VNA work, oscilloscope and logic analysis, power profiling, hardware/firmware integration and prototype builds. Used it to prototype independently, check supplier claims with measurements, reproduce field failures and decide when hardware was ready for FAT and the field.",
+      "SmartRoller — roller condition monitoring for large excavators. Started from a field safety problem: roller temperatures were checked by hand under the undercarriage. Took it through requirements, concept and first design, evaluated ~5 vendors and technically managed the selected supplier through FAT/SAT and field trials. Over three generations, used field failures to re-architect the system and ran the RF/system testing, reducing installation complexity and improving serviceability on the way to commercial deployment. Led installation readiness and commissioning in Alaska; work in Australia, Zambia (RF validation), South America and Finland ranged from trials to customer deployments.",
+      "GET Vision — AI camera monitoring for ground-engaging tools (technical product lead, 2022–2025). Vendor development was late, documentation was incomplete and a customer deployment was due in six months. Pieced together the architecture, open risks and dependencies, showed that a full redesign would miss the date and recommended deferring it. The deployment went ahead on time as a planned field trial, and its data shaped the redesign and productization that followed.",
+      "GET Vision — machine integration & global validation. Led the work needed to make specialist vision technology run reliably on mining machines: machine integration, power, grounding, isolation, mounting, sealing, thermal, serviceability, field data and fault finding. When the vendor and internal team disagreed, brought in the internal AI specialist so the decision rested on evidence. Deployed in Australia, Finland and Zambia, where it supported a multi-million-dollar customer program.",
+      "SmartMill — rotating mill vibration sensing. As technical lead and RF specialist, solved a critical link problem in a battery-powered rotating accelerometer system inside a metal-dense mill, where large data payloads had to move within short transmit windows. Coordinated the Namibia trial remotely and mentored an internal engineer to continue the electronics work.",
+      "GET Tracker — wireless wear monitoring. Led product systems and hardware architecture from field problem through vendor tender, validation and Hunter Valley field trials. Proposed sharing sensing-platform elements with SmartRoller, so the work carried on after GET Tracker was discontinued.",
+      "SmartLiner — liner wear-sensing upgrade. Delivered a ~10× improvement in measurement resolution on a deployed product while simplifying installation.",
     ],
   },
   {
     dates: "06/2020 - 12/2020",
-    title: "Electronics Design Engineer (Technical Lead)",
-    company: "Neumann Space (NS)",
+    title: "Electronics Design Engineer",
+    company: "Neumann Space",
     companyUrl: "https://neumannspace.com/",
     location: "Australia",
+    functionalRole:
+      "Technical lead, electronics workstream — plasma-thruster power/control electronics for the SpIRIT mission",
     summary:
-      "Technical lead for space-grade power and control electronics, owning architecture decisions, design trade-offs, verification activities, and electronics workstream delivery within a regulated aerospace environment.",
+      "Inherited power/control electronics that had blocked integrated testing for ~6 months. The pressure was for a quick PCB redesign; instead, stabilized the existing design first, measuring power, thermal and control behavior stage by stage until the main fault was isolated. A targeted fix put the hardware back into sustained testing and recovered ~1 month of schedule.",
     responsibilities: [
-      "Led redesign of control, power, and integration architecture to resolve stability, fault-handling, and maintainability issues.",
-      "Directed electronics design, PCB development, prototyping, verification, and system-level testing across mission-critical subsystems.",
-      "Mentored less-experienced engineers through design review, failure analysis, documentation discipline, verification planning and system-level thinking while retaining technical ownership of the electronics workstream.",
-      "Collaborated with industry experts, vendors, and stakeholders to refine the product architecture and streamline rollout.",
-    ],
-    achievements: [
-      "Resolved critical power supply and microcontroller challenges that had stalled progress for six months, accelerating the mission timeline by a month.",
+      "Led the electronics workstream: allocated work, reviewed designs, mentored junior engineers, coordinated external specialists and vendors, and escalated technical risk to management with measurement evidence.",
+      "Contributed to advancing the propulsion electronics from TRL 4 toward TRL 6.",
     ],
   },
   {
     dates: "03/2020 - 01/2021",
-    title: "Robotics / Electronics Engineer",
-    company: "AML3D Ltd",
+    title: "Robotics / Electronics Engineer (Contract)",
+    company: "AML3D",
     companyUrl: "https://aml3d.com/",
     location: "Australia",
+    functionalRole: "Full-time, then part-time alongside Neumann Space",
     summary:
-      "Re-architected the electrical and control system of the Alchemy WAAM platform, helping transition a research-grade robotic additive manufacturing prototype toward commercially deployable operation.",
+      "Re-architected the electrical and control system of the ARCEMY robotic wire-arc additive manufacturing (WAAM) platform across PLC/SCADA and ABB RAPID, improving fault handling, repeatability and maintainability.",
     responsibilities: [
-      "Integrated robotics, PLC/SCADA, ABB RAPID control logic, manufacturing workflows, and process reliability improvements.",
-      "Improved system robustness, fault handling, repeatability, and maintainability for customer-facing industrial deployment.",
-      "Supported operational procedures, quality systems, and commercial readiness for large-scale robotic metal printing.",
-    ],
-    achievements: [
-      "Enabled transition of the Alchemy WAAM platform from research prototype toward commercially deployable industrial operation.",
+      "Aligned controls with manufacturing workflow, operating procedures and quality-system requirements, helping move a research-grade system toward repeatable customer-facing operation.",
     ],
   },
   {
@@ -271,67 +206,48 @@ export const employmentHistory = [
     companyUrl: "https://mstglobal.com/",
     location: "Australia",
     summary:
-      "RF systems role supporting underground and surface mining communications, tracking, and industrial network deployments in constrained operating environments.",
-    responsibilities: [
-      "Developed RF communication and tracking solutions aligned with client, site, and regulatory requirements.",
-      "Supported architecture, BOM preparation, installation planning, commissioning, and acceptance testing.",
-      "Built practical field experience in underground RF propagation, harsh-environment deployment, and mining communications.",
-    ],
+      "Designed underground and surface RF communication and tracking systems: architecture input, BOM, installation planning for site-specific propagation and regulatory constraints, commissioning and acceptance testing.",
   },
   {
     dates: "02/2017 - 06/2019",
     title: "Electromechanical Engineer",
     company: "Ion Beam Applications (IBA)",
     companyUrl: "https://www.iba-worldwide.com/",
-    location: "Japan",
+    location: "Toyohashi, Japan",
+    functionalRole: "ProteusONE proton-therapy system (~€9M)",
     summary:
-      "Design-adjacent systems engineer responsible for integration, stabilisation, and commissioning of a high-energy particle accelerator system. Coordinated design-team, specialist-supplier, site and customer-facing interfaces during commissioning in a regulated medical environment.",
+      "Joined at the early site phase and worked through rigging, installation, alignment, commissioning, acceptance and handover of a superconducting synchrocyclotron (230 MeV), rotating gantry and 6-DOF patient-positioning robot, with high-power electrical, RF, vacuum, cryogenic, cooling, PLC/SCADA and imaging interfaces.",
     responsibilities: [
-      "Integrated and validated high-power electrical systems, RF chains, vacuum systems, cryogenic subsystems, and water-cooled infrastructure.",
-      "Identified system-level design gaps during commissioning and implemented corrective design and integration changes.",
-      "Acted as technical interface between design teams, specialist suppliers, site execution, customer operations, and long-term operational requirements.",
-      "Trained the local technical team in system architecture, start-up and shutdown, controls, utilities, practical fault isolation, and escalation boundaries before operational handover.",
+      "Responsible for electromechanical installation quality: supervised contractor work within scope, rejected substandard work and required correction, then tested, documented and released subsystems into later testing.",
+      "Diagnosed interacting mechanical, brake, control and alignment faults on the patient-positioning robot and fed commissioning evidence back to design engineering.",
     ],
     achievements: [
-      "Helped deliver an operational proton therapy accelerator by resolving system-level integration and commissioning risks across electrical, RF, mechanical, cooling, vacuum and control subsystems.",
+      "Part of the team that completed installation in ~10 months against a ~12-month plan; stayed through the center's first patient treatment (09/2018) and trained the local team for handover.",
     ],
   },
   {
     dates: "09/2015 - 01/2017",
-    title: "Electronics/RF Engineer",
-    company: "Trans Communication Pty Ltd",
+    title: "Electronics / RF Engineer",
+    company: "Trans Communication",
     companyUrl: "https://transcommunications.com.au/",
     location: "Australia",
     summary:
-      "Early-career RF engineering role establishing foundations in mission-critical communications, RF compliance, system validation, and fault diagnosis.",
-    responsibilities: [
-      "RF and electronics fault isolation across radio front-ends, amplification stages, IF chains, and antenna systems.",
-      "RF system calibration, compliance testing, and commissioning in accordance with ACMA and industry standards.",
-      "Practical electronics design, repair, and validation under constrained documentation and time-critical conditions.",
-    ],
+      "Performed RF fault isolation, calibration, ACMA compliance testing and commissioning across radio front-ends, IF chains, amplifiers and antenna systems.",
   },
   {
-    dates: "11/2010 - 07/2011",
-    title: "Service Engineer",
-    company: "Pancham Enterprises",
+    dates: "2010 - 2011",
+    title: "Earlier Roles",
+    company: "Pancham Enterprises / Siemens",
     location: "India",
     summary:
-      "Early-career role providing hands-on exposure to industrial electromechanical systems, including control valves, compressor turbines, and associated electrical and electronic equipment. Built a practical foundation in equipment inspection, fault diagnosis, documentation discipline, and quality-driven maintenance practices within heavy industrial environments.",
-  },
-  {
-    dates: "07/2010 - 10/2010",
-    title: "Building Systems Service Engineer",
-    company: "The Siemens Group",
-    location: "India",
-    summary:
-      "Entry-level engineering role supporting commissioning and maintenance of integrated building systems within a critical financial environment. Developed early exposure to structured engineering workflows, safety-critical systems, fault diagnosis, and cross-disciplinary coordination across electrical, electronic, and automation domains.",
+      "Service Engineer, Pancham Enterprises (2010–2011) — control valves and compressor turbines. Customer Service Engineer, Siemens (2010) — building-systems commissioning and maintenance.",
   },
 ] as const;
 
 export const education = [
   {
     dates: "2015",
-    qualification: "Antenna Design — Professional Development Course",
+    qualification: "Antenna Design — Professional Development",
     institution: "The University of Queensland",
     location: "Queensland, Australia",
   },
@@ -345,7 +261,7 @@ export const education = [
   {
     dates: "2006 - 2010",
     qualification:
-      "Bachelor of Technology: Electronics and Communication Engineering (ECE)",
+      "Bachelor of Technology — Electronics and Communication Engineering",
     institution: "Jawaharlal Nehru Technological University",
     location: "Andhra Pradesh, India",
   },

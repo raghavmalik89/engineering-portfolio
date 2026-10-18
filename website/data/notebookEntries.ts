@@ -81,7 +81,7 @@ export const notebookEntries: NotebookEntry[] = [
       objectPosition: "center",
     },
     heroImage: {
-      src: "/images/notebook/sub-ghz-industrial-iot-sensor/hero.png",
+      src: "/images/notebook/sub-ghz-industrial-iot-sensor/hero.webp",
       alt: "Custom circular CC1310 Sub-GHz sensor PCB with environmental and motion sensors and a helical antenna.",
       aspect: "landscape",
       objectFit: "contain",

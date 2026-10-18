@@ -8,8 +8,8 @@ export const site = {
     "Product systems architecture, technical leadership and end-to-end engineering delivery across Industrial IoT, RF communications, electronics, mechatronics, mining technology, aerospace and complex physical products.",
   coreMessage: "I design engineering systems that survive the real world.",
   defaultSocialImage: {
-    src: "/images/hero/hero-pcb-enclosure-concept.png",
-    alt: "Representative embedded and RF product-architecture concept for Raghav Malik's engineering portfolio.",
+    src: "/images/og/og-default.png",
+    alt: "Raghav Malik - Product Systems Architect and Technical Lead. Industrial IoT, RF, electronics and mechatronics.",
   },
   sameAs: ["https://www.linkedin.com/in/malikraghav/"],
   knowsAbout: [

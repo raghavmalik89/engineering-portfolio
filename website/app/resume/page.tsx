@@ -11,6 +11,7 @@ import {
   careerHighlights,
   education,
   employmentHistory,
+  languages,
   personalInterests,
   resumeContact,
   resumePdfPath,
@@ -20,16 +21,16 @@ import {
 } from "@/data/resume";
 
 export const metadata: Metadata = {
-  title: "Resume - Product Systems Architecture and Engineering Leadership",
+  title: "Resume - Hardware Systems and R&D Technical Leadership",
   description:
-    "Resume for Raghav Malik, Product Systems Architect and Technical Lead across Industrial IoT, RF systems, electronics, mechatronics, AI vision, and harsh-environment product development.",
+    "Resume for Raghav Malik, Hardware Systems and R&D Technical Lead across multidisciplinary R&D leadership, electronics, RF, mechatronics, validation and field deployment for harsh-environment products.",
   alternates: {
     canonical: "/resume",
   },
   openGraph: {
-    title: "Resume - Product Systems Architecture and Engineering Leadership",
+    title: "Resume - Hardware Systems and R&D Technical Leadership",
     description:
-      "Resume for Raghav Malik, covering product systems architecture, technical leadership, Industrial IoT, RF systems, electronics, mechatronics and harsh-environment product delivery.",
+      "Resume for Raghav Malik, covering multidisciplinary R&D technical leadership, electronics, RF, mechatronics, Industrial IoT, AI vision and harsh-environment product delivery.",
     url: "/resume",
     images: [
       {
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume - Product Systems Architecture and Engineering Leadership",
+    title: "Resume - Hardware Systems and R&D Technical Leadership",
     description:
-      "Resume for Raghav Malik across product systems architecture, Industrial IoT, RF systems, electronics and technical leadership.",
+      "Resume for Raghav Malik across hardware systems, R&D technical leadership, electronics, RF, mechatronics and field deployment.",
     images: [site.defaultSocialImage.src],
   },
 };
@@ -149,8 +150,8 @@ export default function ResumePage() {
       <article className="mx-auto max-w-[1120px] px-6 py-14 sm:px-8 lg:py-20">
         <header className="overflow-hidden rounded-lg border border-border-subtle/70 bg-surface/70 p-6 sm:p-7 lg:p-8">
           <div className="grid gap-5">
-            <div className="grid gap-7 lg:grid-cols-[minmax(220px,340px)_minmax(0,1fr)] lg:items-start lg:gap-10">
-              <div className="relative order-2 mx-auto w-full max-w-[240px] sm:order-none sm:max-w-[280px] lg:mx-0 lg:max-w-[330px] lg:self-start">
+            <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(220px,340px)] lg:items-start lg:gap-10">
+              <div className="relative order-2 mx-auto w-full max-w-[240px] sm:max-w-[280px] lg:order-2 lg:mx-0 lg:max-w-[330px] lg:self-start lg:justify-self-end">
                 <div
                   aria-hidden="true"
                   className="absolute inset-x-8 bottom-5 h-20 rounded-full bg-accent-copper/10 blur-3xl"
@@ -159,13 +160,13 @@ export default function ResumePage() {
                   src={resumePortraitPath}
                   alt="Portrait of Raghav Malik"
                   width={360}
-                  height={318}
+                  height={450}
                   priority
-                  className="relative h-auto w-full object-contain"
+                  className="relative h-auto w-full rounded-md object-cover"
                 />
               </div>
 
-              <div className="order-1 sm:order-none">
+              <div className="order-1">
                 <p className={sectionHeading}>Online CV</p>
                 <h1 className="mt-4 text-4xl leading-tight font-semibold text-foreground sm:text-5xl">
                   {resumeContact.name}
@@ -237,6 +238,12 @@ export default function ResumePage() {
                     {resumeContact.australiaPhone}
                   </a>
                 </dd>
+              </div>
+              <div className="sm:col-span-2 lg:col-span-3 xl:col-span-5">
+                <dt className="font-mono text-[10px] tracking-[0.16em] text-text-muted uppercase">
+                  Languages
+                </dt>
+                <dd className="mt-1 text-foreground">{languages}</dd>
               </div>
             </dl>
           </div>
@@ -375,6 +382,11 @@ export default function ResumePage() {
                         />{" "}
                         / {role.location}
                       </p>
+                      {"functionalRole" in role ? (
+                        <p className="mt-2 font-mono text-[11px] leading-5 tracking-[0.12em] text-text-muted uppercase">
+                          Functional role: {role.functionalRole}
+                        </p>
+                      ) : null}
                       <p className="readable-copy mt-5">
                         {role.summary}
                       </p>

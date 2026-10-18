@@ -63,7 +63,7 @@ export function HeroSection() {
         <div className="relative lg:-mr-8">
           <div className="relative aspect-[3/2] lg:min-h-[390px]">
             <Image
-              src="/images/hero/hero-pcb-enclosure-concept.png"
+              src="/images/hero/hero-pcb-enclosure-concept.webp"
               alt="Concept visual of a PCB and rugged enclosure representing embedded, RF, and industrial IoT systems."
               fill
               priority

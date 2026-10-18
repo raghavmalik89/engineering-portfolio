@@ -50,7 +50,7 @@ const structuredData = {
       "@id": absoluteUrl("/#person"),
       name: site.shortName,
       url: site.origin,
-      jobTitle: "Product Systems Architect and Technical Lead",
+      jobTitle: "Hardware Systems and R&D Technical Lead",
       sameAs: site.sameAs,
       knowsAbout: site.knowsAbout,
     },
