@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { routes } from "@/lib/routes";
@@ -173,7 +174,22 @@ export default function ContactPage() {
           </div>
 
           <aside className="rounded-lg border border-border-subtle/70 bg-surface-elevated/55 p-5 sm:p-6">
-            <h2 className="text-2xl font-semibold text-accent-beige">
+            <div className="relative mx-auto w-full max-w-[260px]">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-8 bottom-3 h-16 rounded-full bg-accent-copper/10 blur-3xl"
+              />
+              <Image
+                src="/images/contact/raghav-contact.webp"
+                alt="Raghav Malik, smiling, in a dark blazer and blue shirt"
+                width={260}
+                height={346}
+                priority
+                className="relative h-auto w-full rounded-md object-cover"
+              />
+            </div>
+
+            <h2 className="mt-6 text-2xl font-semibold text-accent-beige">
               Best first contact
             </h2>
             <p className="readable-copy mt-3 text-base">
