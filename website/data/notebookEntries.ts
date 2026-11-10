@@ -1061,6 +1061,605 @@ export const notebookEntries: NotebookEntry[] = [
       canonicalPath: "/notebook/nrf-paraglider-collapse-detection",
     },
   },
+  {
+    title: "A Flying Breadboard — Turning a Guess into a Flight Measurement",
+    shortTitle: "A Flying Breadboard",
+    slug: "flying-breadboard-vario-logger",
+    cardEyebrow: "Engineering Notebook · Product Development",
+    summary:
+      "How a US$13 display board, a BMP581 barometric breakout and four days of AI-assisted integration built a temporary flight data logger that replaced weeks of bench extrapolation with one real paragliding flight recording — 761.65 s of pressure data at 40 Hz with zero integrity defects.",
+    status: "published",
+    visibleStatus: "Flight-validated · Analysis published",
+    displayOrder: 4,
+    entryType: "Product Development",
+    organisation: "Independent engineering R&D",
+    heroProposition:
+      "A disposable breadboard logger flown on a real paragliding flight turned the programme's largest open uncertainty — how the variometer behaves in real air — into a measurement.",
+    heroSummary:
+      "The bench rig could imitate motion, vibration and static conditions, but it could not reproduce a paraglider climbing in a turbulent thermal. This entry records why a temporary logger was the right tool, how it was built to be verifiable rather than assumed, and what one afternoon of real air taught that weeks of proxy testing could not.",
+    actionLabel: "Read the engineering notebook",
+    period: "November 2026",
+    technologies: [
+      "ESP32-S3",
+      "BMP581",
+      "Barometric Sensing",
+      "I2C",
+      "microSD",
+      "Data Logging",
+      "Filter Validation",
+      "Audio (LEDC PWM)",
+      "AI-Assisted Engineering",
+      "Verification Discipline",
+    ],
+    methods: [
+      "Uncertainty-driven tooling selection",
+      "Probe-mode hardware verification",
+      "Frozen-configuration reuse",
+      "Host-verified porting (worst error 2.6e-6 m/s)",
+      "Rough-handling vibration checks",
+      "Flight measurement",
+    ],
+    cardImage: {
+      src: "/images/notebook/flying-breadboard/flight-display.webp",
+      alt: "The temporary breadboard logger's LCD display in flight, mounted under the paragliding harness.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    heroImage: {
+      src: "/images/notebook/flying-breadboard/hero-inflight.webp",
+      alt: "Paragliding flight over mountain fields with the temporary breadboard logger recording under the harness.",
+      aspect: "landscape",
+    },
+    snapshot: [
+      {
+        label: "Objective",
+        value:
+          "Record the raw 40 Hz pressure stream the variometer senses during a real paragliding flight, with the frozen filter bank replayed offline on the result.",
+      },
+      {
+        label: "Logger",
+        value:
+          "Temporary breadboard assembly: Waveshare ESP32-S3-LCD-1.9, BMP581 breakout, passive piezo buzzer, microSD. Supporting tooling, not a product.",
+      },
+      {
+        label: "Flight recording",
+        value:
+          "761.65 s device time, 30,467 barometer samples at 40.0 Hz, zero sequence gaps, duplicates, malformed lines or timestamp discontinuities.",
+      },
+      {
+        label: "Investment",
+        value:
+          "Approx. US$13 board plus a breakout, jumpers and about four days of AI-assisted integration on previously verified foundations.",
+      },
+      {
+        label: "Companion article",
+        value:
+          "From Flight Data to Filter Decisions — the full quantitative flight analysis, in this Notebook.",
+      },
+    ],
+    sections: [
+      {
+        id: "question-the-bench-could-not-answer",
+        title: "The question the bench could not answer",
+        body: [
+          "The product under development is a small pressure-sensor variometer for paragliding: read a barometric sensor, estimate vertical speed in real time, and tell the pilot acoustically when the wing is climbing in lift or sinking out. The engineering requirement sounds simple — report vertical speed as early as possible, without false alarms and without chattering at the pilot when the air is neutral — and every design decision flows from that sentence.",
+          "By the time this story begins, the programme already had a working bench infrastructure: an ESP32-S3 test rig with two barometers and an IMU, a causal-replay filter benchmark, frozen configurations for a bank of candidate estimators, an audio policy, and a defect register that documents how earlier conclusions were corrected when the evidence changed. The bench told us a lot. It could not tell us the one thing that mattered next: how does the system behave in real air?",
+          "All of the motion evidence was proxy evidence. Elevator rides imitate slow, clean altitude changes; hand shakes imitate vibration; static sessions imitate standing on launch. None of them reproduce a paraglider climbing in a turbulent thermal at +2 m/s, slicing through sink, flying in air that changes character every few seconds. Filter tuning, audio-threshold selection and sensor validation carried an open risk of being optimized for the bench rather than for the sky. Closing that gap required real flight measurements — raw pressure from the actual sensor, recorded on an actual flight, at the full sample rate the algorithms run at.",
+        ],
+      },
+      {
+        id: "why-a-temporary-logger",
+        title: "Why a temporary logger, and not the bench rig or a bought logger",
+        body: [
+          "The bench rig streams over USB at 921 600 baud and is powered from a USB port. None of that works under a paraglider. The alternatives were weighed on one criterion: which option removes the flight-data uncertainty fastest and cheapest.",
+        ],
+        table: {
+          caption: "Options considered for capturing real flight pressure data.",
+          columns: ["Option", "Verdict"],
+          rows: [
+            [
+              "Fly the bench rig with a laptop",
+              "Rejected — no practical way to host a laptop in flight; USB link and power both fail.",
+            ],
+            [
+              "Buy a consumer GPS/barometer logger",
+              "Rejected — low-rate position/altitude logging; no synchronized 40 Hz raw pressure stream and no estimator state to validate.",
+            ],
+            [
+              "Phone barometer apps",
+              "Rejected for the same reason: no raw-stream access, no integrity guarantees, no alignment with the processing chain.",
+            ],
+            [
+              "Build a small temporary logger",
+              "Selected — same BMP581 sensor already validated on the bench, same estimator bank, battery-powered, logging to SD card, cheap and fast.",
+            ],
+          ],
+        },
+        callout: {
+          label: "Tooling, not product",
+          body: "The logger was explicitly a supporting development tool. Its job was to reduce one specific uncertainty: what does the pressure stream actually look like in flight, and what do the frozen algorithms do with it? Everything about its design follows from treating it as disposable tooling.",
+        },
+      },
+      {
+        id: "hardware-selection",
+        title: "Hardware selection: the cheapest thing that removes the uncertainty",
+        body: [
+          "The selection logic was deliberately inverted from product design. Instead of asking what the final hardware should be, the question was: what is the cheapest, fastest assembly that records the same pressure stream the product senses, at the same rate, with verifiable integrity?",
+        ],
+        table: {
+          caption:
+            "Bill of materials for the temporary flight logger.",
+          columns: ["Item", "Choice", "Rationale"],
+          rows: [
+            [
+              "MCU + display",
+              "Waveshare ESP32-S3-LCD-1.9 (approx. US$13)",
+              "Integrated ESP32-S3, LCD for field status, USB for bench streaming — nothing else to integrate at board level.",
+            ],
+            [
+              "Barometer",
+              "BMP581 breakout (I2C 0x47)",
+              "The exact sensor validated in the bench programme, at the same 40 Hz cadence — flight data directly comparable with every earlier capture.",
+            ],
+            [
+              "IMU",
+              "Onboard QMI8658C + LSM6DSV16X breakout (kept, not fitted)",
+              "Motion context if needed; barometer path never blocked on IMU integration.",
+            ],
+            [
+              "Audio",
+              "Passive piezo buzzer (GPIO16, LEDC PWM)",
+              "In-flight acoustic behaviour identical in kind to the product's virtual audio.",
+            ],
+            [
+              "Storage",
+              "microSD via the board's SDMMC slot",
+              "Self-contained recording independent of any host link.",
+            ],
+            [
+              "Assembly",
+              "Breadboard and jumper wiring",
+              "Fast, fully re-wirable, inspectable. The flight would last minutes; the tooling did not need to survive a season.",
+            ],
+          ],
+        },
+        images: [
+          {
+            src: "/images/notebook/flying-breadboard/logger-block-diagram.png",
+            alt: "Block diagram of the temporary flight logger: ESP32-S3 display board, BMP581 barometer on I2C, buzzer and microSD storage.",
+            caption: "Logger architecture assembled from a validated sensor, an off-the-shelf display board and SD storage — the minimum that records the flight stream.",
+            aspect: "landscape",
+            objectFit: "contain",
+          },
+        ],
+      },
+      {
+        id: "deliberate-omissions",
+        title: "What was deliberately not built",
+        bullets: [
+          "No custom PCB — a PCB is an investment in a design freeze, and at this stage the flight requirements were not yet established. Spending weeks on layout, fabrication and rework would have added cost and latency without reducing the uncertainty the flight was meant to resolve.",
+          "No enclosure — the logger needed to survive one experiment on a cushioned harness, not a production lifetime. A 3D-printed shell is a product decision; tooling needs zip ties and foam.",
+          "No more powerful processor — measurement, not computation, was the bottleneck. Earlier phases measured on-target CPU cost for the full estimator bank at well under 3% of the real-time tick; a bigger processor adds board cost and power draw for nothing.",
+        ],
+      },
+      {
+        id: "assembly-and-verifiability",
+        title: "Assembly: trusting nothing that has not been poked",
+        body: [
+          "The system was assembled on a breadboard — board, BMP581 breakout and buzzer on a shared I2C bus, SD card in the onboard slot. Breadboard construction under vibration is exactly as fragile as it sounds, so verifiability was designed in rather than assumed.",
+        ],
+        bullets: [
+          "A probe-mode firmware build is the first-class diagnostic: on demand it runs an I2C scan with WHO_AM_I / CHIP_ID disambiguation (the BMP581 answers with chip ID 0x50), draws a labelled-corner LCD diagnostic frame, and sweeps the buzzer.",
+          "Connection testing was repeated, not assumed — after assembly changes and before flight, the scan/ID path re-verified every device on the bus.",
+          "Rough-handling checks stood in for flight vibration: the assembled unit was shaken and tapped while the stream ran, watching for dropouts, I2C wedges or SD write stalls — the failure modes that would silently corrupt a flight recording.",
+          "The honest-status convention from the bench programme carried over: every feature is labelled verified on hardware, implemented but unverified, or deferred. The buzzer tone shipped as implemented, not acoustically verified, until it was heard working.",
+        ],
+        images: [
+          {
+            src: "/images/notebook/flying-breadboard/bench-breadboard.webp",
+            alt: "The breadboard logger on the bench before flight: ESP32-S3 display board, BMP581 breakout, buzzer and wiring.",
+            caption:
+              "The temporary breadboard logger before flight — Waveshare ESP32-S3-LCD-1.9, BMP581 breakout, buzzer and microSD, assembled for inspectability. Photograph: R. Malik.",
+            aspect: "landscape",
+          },
+        ],
+      },
+      {
+        id: "ai-assisted-integration",
+        title: "Four days of AI-assisted integration — on verified foundations",
+        body: [
+          "The full logger firmware — 40 Hz timestamped acquisition, the four-estimator filter bank, three-screen GUI, audio state machine, USB streaming protocol and SD recording path — came together in approximately four days of AI-assisted development. The speed is real, but the sentence needs its second half: it was fast because it was almost entirely recombination of previously verified engineering work.",
+        ],
+        bullets: [
+          "The filter bank (C03, D01, S4, S5) was not rewritten. The frozen, benchmark-validated Python references were ported to C and host-verified against the Python originals to a worst error of 2.6 × 10⁻⁶ m/s before any flight.",
+          "The BMP581 driver came from the workbook's validated bring-up (I2C 0x47, cadence read at 40 Hz, on-chip compensation).",
+          "The USB streaming protocol (sequence counters, handshake, meta frames) was lifted from the bench capture toolchain, so the flight recorder spoke exactly the language the existing analysis pipeline parsed.",
+          "The earlier programme's discipline — frozen configurations, defect register, replay verification — meant the new tool inherited a test culture, not just code.",
+        ],
+        callout: {
+          label: "AI makes the first draft cheap; verification makes it true",
+          body: "AI compressed implementation dramatically. It did not compress verification, and it did not make engineering judgement optional. When the LCD refused to render through several rounds of obvious fixes, the root causes — a missing pixel-format command, inverted backlight polarity, LSB-first font bit order — were found by instrumented diagnosis, not by accepting the first plausible patch. When the onboard IMU appeared dead, the investigation walked driver, bus speed, bit-banged access and reset sequences before attributing the fault at hardware level. The logger flew barometer-only, and the decision was evidence-based.",
+        },
+      },
+      {
+        id: "the-flight",
+        title: "The flight",
+        body: [
+          "The assembled breadboard logger flew on a real paragliding flight, recording under the harness. The recording it brought back exceeded what the bench could ever provide: 761.65 seconds of device time spanning launch, sustained thermalling between 900 and 990 m, and landing rollout; 30,467 barometric samples at 40.0 Hz with zero sequence gaps, duplicates, malformed lines or timestamp discontinuities; and a coherent flight profile — climb-out from ~927 m, repeated thermal climbs and transitions, flare, and a quiet landing rollout.",
+          "One afternoon of real air produced more decision-relevant information than the preceding weeks of proxy testing: what the pressure stream actually looks like at thermal onsets, how much lag the filters really exhibit against the pressure-derived reference (about 0.6–0.7 s, after a correction to the analysis that had initially reported ~2.1 s — see the companion article), how the audio policy behaves in turbulent, near-threshold air, and which responsiveness-versus-smoothness trade-off actually matters to a pilot.",
+        ],
+        images: [
+          {
+            src: "/images/notebook/flying-breadboard/filters-final-approach.png",
+            alt: "Final approach, landing and rollout replayed with all four candidate filters on the recorded BMP581 pressure stream, with the +0.20 m/s audio threshold.",
+            caption:
+              "The data no bench test could produce: final approach, landing and rollout of the flight, with all four candidate filters replayed on the recorded BMP581 pressure stream. Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab.",
+            aspect: "wide",
+            objectFit: "contain",
+          },
+          {
+            src: "/images/notebook/flying-breadboard/flight-display.webp",
+            alt: "Close-up of the breadboard logger's display during the flight, showing live status.",
+            caption:
+              "In flight: the temporary breadboard logger's display under the harness. The unit is development tooling (Waveshare ESP32-S3-LCD-1.9 + BMP581 breakout + buzzer + microSD), not the product. Photograph: R. Malik.",
+            aspect: "landscape",
+          },
+        ],
+      },
+      {
+        id: "what-the-breadboard-bought",
+        title: "What the breadboard bought us",
+        bullets: [
+          "Eliminated the largest open uncertainty — whether bench-derived filter behaviour survives contact with real air. It does, and now the programme knows quantitatively where and by how much the bench was right.",
+          "Upgraded the filter discussion from rankings to trade-offs — on flight data the candidates differentiate on quietness, chatter and transient fidelity, not on correctness. That is a design conversation, not a bug hunt.",
+          "Validated the sensor and recording chain end-to-end — the BMP581 at 40 Hz with zero integrity defects over 12.7 flight-minutes, and the SD recording path under real vibration.",
+          "Told the programme what to build next — IMU + GPS in the flight recorder, multiple estimators logged simultaneously, and a quiet-soaring flight to firm up the quietness metrics. Requirements discovered from evidence, not assumed.",
+        ],
+      },
+      {
+        id: "lessons",
+        title: "Lessons",
+        callout: {
+          label: "Match the investment to the uncertainty",
+          body: "The custom PCB, the enclosure and the bigger processor were all reasonable products — and all wrong tools for this question. Spend on what reduces risk; defer what does not.",
+        },
+        bullets: [
+          "Rapid feedback beats speculative perfection — four days of tooling plus one flight replaced an unbounded amount of bench extrapolation. A rough answer to the right question is worth more than a precise answer to the wrong one.",
+          "AI reduces implementation time; it does not eliminate verification — it changed what the engineer's day looks like (more deciding, diagnosing and checking; less typing), but the record of what is verified, and the responsibility for it, stays human.",
+          "A breadboard can fly — not elegantly, not forever, but long enough to turn a guess into a measurement. That is often all a development tool needs to do.",
+        ],
+      },
+    ],
+    limitations: [
+      "One flight, one air mass, one day — the findings are conditional on this single recording.",
+      "The logger recorded the C03 estimator only; D01, S4 and S5 were evaluated by offline replay on the recorded pressure stream (see the companion article).",
+      "No IMU data exists in this recording; barometer-only context.",
+      "The logger is disposable development tooling; nothing about its construction represents product design intent.",
+    ],
+    nextSteps: [
+      "Add IMU + GPS to flight recordings — enables fusion evaluation and an independent velocity reference.",
+      "Log multiple estimators to SD in interleaved frames, removing the replay-verification step.",
+      "Fly a quiet-soaring sortie (20+ minutes straight-glide) to firm up quietness metrics beyond landing rollout.",
+      "Repeat with S4 airborne to test the responsiveness recommendation against weak-lift onsets.",
+    ],
+    relatedNotebookSlugs: ["flight-data-filter-decisions"],
+    sourceLinks: [
+      {
+        label: "vario-usb-workbook repository (analysis and reports)",
+        href: "https://github.com/raghavmalik89/vario-usb-workbook",
+        kind: "github",
+      },
+      {
+        label: "ESP32-S3-Display-DataLogger repository (logger hardware and firmware)",
+        href: "https://github.com/raghavmalik89/ESP32-S3-Display-DataLogger",
+        kind: "github",
+      },
+    ],
+    seo: {
+      title: "A Flying Breadboard — Flight Data Logger | Engineering Notebook",
+      description:
+        "How a US$13 ESP32-S3 board, a BMP581 barometer and four days of AI-assisted integration built a temporary paragliding flight logger that turned weeks of bench guessing into one 761-second real-air measurement.",
+      openGraphTitle: "A Flying Breadboard — A Product Development Story",
+      openGraphDescription:
+        "A disposable breadboard logger flown on a real paragliding flight turned the variometer programme's largest uncertainty into a measurement.",
+      canonicalPath: "/notebook/flying-breadboard-vario-logger",
+      keywords: [
+        "ESP32-S3",
+        "BMP581",
+        "variometer",
+        "paragliding",
+        "flight data logger",
+        "AI-assisted engineering",
+        "product development",
+      ],
+    },
+  },
+  {
+    title: "From Flight Data to Filter Decisions",
+    shortTitle: "Flight Data Filter Decisions",
+    slug: "flight-data-filter-decisions",
+    cardEyebrow: "Engineering Notebook · Engineering Experiment",
+    summary:
+      "A corrected, evidence-based comparison of four frozen variometer filters (C03, D01, S4, S5) replayed on the first real paragliding flight recording: measurement integrity, a corrected 0.57–0.70 s response-lag estimate, the quietness-versus-transient trade-off, and a measured-evidence-based default for the next flight.",
+    status: "published",
+    visibleStatus: "Corrected analysis · Published",
+    displayOrder: 5,
+    entryType: "Engineering Experiment",
+    organisation: "Independent engineering R&D",
+    heroProposition:
+      "One flight recording, four frozen filters, and an honest correction: the corrected response-lag analysis shows 0.57–0.70 s effective tracking lag and reframes the choice between filters as a measured trade-off, not a ranking.",
+    heroSummary:
+      "This entry documents the quantitative side of the flight recorded by the companion article A Flying Breadboard: how the recording's integrity was established, why the initially reported ~2.1 s lag was invalid, what the four filters actually differ on in real air, and exactly what evidence would reverse the recommendation.",
+    actionLabel: "Read the engineering notebook",
+    period: "November 2026",
+    technologies: [
+      "Filter Benchmarking",
+      "Kalman Filtering",
+      "Savitzky-Golay Filtering",
+      "Signal Analysis",
+      "Python",
+      "Causal Replay",
+      "BMP581",
+      "Data Integrity",
+    ],
+    methods: [
+      "Offline replay on recorded data",
+      "Zero-phase reference derivation",
+      "Delay and shape measured separately",
+      "Delay-compensated shape metrics",
+      "Proxy false-trigger screening",
+      "Corrected methodology with defect register",
+    ],
+    cardImage: {
+      src: "/images/notebook/flight-data-filter-decisions/fig1-overview.png",
+      alt: "Full-flight altitude and vertical-speed history with all four filters and the audio thresholds.",
+      aspect: "wide",
+      objectFit: "contain",
+    },
+    heroImage: {
+      src: "/images/notebook/flight-data-filter-decisions/fig1-overview.png",
+      alt: "Full paragliding flight overview: altitude and vertical speed with all four candidate filters and the audio thresholds.",
+      aspect: "landscape",
+      objectFit: "contain",
+    },
+    snapshot: [
+      {
+        label: "Dataset",
+        value:
+          "LOG00001 flight recording: 761.65 s device time, 30,467 barometer samples at 40.0 Hz, 15,169 vario samples at 19.9 Hz.",
+      },
+      {
+        label: "Integrity",
+        value:
+          "Zero sequence gaps, zero duplicates, zero malformed lines of 45,637, strictly monotonic barometer timestamps — no truncation.",
+      },
+      {
+        label: "Filters compared",
+        value:
+          "C03 (CV Tracker), D01 (CV Kalman), S4 (Fast/Slow gated), S5 (robust CV Kalman) — frozen configurations, replayed offline at real device timestamps.",
+      },
+      {
+        label: "Corrected headline",
+        value:
+          "Effective tracking lag is 0.57–0.70 s on real thermal transitions. The first published ~2.1 s figure was invalid and is corrected here.",
+      },
+      {
+        label: "Evidence-based default",
+        value:
+          "S4 recommended as the airborne default for the next flight, conditional on this dataset — a recommendation, not a universal verdict, with the falsifying evidence stated.",
+      },
+    ],
+    sections: [
+      {
+        id: "measurement-integrity",
+        title: "Measurement integrity",
+        body: [
+          "Every conclusion in this entry rests on the recording being trustworthy, so the integrity check came first. The recording firmware logged the C03 estimator in its vario frames; D01, S4 and S5 are evaluated by deterministic offline replay on the recorded barometer stream. Pressure-to-altitude conversion throughout uses the ISA model, spot-verified against the logger's own altitude field (median offset across the file: 7.6 mm).",
+        ],
+        table: {
+          caption: "Recording integrity summary for LOG00001.",
+          columns: ["Item", "Value"],
+          rows: [
+            ["Recording span (device timestamps)", "761.65 s (12 min 41.6 s)"],
+            ["Barometer rows / rate", "30,467 at 40.00 Hz (dt median 24.991 ms, p99 25.106 ms)"],
+            ["Vario rows / rate", "15,169 at 19.92 Hz"],
+            ["Sequence integrity", "Zero gaps, zero duplicates"],
+            ["Malformed lines", "0 of 45,637"],
+            ["Session markers", "Exactly one (S,1) — one continuous session"],
+            ["Filters in vario rows", "C03 only (others by offline replay)"],
+            ["IMU rows", "None"],
+          ],
+        },
+        images: [
+          {
+            src: "/images/notebook/flight-data-filter-decisions/fig1-overview.png",
+            alt: "Full-flight altitude and vertical-speed history with all four filters and the audio thresholds.",
+            caption:
+              "Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab.",
+            aspect: "landscape",
+            objectFit: "contain",
+          },
+        ],
+      },
+      {
+        id: "methodology",
+        title: "Methodology: replay, reference, and metric hygiene",
+        body: [
+          "All four filters were replayed on the recorded barometer stream at real device timestamps using the frozen, previously validated Python implementations (C03: CV Tracker, q = 1.0, r = 0.035; D01: CV Kalman, same q/r; S4: Fast/Slow gated architecture, frozen P4 parameters; S5: robust CV Kalman with light gate, frozen P4 parameters). The audio policy — ON at v > +0.20 m/s, OFF at v < +0.05 m/s — was applied identically to each replayed output and to the device-recorded C03.",
+          "The pressure-derived reference velocity is a two-stage Savitzky-Golay filter (81-tap on altitude, then gradient, then 41-tap on velocity). Because the SG window is symmetric about its centre, the filter is zero-phase and the reference is already time-aligned.",
+          "Pipeline verification: replaying C03 and aligning against the device's own vario values gives best agreement at −25 ms (one 20 Hz sample, consistent with causal filtering) with 3.3 mm/s RMS excluding the shared 5 s initialization transient. Audio episodes: 93 replayed versus 94 recorded — agreement within one episode over 12.7 minutes. The bench Python C03 faithfully reproduces the device firmware C03.",
+        ],
+        bullets: [
+          "Delay and shape error are measured separately — raw cross-correlation lag on 44 retained thermal transitions gives the effective tracking lag; overshoot and settling are then computed against a delay-compensated reference so they measure shape, not delay.",
+          "Settling and overshoot windows are capped at the next transition start — thermalling transitions are often only 5–10 s apart, and an uncapped 8 s window would integrate the next thermal burst.",
+        ],
+      },
+      {
+        id: "quantitative-comparison",
+        title: "Quantitative comparison on the flight recording",
+        body: [
+          "All values below are measured as described above. Delay is the effective cross-correlation lag on real thermal transitions against the aligned pressure-derived reference — a proxy for tracking responsiveness, to be read with the caveats of the limitations section.",
+        ],
+        table: {
+          caption:
+            "Measured metrics for the four frozen filters on the LOG00001 flight recording.",
+          columns: ["Metric", "C03", "D01", "S4", "S5"],
+          rows: [
+            ["Quiet RMS (mm/s), 37 s coverage", "67.2", "67.1", "59.8", "59.5"],
+            ["Quiet p95 |v| (mm/s)", "137.4", "137.1", "113.9", "112.9"],
+            ["Transition delay median (s)", "0.600", "0.575", "0.700", "0.625"],
+            ["Transition delay p75 (s)", "0.625", "0.625", "0.750", "0.675"],
+            ["Overshoot median, delay-comp (m/s)", "0.277", "0.290", "0.349", "0.361"],
+            ["Settling median, delay-comp (s)", "7.98", "8.27", "9.46", "9.71"],
+            ["Fast-motion RMS error, raw (m/s, |ref|>1)", "0.642", "0.640", "0.732", "0.703"],
+            ["Fast-motion RMS error, delay-comp (m/s)", "0.134", "0.145", "0.197", "0.211"],
+            ["Fast-motion bias (mm/s)", "2.2", "2.2", "−5.9", "−5.8"],
+            ["Output jerk RMS (m/s² per s)", "1.034", "1.085", "0.894", "0.945"],
+            ["Audio episodes (+0.20 / −0.05)", "93", "96", "71", "80"],
+            ["Audio ON time (s) / duty", "278.5 / 36.6%", "278.8 / 36.6%", "279.7 / 36.7%", "273.5 / 35.9%"],
+            ["Mean episode duration (s)", "2.99", "2.90", "3.94", "3.42"],
+            ["Proxy false triggers (ON ≥ 2 s while |ref| < 0.15)", "0", "0", "0", "0"],
+          ],
+        },
+        images: [
+          {
+            src: "/images/notebook/flight-data-filter-decisions/fig2-overlay.png",
+            alt: "All four filters overlaid on identical BMP581 pressure input across the full flight.",
+            caption:
+              "Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab. The overlay shows the differences are matters of degree, not kind.",
+            aspect: "wide",
+            objectFit: "contain",
+          },
+        ],
+      },
+      {
+        id: "reading-the-metrics",
+        title: "Reading the metrics: quietness, transients, chatter",
+        body: [
+          "Quietness: S4/S5 are about 16% lower in RMS and about 18% lower in p95 than C03/D01 in the quiet segments — the largest robust difference in the study. The quiet coverage is 37 s of landing rollout only; there is no long quiet-soaring stretch in this flight.",
+          "Transient shape: C03/D01 win the delay-compensated fast-motion error (134–145 versus 197–211 mm/s), overshoot (0.28–0.29 versus 0.35–0.36 m/s) and settling (8.0–8.3 versus 9.5–9.7 s).",
+          "Chatter: total audio ON-time is nearly identical across filters (274–280 s of 761 s, about 36% duty) — all four capture essentially the same lift. The difference is how that time is broken up: C03/D01 produce 93–96 short episodes, S4 71 longer ones, S5 80. With zero proxy false triggers for every filter, the extra episodes are mostly re-entries around the +0.20 threshold in turbulent, near-threshold air — not demonstrably wrong, but audible.",
+          "Smoothness: S4 has the lowest output jerk (0.894 versus 1.03–1.09), consistent with its gating architecture suppressing small-scale velocity jitter. C03 and D01 are nearly identical on every metric, as expected from their shared q/r heritage — the practical field on this flight is {C03/D01} versus {S4, S5}.",
+        ],
+        images: [
+          {
+            src: "/images/notebook/flight-data-filter-decisions/fig3-transitions.png",
+            alt: "Three zoomed climb and sink transition windows showing onset, tracking and exit behaviour per filter.",
+            caption:
+              "Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab.",
+            aspect: "landscape",
+            objectFit: "contain",
+          },
+          {
+            src: "/images/notebook/flight-data-filter-decisions/fig5-audio.png",
+            alt: "Per-filter audio ON-episode timelines versus the device-recorded C03, over the reference velocity.",
+            caption:
+              "Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab.",
+            aspect: "wide",
+            objectFit: "contain",
+          },
+          {
+            src: "/images/notebook/flight-data-filter-decisions/fig4-quiet.png",
+            alt: "Landing-rollout quiet segment zoom plus per-filter velocity-distribution histograms.",
+            caption:
+              "Offline replay of frozen filter configurations on the recorded LOG00001 flight data (BMP581, 40 Hz); corrected reference alignment, workbook commit 53907ab.",
+            aspect: "wide",
+            objectFit: "contain",
+          },
+        ],
+      },
+      {
+        id: "corrected-response-lag",
+        title: "Corrected response-lag analysis — why ~2.1 s was wrong",
+        body: [
+          "The first published version of this analysis reported an effective lag of ~2.1 s. That value was invalid, for a subtle and instructive reason.",
+          "The pressure-derived reference uses a centred (symmetric) Savitzky-Golay filter. A symmetric SG filter is zero-phase: it has no group delay to correct. The erroneous run applied a group-delay correction of 60 samples — a rule that holds for causal, trailing windows, not for a centred one — shifting the reference 1.5 s beyond truth. Every delay-conflated metric inherited exactly that inflation: filters appeared to lag ~2.1 s when the true lag was ~0.6 s, a discrepancy confirmed independently by cross-correlation.",
+          "The shape-only metrics — delay-compensated overshoot, settling and fast-motion error — were essentially unaffected, as they should be. The corrected script carries a comment recording the mistake so it is not reintroduced.",
+        ],
+        callout: {
+          label: "How to read the corrected 0.57–0.70 s",
+          body: "The corrected lag is a pressure-derived, internally consistent estimate of effective tracking responsiveness — how far each filter trails the best pressure-only estimate of truth. With no independent vertical-speed ground truth in this recording, it must not be cited as an independently verified physical response time.",
+        },
+      },
+      {
+        id: "audio-threshold-behaviour",
+        title: "Audio threshold behaviour in real air",
+        body: [
+          "The +0.20 / −0.05 m/s hysteresis policy behaves on flight data exactly as designed in the virtual-audio bench work, and the flight data makes its character visible: in turbulent air near threshold, output hovering around +0.20 m/s produces clusters of short re-entry episodes (C03/D01) versus fewer, longer sustained episodes (S4's gating extends mean episode length to 3.9 s). Episode patterns track the same thermal bands across all four filters, total ON-time is equal, and the proxy false-trigger screen finds zero violations for every filter.",
+          "The practical interpretation: the threshold itself is not generating false lift indications on this flight; the design lever that remains is how calmly the threshold is approached — which is a filter property, not a policy property.",
+        ],
+      },
+      {
+        id: "ranking-and-recommendation",
+        title: "Ranking on this dataset, and the recommended default",
+        body: [
+          "For real-world paragliding use, conditional on this single flight:",
+        ],
+        bullets: [
+          "S4 — quietest-class noise, fewest audio episodes, lowest jerk, zero proxy false triggers; costs are real but bounded (+0.1 s onset delay, +0.07 m/s median overshoot, +0.06–0.13 m/s delay-compensated fast-motion error). Best overall pilot-experience metrics.",
+          "S5 — statistically tied with S4 on quietness; middling chatter; better fast-motion shape than S4 but worse than C03/D01.",
+          "C03 — best transient fidelity and fastest settling; verified identical to device firmware; noticeably chattier audio and noisier quiet output.",
+          "D01 — same behaviour as C03 within measurement noise; no measured advantage over C03 on this data.",
+        ],
+        callout: {
+          label: "Recommended default for the next flight: S4, with C03 retained as the verified reference",
+          body: "A pilot prioritizing crisp lift onset over audio calm would rationally pick C03 instead — both choices are defensible on this data. This is a measured-evidence-based recommendation, not a universal verdict, and no final estimator selection has been frozen.",
+        },
+      },
+      {
+        id: "what-would-reverse-this",
+        title: "What would reverse the recommendation",
+        body: [
+          "The recommendation states exactly what evidence would reverse it: (a) a flight with long quiet-soaring stretches confirming or refuting that the quiet advantage generalizes beyond landing rollout; or (b) GPS reference data showing S4's gating misses or delays weak-but-flyable lift onsets. Either result feeds back before anything is frozen — this remains a design-space investigation, not a selection.",
+        ],
+      },
+    ],
+    limitations: [
+      "No independent ground truth: no GPS, video or pilot-log timestamps; all response and error figures use the pressure-derived SG reference — internally consistent proxies, not truth. The corrected lag must not be cited as an independently verified physical response time.",
+      "Single flight: one air mass, one pilot, one day. Rankings are conditional on this dataset.",
+      "No IMU data: barometer-IMU fusion is unevaluable on flight data, and all fusion gains from bench tests remain unvalidated in flight.",
+      "Limited quiet coverage: the quiet metrics rest on 37 s of landing rollout.",
+      "Launch and landing times are inferred from the data, not logged.",
+      "Replay scope: D01/S4/S5 were evaluated by offline replay; the recording firmware logged C03 only. On-target CPU and timing for the other estimators stands from previous bench phases.",
+    ],
+    nextSteps: [
+      "Log multiple estimators to SD in interleaved frames — removes the replay-verification step and gives on-device comparison.",
+      "Add IMU + GPS to flight recordings — enables fusion evaluation, an independent velocity reference, and launch/landing annotation.",
+      "Fly a quiet-soaring sortie (20+ minutes straight-glide) to firm up the quietness ranking beyond rollout data.",
+      "Repeat with S4 airborne to test the recommendation against weak-lift onsets.",
+      "Audit the recording firmware's SD filename-rotation behaviour.",
+    ],
+    relatedNotebookSlugs: ["flying-breadboard-vario-logger"],
+    sourceLinks: [
+      {
+        label: "vario-usb-workbook repository (dataset, analysis, figures)",
+        href: "https://github.com/raghavmalik89/vario-usb-workbook",
+        kind: "github",
+      },
+      {
+        label: "ESP32-S3-Display-DataLogger repository (recording hardware)",
+        href: "https://github.com/raghavmalik89/ESP32-S3-Display-DataLogger",
+        kind: "github",
+      },
+    ],
+    seo: {
+      title: "From Flight Data to Filter Decisions | Engineering Notebook",
+      description:
+        "A corrected, evidence-based comparison of four frozen variometer filters on the first real paragliding flight recording: measurement integrity, the corrected 0.57–0.70 s response-lag estimate, quietness-versus-transient trade-offs, and an evidence-based default for the next flight.",
+      openGraphTitle: "From Flight Data to Filter Decisions",
+      openGraphDescription:
+        "Four frozen filters replayed on a real flight recording — corrected lag analysis, measured trade-offs, and the evidence that would reverse the recommendation.",
+      canonicalPath: "/notebook/flight-data-filter-decisions",
+      keywords: [
+        "variometer",
+        "Kalman filter",
+        "Savitzky-Golay",
+        "flight data analysis",
+        "paragliding",
+        "signal processing",
+      ],
+    },
+  },
 ];
 
 export function getNotebookEntries() {
