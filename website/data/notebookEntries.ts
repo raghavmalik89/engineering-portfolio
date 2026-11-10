@@ -1225,8 +1225,8 @@ export const notebookEntries: NotebookEntry[] = [
         },
         images: [
           {
-            src: "/images/notebook/flying-breadboard/logger-block-diagram.png",
-            alt: "Block diagram of the temporary flight logger: ESP32-S3 display board, BMP581 barometer on I2C, buzzer and microSD storage.",
+            src: "/images/notebook/flying-breadboard/system-diagram.webp",
+            alt: "System diagram of the temporary flight logger: ESP32-S3 display board, BMP581 barometer on I2C, buzzer and microSD storage.",
             caption: "Logger architecture assembled from a validated sensor, an off-the-shelf display board and SD storage — the minimum that records the flight stream.",
             aspect: "landscape",
             objectFit: "contain",
@@ -1260,6 +1260,13 @@ export const notebookEntries: NotebookEntry[] = [
             alt: "The breadboard logger on the bench before flight: ESP32-S3 display board, BMP581 breakout, buzzer and wiring.",
             caption:
               "The temporary breadboard logger before flight — Waveshare ESP32-S3-LCD-1.9, BMP581 breakout, buzzer and microSD, assembled for inspectability. Photograph: R. Malik.",
+            aspect: "landscape",
+          },
+          {
+            src: "/images/notebook/flying-breadboard/breadboard-mosaic.webp",
+            alt: "Photo mosaic of the temporary flight logger: breadboard assembly, display board, BMP581 breakout and cabling details.",
+            caption:
+              "The logger in detail — temporary breadboard construction, chosen for inspectability and fast rewiring rather than durability. Photograph: R. Malik.",
             aspect: "landscape",
           },
         ],
